@@ -5,31 +5,45 @@
 
 init:
     define config.layers = ['master', 'transient', 'screens', 'overlay', 'ontop']
+# tbh it's ok to remove lines 6-7 ^
 
 define mc = Character("[playername]", image="player")
 define cashier = Character("Cashier")
 define teacher = Character("Mr. Teacher")
+define classmate = Character("classmate")
+define b1 = Character("Bully 1", image="bully1")
+define b2 = Character("Bully 2", image="bully2")
 
 # character sprites
 image define mc neutral = "side player neutral.png"
 
-
 image cashier_neutral = "cashier.png"
+image classmate_neutral = "billG.jpg"
+
+# image define b1 neutral = "bully1 neutral.png"
+# image define b2 neutral = "bully2 neutral.png"
+
+image b1_neutral = "bully1 neutral.png"
+image b2_neutral = "bully2 neutral.png"
 
 # define backgrounds
+image bg school_street = "this_better_be_good_because_the_render_time_for_this_bg_is_horrendous_despite_having_a_render_farm.webp"
 image bg cafe_outside = "cafe_memoria_outside_04_afternoon.webp"
 image bg cafe = "cafe_memoria_inside_03_afternoon.webp"
+image bg school_track = "school_track.webp"
 image bg football_field = "football_field_day.webp"
 
 # The game starts here.
 
 label start:
 
+    scene bg school_street with fade
+
     $ playername = "You"
 
     mc neutral "Wow, I'm sooooo thirsty..."
     
-    scene bg cafe_outside with fade
+    scene bg cafe_outside with None
 
     mc happy "Oh look, a cafe! So coincidental, I think I want a cup of coffee."
 
@@ -106,14 +120,69 @@ label intro2:
 label episode_2:
     mc neutral "(Okay... now it's time for first period. The first class is PE.)"
     mc neutral "(I should probably head to the field.)"
-    scene bg football_field with fade
+    scene bg school_track with fade
 
     # REPLACE WITH GYM COACH LATER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    show cashier_neutral
+    show cashier_neutral:
+        zoom 1.5
+        xcenter 0.5
+        yalign 1.0
     teacher "Hey! You're [playername], right?"
     teacher "Hurry and join the rest of the class for football."
     mc neutral "Yes, sir."
     hide cashier_neutral
 
+    "You can already hear shouts and action from afar."
+    menu:
+        "Run and join the game.":
+            $ choice = "join"
+            jump episode_2_football
+        "Wait on the sidelines for the next round.":
+            $ choice = "wait"
+            jump episode_2_football
     return
+
+label episode_2_football:
+    scene bg football_field with fade
+
+    if choice == "join":
+        mc happy "I love American football!"
+        # ig change neutral to shocked expression later? idk
+        
+        # b1 neutral "OHHHHHHH!!!"
+        #IDKWHY the shorthand isn't working
+        show b1_neutral:
+            zoom 0.25
+            xalign 0.5
+            yalign 0.0
+        b1 "OHHHHHH!!!"
+
+        hide b1_neutral
+
+        "Oh! it seems that two peasants have finally noticed your presence."
+
+        show b2_neutral:
+            zoom 0.25
+            xalign 0.5
+            yalign 0.0
+        b2 "Don't yell right next to me."
+        hide b2_neutral
+
+        show b1_neutral:
+            zoom 0.25
+            xalign 0.5
+            yalign 0.0
+        b1 "That's the new student! The one from Beijing!"
+        
+    elif choice == "wait":
+        mc neutral "Oh?"
+        "While your classmates are having fun tackling each other in the heat, someone sits by themself on a bench."
+        menu:
+            "Not my problem.":
+                $ choice = "idc"
+            "Approach them.":
+                mc neutral "I'm not doing anything right now, anyways."
+                $ choice = "care"
+    return
+
 
