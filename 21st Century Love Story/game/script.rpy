@@ -3,23 +3,43 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
+init:
+    define config.layers = ['master', 'transient', 'screens', 'overlay', 'ontop']
+
 define mc = Character("[playername]")
 define cashier = Character("Cashier")
-screen mc_neutral():
-    add "mc_neutral.jpg" xalign 0.0 yalign 1.0 zorder 100.0
+define teacher = Character("Mr. Teacher")
+
+# character sprites
+image mc_neutral = "mc_neutral.jpg"
+
+if quick_menu:
+    hide mc_neutral
+
 image cashier_neutral = "cashier.png"
-image bg cafe = "cafe_memoria_inside_01_afternoon.png"
+
+# define backgrounds
+image bg cafe_outside = "cafe_memoria_outside_04_afternoon.webp"
+image bg cafe = "cafe_memoria_inside_03_afternoon.webp"
+image bg football_field = "football_field_day.webp"
 
 # The game starts here.
 
 label start:
 
     $ playername = "You"
-    scene bg cafe
-    show screen mc_neutral
+    show mc_neutral onlayer ontop:
+        zoom 0.5
+        xalign 0.0
+        yalign 1.0
 
     mc "Wow, I'm sooooo thirsty..."
+    
+    scene bg cafe_outside with fade
+
     mc "Oh look, a cafe! So coincidental, I think I want a cup of coffee."
+
+    scene bg cafe with None
 
     show cashier_neutral:
         zoom 1.5
@@ -85,4 +105,23 @@ label intro2:
     cashier "Enjoy!"
 
     hide cashier_neutral
+    # REPLACE EPISODE 2 WITH ACTUAL FIRST EPISODE LATER!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    jump episode_2
+    return
+
+# THIS SECTION IS A SKIP TO THE NARCISSIST SCENE
+
+label episode_2:
+    mc "(Okay... now it's time for first period. The first class is PE.)"
+    mc "(I should probably head to the field.)"
+    scene bg football_field with fade
+
+    # REPLACE WITH GYM COACH LATER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    show cashier_neutral
+    teacher "Hey! You're [playername], right?"
+    teacher "Hurry and join the rest of the class for football."
+    mc "Yes, sir."
+    hide cashier_neutral
+
+    return
 
