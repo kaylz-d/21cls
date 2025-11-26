@@ -3,23 +3,37 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define mc = Character("[playername]")
+init:
+    define config.layers = ['master', 'transient', 'screens', 'overlay', 'ontop']
+
+define mc = Character("[playername]", image="player")
 define cashier = Character("Cashier")
-screen mc_neutral():
-    add "mc_neutral.jpg" xalign 0.0 yalign 1.0 zorder 100.0
+define teacher = Character("Mr. Teacher")
+
+# character sprites
+image define mc neutral = "side player neutral.png"
+
+
 image cashier_neutral = "cashier.png"
-image bg cafe = "cafe_memoria_inside_01_afternoon.png"
+
+# define backgrounds
+image bg cafe_outside = "cafe_memoria_outside_04_afternoon.webp"
+image bg cafe = "cafe_memoria_inside_03_afternoon.webp"
+image bg football_field = "football_field_day.webp"
 
 # The game starts here.
 
 label start:
 
     $ playername = "You"
-    scene bg cafe
-    show screen mc_neutral
 
-    mc "Wow, I'm sooooo thirsty..."
-    mc "Oh look, a cafe! So coincidental, I think I want a cup of coffee."
+    mc neutral "Wow, I'm sooooo thirsty..."
+    
+    scene bg cafe_outside with fade
+
+    mc happy "Oh look, a cafe! So coincidental, I think I want a cup of coffee."
+
+    scene bg cafe with None
 
     show cashier_neutral:
         zoom 1.5
@@ -46,13 +60,11 @@ label intro:
         jump intro2
     elif choice == "frappuccino":
         cashier "Are you sure? I think I'll give you a matcha latte instead."
-        mc "Um..."
+        mc deadpan "Um..."
         menu:
             "That's fine.":
-                $ choice = "frappe"
                 jump intro2
             "No, I said what I said.":
-                $ choice = "matcha"
                 jump intro2
 
     return
@@ -66,7 +78,7 @@ label intro2:
         $ playername = "You"
 
     # use character to say their name
-    mc "It's [playername]."
+    mc neutral "It's [playername]."
     cashier "Okay, I'll have it ready soon."
 
     hide cashier_neutral
@@ -81,8 +93,27 @@ label intro2:
         yalign 1.0
 
     cashier "I have an order for [playername]!"
-    mc "Thank you kindly."
+    mc happy "Thank you kindly."
     cashier "Enjoy!"
 
     hide cashier_neutral
+    # REPLACE EPISODE 2 WITH ACTUAL FIRST EPISODE LATER!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    jump episode_2
+    return
+
+# THIS SECTION IS A SKIP TO THE NARCISSIST SCENE
+
+label episode_2:
+    mc neutral "(Okay... now it's time for first period. The first class is PE.)"
+    mc neutral "(I should probably head to the field.)"
+    scene bg football_field with fade
+
+    # REPLACE WITH GYM COACH LATER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    show cashier_neutral
+    teacher "Hey! You're [playername], right?"
+    teacher "Hurry and join the rest of the class for football."
+    mc neutral "Yes, sir."
+    hide cashier_neutral
+
+    return
 
