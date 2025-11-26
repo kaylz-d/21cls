@@ -6,15 +6,14 @@
 init:
     define config.layers = ['master', 'transient', 'screens', 'overlay', 'ontop']
 
-define mc = Character("[playername]")
+define mc = Character("[playername]", image="player")
 define cashier = Character("Cashier")
 define teacher = Character("Mr. Teacher")
 
 # character sprites
-image mc_neutral = "mc_neutral.jpg"
+# image define mc neutral = "weeb_neutral.png"
+image define mc neutral = "side player neutral.png"
 
-if quick_menu:
-    hide mc_neutral
 
 image cashier_neutral = "cashier.png"
 
@@ -28,16 +27,12 @@ image bg football_field = "football_field_day.webp"
 label start:
 
     $ playername = "You"
-    show mc_neutral onlayer ontop:
-        zoom 0.5
-        xalign 0.0
-        yalign 1.0
 
-    mc "Wow, I'm sooooo thirsty..."
+    mc neutral "Wow, I'm sooooo thirsty..."
     
     scene bg cafe_outside with fade
 
-    mc "Oh look, a cafe! So coincidental, I think I want a cup of coffee."
+    mc neutral "Oh look, a cafe! So coincidental, I think I want a cup of coffee."
 
     scene bg cafe with None
 
@@ -66,7 +61,7 @@ label intro:
         jump intro2
     elif choice == "frappuccino":
         cashier "Are you sure? I think I'll give you a matcha latte instead."
-        mc "Um..."
+        mc neutral "Um..."
         menu:
             "That's fine.":
                 $ choice = "frappe"
@@ -86,7 +81,7 @@ label intro2:
         $ playername = "You"
 
     # use character to say their name
-    mc "It's [playername]."
+    mc neutral "It's [playername]."
     cashier "Okay, I'll have it ready soon."
 
     hide cashier_neutral
@@ -101,7 +96,7 @@ label intro2:
         yalign 1.0
 
     cashier "I have an order for [playername]!"
-    mc "Thank you kindly."
+    mc neutral "Thank you kindly."
     cashier "Enjoy!"
 
     hide cashier_neutral
@@ -112,15 +107,15 @@ label intro2:
 # THIS SECTION IS A SKIP TO THE NARCISSIST SCENE
 
 label episode_2:
-    mc "(Okay... now it's time for first period. The first class is PE.)"
-    mc "(I should probably head to the field.)"
+    mc neutral "(Okay... now it's time for first period. The first class is PE.)"
+    mc neutral "(I should probably head to the field.)"
     scene bg football_field with fade
 
     # REPLACE WITH GYM COACH LATER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     show cashier_neutral
     teacher "Hey! You're [playername], right?"
     teacher "Hurry and join the rest of the class for football."
-    mc "Yes, sir."
+    mc neutral "Yes, sir."
     hide cashier_neutral
 
     return

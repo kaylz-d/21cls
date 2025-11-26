@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 77: invalid syntax
-    playername = cashier renpy.input("Alright then, can I get a name for your order?", length=32)
-                          ^
+File "game/script.rpy", line 29: expected 'image_name_component' not found.
+    show "side player neutral.png" onlayer ontop:
+         ^
 
 Ren'Py Version: Ren'Py 8.2.3.24061702
-Tue Nov 25 17:03:05 2025
+Tue Nov 25 19:27:04 2025
