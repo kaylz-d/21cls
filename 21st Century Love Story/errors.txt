@@ -2,13 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 14: invalid syntax
-    Character("Bully 1" image="bully1")
-                         ^
-
-File "game/script.rpy", line 15: invalid syntax
-    Character("Bully 2" image="bully2")
-                         ^
+File "game/script.rpy", line 194: expected ':' not found.
+    label episode_2_meeting
+                           ^
 
 Ren'Py Version: Ren'Py 8.2.3.24061702
-Wed Nov 26 13:22:07 2025
+Thu Nov 27 01:40:59 2025

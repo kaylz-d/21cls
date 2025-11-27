@@ -13,12 +13,14 @@ define teacher = Character("Mr. Teacher")
 define classmate = Character("classmate")
 define b1 = Character("Bully 1", image="bully1")
 define b2 = Character("Bully 2", image="bully2")
+define n = Character("Ronan")
 
 # character sprites
 image define mc neutral = "side player neutral.png"
 
 image cashier_neutral = "cashier.png"
 image classmate_neutral = "billG.jpg"
+image narcissist_neutral = "narcissist_neutral.png"
 
 # image define b1 neutral = "bully1 neutral.png"
 # image define b2 neutral = "bully2 neutral.png"
@@ -151,6 +153,8 @@ label episode_2_football:
         
         # b1 neutral "OHHHHHHH!!!"
         #IDKWHY the shorthand isn't working
+
+        # btw we will probably need to come back and tweak the transformations
         show b1_neutral:
             zoom 0.25
             xalign 0.5
@@ -159,12 +163,12 @@ label episode_2_football:
 
         hide b1_neutral
 
-        "Oh! it seems that two peasants have finally noticed your presence."
+        "Oh, it seems that two peasants have finally noticed your presence."
 
         show b2_neutral:
-            zoom 0.25
+            zoom 0.3
             xalign 0.5
-            yalign 0.0
+            yalign 1.0
         b2 "Don't yell right next to me."
         hide b2_neutral
 
@@ -173,16 +177,27 @@ label episode_2_football:
             xalign 0.5
             yalign 0.0
         b1 "That's the new student! The one from Beijing!"
-        
+
     elif choice == "wait":
         mc neutral "Oh?"
         "While your classmates are having fun tackling each other in the heat, someone sits by themself on a bench."
         menu:
             "Not my problem.":
                 $ choice = "idc"
+                jump episode_2_meeting
             "Approach them.":
                 mc neutral "I'm not doing anything right now, anyways."
                 $ choice = "care"
+                jump episode_2_meeting
     return
 
+label episode_2_meeting:
+
+    scene bg football_field with fade
+
+    if choice == "care":
+        show narcissist_neutral
+        n "*grumbling* This game is for brokies."
+    
+    return
 
