@@ -9,17 +9,19 @@ init:
 
 define mc = Character("[playername]", image="player")
 define cashier = Character("Cashier")
+define p = Character("[performative]")
 define teacher = Character("Mr. Teacher")
 define classmate = Character("classmate")
+define n = Character("[narcissist]")
 define b1 = Character("Bully 1", image="bully1")
 define b2 = Character("Bully 2", image="bully2")
-define n = Character("[narcissist]")
 
 # character sprites
 image define mc neutral = "side player neutral.png"
 
 image cashier_neutral = "cashier.png"
 image classmate_neutral = "billG.jpg"
+image performative_neutral = "performative_neutral.png"
 image narcissist_neutral = "narcissist_neutral.png"
 
 # image define b1 neutral = "bully1 neutral.png"
@@ -32,6 +34,7 @@ image b2_neutral = "bully2 neutral.png"
 image bg school_street = "this_better_be_good_because_the_render_time_for_this_bg_is_horrendous_despite_having_a_render_farm.webp"
 image bg cafe_outside = "cafe_memoria_outside_04_afternoon.webp"
 image bg cafe = "cafe_memoria_inside_03_afternoon.webp"
+image bg cafe_2 = "cafe_memoria_inside_01_afternoon.png"
 image bg school_track = "school_track.webp"
 image bg football_field = "football_field_day.webp"
 
@@ -42,9 +45,12 @@ label start:
     scene bg school_street with fade
 
     $ playername = "You"
+    $ performative = "Guy Wearing Quarter Zip-up"
     $ narcissist = "Guy Sitting By Himself"
 
-    mc neutral "Wow, I'm sooooo thirsty..."
+    mc neutral "Finally arrived at school... I'm so thirsty..."
+    mc neutral "It's 7:15, I still have fifteen minutes until my first class."
+    mc neutral "I should try to find a drink somewhere."
     
     scene bg cafe_outside with None
 
@@ -114,7 +120,95 @@ label intro2:
     cashier "Enjoy!"
 
     hide cashier_neutral
-    # REPLACE EPISODE 2 WITH ACTUAL FIRST EPISODE LATER!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    
+    jump episode_1
+    return
+
+
+label episode_1:
+
+    scene bg cafe_2
+
+    mc neutral "(This tastes pretty cheap compared to what I usually get back home... How many strange chemicals are in this thing?)"
+    mc neutral "(It's fine. I shouldn't be too harsh on American products...)"
+    mc neutral "(Let's find an open seat.)"
+
+    "You sit down at an empty table and begin to take your laptop out of your backpack when your elbow accidentally hits your drink."
+    "Thankfully, you have fast reflexes, and you were able to catch the drink before it completely fell."
+    "...However, a splash still managed to escape from the cup and onto the table."
+
+    mc deadpan "...Are you kidding me?"
+    mc neutral "Ugh, I need a napkin..."
+
+    show performative_neutral:
+        zoom 2.0
+        xcenter 0.5
+        yalign 1.0
+
+    p "Excuse me, you needed a napkin, right?"
+    mc neutral "Oh, thank you."
+    p "Of course. Mind if I take a seat?"
+    mc deadpan "...Go ahead."
+    p "Thank you."
+
+    $ performative = "Kyren"
+
+    p "I'm Kyren, what's your name?"
+    mc neutral "[playername]."
+    p "It's nice to meet you."
+    p "I see you also got matcha. I've been drinking matcha before it became popular."
+    mc deadpan "...Thanks for sharing."
+    p "Please forgive me if this sounds weird, but are you a foreign exchange student?"
+    mc neutral "Yes, from China."
+    p "Oh, China! I've always wanted to visit. I'd say I'm pretty familiar with your culture."
+    mc happy "Really? I have always been proud of my culture and-"
+    p "I'm such a fan of \"The Drawing of War\" by Moon Tzu. It's such a beautiful and philosophical piece."
+    mc deadpan "...What?"
+    p "And Chinese food is so delicious, I go to Tiandilao every week. But obviously authentic Chinese food is way better."
+    p "Chinese music is also incredible, I like pretty niche artists. You know... like Wackson Jang and Cay Jhou."
+    p "Oh, and I can't forget to mention that mahjong just happens to be one of my favorite games."
+    mc shocked "..."
+    mc deadpan "What's your favorite Chinese song?"
+    p "...Huh?"
+    p "Haha, there's too many to choose from! I can't pick one when all of them are so good."
+    p "Anyway, what do you like to do for fun?"
+    mc neutral "Oh... I like to..."
+
+    menu:
+        "Listen to music":
+            p "I love music too! Like Keshy, Beebahdoobee, Klairo..." 
+            p "You can say I'm pretty niche."
+        "Draw and paint":
+            p "That's so fun! I love art too. It's a shame that AI art is getting so popular..."
+            p "It's really taking away from true talent in this age."
+        "Play video games":
+            p "I love video games too! I like Balorant and Weague of Wegends."
+            p "Let's play sometime!"
+        "Read books":
+            p "I love feminist literature. I read it all the time!"
+            p "Men these days have such fragile masculinity, they really need to open their eyes."
+        "Collect blind boxes":
+            p "I really like collecting blind boxes too."
+            p "Especially Smyskeez and Wabubus."
+
+    p "Wow, we have so much in common!"
+    mc deadpan "...Sure."
+    p "Can I get your UsChat?"
+    mc neutral "Since when do Americans use UsChat?"
+    p "Heh, I'm pretty cultured and open-minded."
+    p "I've been like this because of all the feminist literature I've read since I was young."
+
+    menu:
+        "Give him your UsChat":
+            p "Thanks! Or, should I say, xiexie!"
+        "Don't give him your UsChat":
+            p "Huh? I'm not like other guys who ask for your socials, promise."
+            p "I just want to be friends with someone with common interests."
+
+    mc neutral "...School is starting soon. Bye."
+    p "Wait, do you also like to go thrifting-"
+
+
     jump episode_2
     return
 
@@ -124,9 +218,9 @@ label episode_2:
     
     $ met_narcissist = False
 
-    mc neutral "(Okay... now it's time for first period. The first class is PE.)"
-    mc neutral "(I should probably head to the field.)"
     scene bg school_track with fade
+    mc deadpan "(That guy was odd... Whatever)"
+    mc neutral "(Okay... now it's time for first period. My first class is PE.)"
 
     # REPLACE WITH GYM COACH LATER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     show cashier_neutral:
@@ -236,11 +330,9 @@ label episode_2_join:
     hide b2_neutral
 
     if met_narcissist:
-        "Oh, it seems that two peasants have finally noticed your presence."
+        mc deadpan "(Do these people also have a CEO father?)"
     else:
-        "Gasp! It's your first official meeting with two of your classmates!"
-        "Could this be..."
-        "A chance to make friends already?!"
+        "The commotion of your classmates catches your attention."
 
     show b1_neutral:
         zoom 0.25
