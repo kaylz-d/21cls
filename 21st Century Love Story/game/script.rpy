@@ -10,9 +10,10 @@ init:
 define mc = Character("[playername]", image="player")
 define cashier = Character("Cashier")
 define p = Character("[performative]")
+define n = Character("[narcissist]")
+define w = Character("[weeb]")
 define teacher = Character("Mr. Teacher")
 define classmate = Character("classmate")
-define n = Character("[narcissist]")
 define b1 = Character("Bully 1", image="bully1")
 define b2 = Character("Bully 2", image="bully2")
 
@@ -23,6 +24,7 @@ image cashier_neutral = "cashier.png"
 image classmate_neutral = "billG.jpg"
 image performative_neutral = "performative_neutral.png"
 image narcissist_neutral = "narcissist_neutral.png"
+image weeb_neutral = "weeb_neutral.png"
 
 # image define b1 neutral = "bully1 neutral.png"
 # image define b2 neutral = "bully2 neutral.png"
@@ -37,6 +39,8 @@ image bg cafe = "cafe_memoria_inside_03_afternoon.webp"
 image bg cafe_2 = "cafe_memoria_inside_01_afternoon.png"
 image bg school_track = "school_track.webp"
 image bg football_field = "football_field_day.webp"
+image bg school_hallway_1 = "school_corridor_background.webp"
+image bg school_hallway_2 = "uncle mugen school corridor morning.webp"
 
 # The game starts here.
 
@@ -47,6 +51,7 @@ label start:
     $ playername = "You"
     $ performative = "???"
     $ narcissist = "Guy Sitting By Himself"
+    $ weeb = "Guy With Disheveled Hair"
 
     mc neutral "Finally arrived at school... I'm so thirsty..."
     mc neutral "It's 7:15, I still have fifteen minutes until my first class."
@@ -246,6 +251,9 @@ label episode_2:
     $ met_narcissist = False
 
     scene bg school_track with fade
+
+    "After exiting the nurse's office, you think about your interaction with Kyren."
+
     mc deadpan "(That guy was odd... Whatever)"
     mc neutral "(Okay... now it's time for first period. My first class is PE.)"
 
@@ -447,5 +455,211 @@ label episode_2_join:
 
 
     "You've reached the end :p" # mark so i can still go back while testing the game
+    
+    jump episode_3
     return
+
+
+# ep3 AFTER mc's interactions w/ ronan
+label episode_3:
+
+    scene bg school_hallway_1 with fade
+
+    "After exiting the nurse's office, you think about your interaction with Ronan."
+
+    mc neutral "(That guy is so irritating when he's fully conscious.)"
+    mc deadpan "(He really is like an elementary school student.)"
+
+    "Taking your phone out, you see that there is only ten more minutes of class."
+
+    mc neutral "(There's no point in heading back. Maybe I should just stay in the restroom until the bell rings-)"
+
+    "*BANG!*"
+    "\"Loser! Who do you think you are?!\""
+
+    mc shocked "What was that?"
+
+    "Right as when you were about to head towards the restroom, a loud bang echoed through the halls."
+    "Will you investigate what the commotion is?"
+
+    menu:
+        "Choose to investigate":
+            mc neutral "(I should see what's going on.)"
+            jump episode_3_meeting
+        "Choose not to investigate":
+            mc deadpan "(Not my problem.)"
+
+    return
+
+label episode_3_meeting:
+
+    scene bg school_hallway_2 with fade
+
+    mc neutral "(What the...)"
+
+    "You head over to where you heard the loud bang and yelling..."
+    "...only to see two familiar faces standing in front of the lockers."
+
+    show b1_neutral with dissolve:
+        zoom 0.25
+        xalign 0.5
+        yalign 0.0
+
+    b1 "You think you're tough? Walking on MY turf as if you own the place?"
+
+    hide b1_neutral
+    show b2_neutral with dissolve:
+        zoom 0.3
+        xalign 0.5 
+        yalign 1.0
+
+    b2 "Our turf."
+
+    hide b2_neutral
+    show b1_neutral with dissolve:
+        zoom 0.25
+        xalign 0.5
+        yalign 0.0
+
+    b1 "Shut up!"
+
+    hide b1_neutral
+
+    "As your two classmates continue yelling at each other, you're not sure what to do."
+    "However, you notice someone slumped on the ground against the lockers."
+
+    mc deadpan "(What is going on? Aren't these two supposed to still be in class?)"
+    mc neutral "(And who is that?)"
+
+    show weeb_neutral with dissolve
+
+    w "Y-y-y-y-y-y-y-you cannot threaten me! This pure love is everlasting!"
+
+    hide weeb_neutral
+    show b1_neutral with dissolve:
+        zoom 0.25
+        xalign 0.5
+        yalign 0.0
+
+    b1 "Tch, what are you saying?!"
+    b1 "Don't you understand that she's MY girlfriend?! Keep your filthy paws away from her!"
+    b1 "I saw how you were looking at her so shamelessly!"
+
+    mc deadpan "(I should get a teacher-)"
+
+    "*POW!*"
+    "Your classmate punches the poor guy in the face, knocking his glasses off his face!"
+    "Right before you were about to go find a teacher to break apart the conflict, you can't help but notice the guy is..."
+    "...oddly good looking for someone so disheveled?"
+
+    b1 "You freak, don't you-"
+    b1 "...Huh?"
+
+    hide b1_neutral
+    show b2_neutral with dissolve:
+        zoom 0.3
+        xalign 0.5 
+        yalign 1.0
+    
+    b2 "Why do you look so..."
+
+    hide b2_neutral
+    show weeb_neutral with dissolve
+
+    w "Y-y-you... *sniff* you cannot break us apart!"
+    w "I've been reading \"That Time I Got Reincarnated 21 Times in a Fantasy World\" since the first volume came out!"
+    w "A-a-and I've been loyal to my waifu, Suzuki Haruka, ever since!"
+    w "N-n-n-n-n-n-n-no matter what you do, you cannot tear this love apart!"
+    w "This love, so fresh and whole, is bound to last forever!!!"
+    w "I will not allow you to take my waifu away from me!!"
+
+    mc shocked "..."
+
+    hide weeb_neutral
+    show b1_neutral with dissolve:
+        zoom 0.25
+        xalign 0.5
+        yalign 0.0
+    
+    b1 "..."
+
+    hide b1_neutral
+    show b2_neutral with dissolve:
+        zoom 0.3
+        xalign 0.5 
+        yalign 1.0
+    
+    b2 "..."
+    
+    hide b2_neutral
+
+    "..."
+
+    hide b2_neutral
+    show b1_neutral with dissolve:
+        zoom 0.25
+        xalign 0.5
+        yalign 0.0
+
+    b1 "Bro, what are you talking about?"
+    b1 "What is That Time I Got... whatever world? What is a Suzu... what?"
+
+    hide b1_neutral
+    show weeb_neutral
+
+    w "No! Call her by her full name!"
+    w "She is Princess Suzuki Haruka!"
+
+    hide weeb_neutral
+    show b2_neutral with dissolve:
+        zoom 0.3
+        xalign 0.5 
+        yalign 1.0
+
+    b2 "What in the world are you talking about?"
+
+    hide b2_neutral
+    show b1_neutral with dissolve:
+        zoom 0.25
+        xalign 0.5
+        yalign 0.0
+
+    b1 "Yeah bro, what?"
+    b1 "We're talking about how your lame self was hitting on my girl, Sophia."
+
+    hide b1_neutral
+    show weeb_neutral with dissolve
+
+    w "...Huh? Who's Sophia?"
+    mc shocked "..."
+
+    hide weeb_neutral
+    show b1_neutral with dissolve:
+        zoom 0.25
+        xalign 0.5
+        yalign 0.0
+
+    b1 "..."
+
+    hide b1_neutral
+    show b2_neutral with dissolve:
+        zoom 0.3
+        xalign 0.5
+        yalign 1.0
+
+    b2 "..."
+
+    hide b2_neutral
+
+    "..."
+
+    return
+
+
+
+
+
+
+
+
 
