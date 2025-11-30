@@ -653,7 +653,51 @@ label episode_3_meeting:
 
     "..."
 
+    "What are any of these people talking about?"
+
+    show b1_neutral with dissolve:
+        zoom 0.25
+        xalign 0.5
+        yalign 0.0
+
+    b1 "...My girlfriend?"
+
+    hide b1_neutral
+    show weeb_neutral with dissolve
+
+    w "Huh? I don't want her. My heart only belongs to my waifu!"
+
+    hide weeb_neutral
+    show b2_neutral with dissolve:
+        zoom 0.3
+        xalign 0.5
+        yalign 1.0
+
+    b2 "Then why were you looking so intensely?"
+
+    hide b2_neutral
+    show weeb_neutral with dissolve
+
+    w "..."
+    w "The poster on the wall above her had my waifu-"
+
+    hide weeb_neutral
+    show b1_neutral with dissolve:
+        zoom 0.25
+        xalign 0.5
+        yalign 0.0
+
+    b1 "I'm sick of this kid! And you smell horrible! Trying to act crazy as an excuse or what?!"
     
+    "YOu stare in confusion as the rowdy bully suddenly lifts a leg, about to kick the poor kid."
+
+    mc deadpan "(Maybe I should intervene...)"
+
+    menu:
+        "Try to resolve the conflict with words":
+            mc neutral "Shouldn't you two be in class still?"
+        "Run away with the "
+
 
     return
 
