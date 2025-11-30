@@ -312,14 +312,25 @@ label episode_2_meeting:
                 show narcissist_neutral
                 n "Are you talking to me, peasant?"
         
+        $ narcissist = "Snobby Guy"
         n "THE DISRESPECT! Just wait until I tell my father, who is a CEO, by the way, about this insolence!"
+        mc deadpan "(...Did I ever ask?)"
+        n "And since you're uneducated, I'll show some mercy and inform you about WHO I am exactly."
+        $ narcissist = "Ronan"
+        n "I am Ronan, Ronan X.Y. Sinclair! The first in line to inherit the reputable Sinclair X.Y. Industries!"
+        mc neutral "(Sinclair X.Y. Industries... kind of rings a bell. I think they source parts from dad's company?)"
         mc deadpan "And? Don't get on a high horse. My father is a CEO too."
         
+        n "Ha! Tell me, then, what famous company is your father the CEO of?"
+        mc deadpan "Fuyu Group."
+        n "..."
+        n "...Huh?"
+        mc happy "(Exactly.)"
+
         "You notice the snobby guy's left eye twitch, but then he composes himself in a split second."
 
-        $ narcissist = "Snobby Guy"
         show narcissist_neutral
-        n "Hohoho! Why didn't you say so sooner?"
+        n "...Ahem! Hohoho! Why didn't you say so sooner?"
 
         "Amidst your conversation, it appears that the football game has just ended."
         hide narcissist_neutral
@@ -389,7 +400,7 @@ label episode_2_join:
         yalign 0.0
     b1 "That's the new student! The one from Beijing!"
     hide b1_neutral
-    mc deadpan "(It's like I'm some kind of zoo animal (-_-;))"
+    mc deadpan "(Am I some kind of zoo animal? (-_-;))"
     show b2_neutral with dissolve:
         zoom 0.3
         xalign 0.5
@@ -401,7 +412,7 @@ label episode_2_join:
         zoom 0.25
         xalign 0.5
         yalign 0.0
-    b1 "Oh, really? I wonder why she would move to New York..."
+    b1 "Oh, really? Why would she would move here? Away from her luxurious mansion?"
 
     hide b1_neutral
     "Before any words leave your mouth, a voice from behind speaks up."
@@ -420,7 +431,8 @@ label episode_2_join:
         xalign 0.5
         yalign 1.0
     b2 "Ronan!!! Your drip!!!! The bling!!!! It's so blinding!!!!"
-    mc neutral "(Ronan? So that's his name.)"
+    $ narcissist = "Ronan"
+    mc neutral "(Is this a normal occurrence?)"
     hide b2_neutral
 
     show b1_neutral with dissolve:
@@ -456,9 +468,9 @@ label episode_2_join:
         mc deadpan "What? (-_-;;)"
     else:
         mc neutral "Uh, I'm [playername]. And I don't believe we've met before."
-    n "Ho $ ho $ ho (rich laughter effect). My name is Ronan. Ronan X.Y. Sinclair, first in line to inherit the reputable Sinclair X.Y. Industries ☆"
+    n "Ho $ ho $ ho (rich laughter effect). I am Ronan, Ronan X.Y. Sinclair! The first in line to inherit the reputable Sinclair X.Y. Industries!"
 
-    mc neutral "(Sinclair X.Y. Industries...kind of rings a bell. I think they source parts from dad's company?)"
+    mc neutral "(Sinclair X.Y. Industries... kind of rings a bell. I think they source parts from dad's company?)"
 
     "Then Ronan looks at you expectantly, waiting for you to initiate the handshake and say \"It's an honor to meet you\" and whatnot."
     "But pity, you can't read his mind. And he doesn't realize that not everyone can read his mind since his closest attendants are so used to his habits and daily schedule."
@@ -508,8 +520,8 @@ label episode_2_join:
         zoom 0.25
         xalign 0.5
         yalign 0.0
-    b1_neutral "OMG."
-    b1_neutral "Olivia is sooo gonna flip once she hears about this."
+    b1_neutral "Oh my god."
+    b1_neutral "Olivia's gonna tweak if she hears about this."
     
 
     "You've reached the end :p" # mark so i can still go back while testing the game
@@ -546,9 +558,11 @@ label episode_3:
             jump episode_3_meeting
         "Choose not to investigate":
             mc deadpan "(Not my problem.)"
+            jump episode_3_meeting_2
 
     return
 
+# choosing to investigate, seeing lucien get beat
 label episode_3_meeting:
 
     scene bg school_hallway_2 with fade
@@ -754,10 +768,77 @@ label episode_3_meeting:
     menu:
         "Try to resolve the conflict with words":
             mc neutral "Shouldn't you two be in class still?"
-        "Run away with the "
+        "Run away with the disheveled guy":
+            mc deadpan "..."
 
 
     return
+
+
+# choosing to ignore, seeing lucien running away
+label episode_3_meeting_2
+
+    scene bg school_hallway_1 with fade
+
+    mc neutral "(Now... where is the restroom...)"
+
+    "As you walk through the halls trying to find where the restroom is, a series of quick footsteps gets closer."
+    "...And as you turn the corner, you accidentally bump into someone, sending the both of you falling to the ground."
+
+    mc shocked "Ow!"
+
+    show weeb_neutral with dissolve
+
+    w "A-ah!"
+
+    "Looking up from the ground, you see a boy with extremely disheveled hair, wearing clothes that... probably haven't been washed in a while."
+    "The lenses of his glasses are foggy, preventing you from seeing his eyes."
+    
+    mc deadpan "(...Does this guy not look where he's going?)"
+    
+    "Brushing off your clothes, you stand up and extend a hand out to the boy."
+
+    mc neutral "Are you alright?"
+    w "..."
+    mc deadpan "...Hello?"
+
+    "Without responding to you, the boy takes off his glasses with shaky hands and wipes the lenses with the bottom of his shirt before finally making eye contact with you."
+    "And before you could repeat yourself, you can't help but notice the guy is..."
+    "...oddly good looking for someone so disheveled?"
+
+    mc deadpan "Um, I said, are you alright?"
+    w "..."
+    mc angry "Can't you hear me? I asked if-"
+    w "Suzuki Haruka?!"
+    mc deadpan "...What?"
+    w "Y-y-y-you... y-y-y-you're a carbon copy!! She's... she's real!!!"
+    mc angry "What are you talking about? Are you alright or not?"
+    w "Oh my god, oh my god, oh my god..."
+
+    hide weeb_neutral
+
+    "Before you could question what on earth this guy was talking about, a rowdy yell interrupts:"
+    "\"Ugh, where did that kid go?!\""
+
+    mc neutral "(Huh? That voice sounds a bit familiar.)"
+
+    show b1_neutral with dissolve
+
+    b1 "Hey punk! Where are you running off to?!"
+    b1 "Huh?"
+    b1 "Nepo baby! Why are you here?"
+
+    hide b1_neutral
+    show weeb_neutral with dissolve
+
+    w "G-G-GAH!!!"
+
+    "In the blink of an eye, the disheveled guy gets up from the floor and runs to hide behind you."
+
+    w "P-p-p-please save meeeeeeeeeeeeee!!!!!!"
+
+    return
+
 
 
 
