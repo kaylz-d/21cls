@@ -145,6 +145,10 @@ label intro2:
     return
 
 label testinglol:
+    show kyren neutral with dissolve:
+        zoom 0.25
+        xcenter 0.5
+        yalign 1.0
     # show p_neutral:
     #     zoom 0.25
     #     xcenter 0.5
