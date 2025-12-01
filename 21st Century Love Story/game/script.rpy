@@ -13,6 +13,7 @@ define cashier = Character("Cashier")
 define p = Character("[performative]", image="kyren")
 define n = Character("[narcissist]")
 define w = Character("[weeb]")
+# pnw = pacific northwest!
 define teacher = Character("Mr. Teacher")
 define classmate = Character("classmate")
 define b1 = Character("Bully 1", image="bully1")
@@ -29,12 +30,6 @@ image kyren shocked = "kyren_shocked.png"
 
 image cashier_neutral = "cashier.png"
 image classmate_neutral = "billG.jpg"
-
-# image p_neutral = "kyren neutral.png"
-# image p_angry = "kyren angry.png"
-# image p_sad = "kyren sad.png"
-# image p_happy = "kyren happy.png"
-# image p_shocked = "kyren shocked.png"
 
 image narcissist_neutral = "narcissist_neutral.png"
 image weeb_neutral = "weeb_neutral.png"
@@ -140,25 +135,25 @@ label intro2:
 
     hide cashier_neutral
     
-    # jump episode_1
-    jump testinglol
+    jump episode_1
+    # jump testinglol
     return
 
-label testinglol:
-    show kyren neutral with dissolve:
-        zoom 0.25
-        xcenter 0.5
-        yalign 1.0
-    # show p_neutral:
-    #     zoom 0.25
-    #     xcenter 0.5
-    #     yalign 1.0
-    p neutral "yo"
-    p happy "BRUH"
-    p sad "bruh..."
+# label testinglol:
+#     show kyren neutral with dissolve:
+#         zoom 0.25
+#         xcenter 0.5
+#         yalign 1.0
+#     # show p_neutral:
+#     #     zoom 0.25
+#     #     xcenter 0.5
+#     #     yalign 1.0
+#     p neutral "yo"
+#     p happy "BRUH"
+#     p sad "bruh..."
 
-    "END"
-    return
+#     "END"
+#     return
 
 
 label episode_1:
@@ -187,7 +182,7 @@ label episode_1:
     "An unfamiliar voice directs itself to you. You look up to see who it is."
 
     $ performative = "Guy Wearing Quarter Zip-up"
-    show per_neutral with dissolve:
+    show kyren neutral with dissolve:
         zoom 0.25
         xcenter 0.5
         yalign 1.0
@@ -463,8 +458,14 @@ label episode_2_join:
         yalign 1.0
     b2 "Ronan!!! Your drip!!!! The bling!!!! It's so blinding!!!!"
     $ narcissist = "Ronan"
-    mc neutral "(Is this a normal occurrence?)"
+
     hide b2_neutral
+    
+    if met_narcissist == False:
+        mc neutral "(So his name is Ronan...)"
+        mc "(But is this a normal occurrence?)"
+    else:
+        mc neutral "(Is this a normal occurrence?)"
 
     show b1_neutral with dissolve:
         zoom 0.25
@@ -487,7 +488,7 @@ label episode_2_join:
         menu:
             "Excuse me?":
                 n "You're excused!"
-                mc shocked "..."
+                mc deadpan "..."
                 mc "(He's not supposed to be in elementary school, right...?)"
             "(Pretend like you didn't hear anything.)":
                 mc neutral "..."
@@ -497,11 +498,22 @@ label episode_2_join:
         n "I recognize my kind when I see one."
         "He sent you a wink~☆ but unfortunately, you blinked right then, so you didn't notice."
         mc deadpan "What? (-_-;;)"
+        n "Dear me. You're quite slow. Be grateful for this opportunity to network with me, that is, RONAN X.Y. SINCLAIR!"
     else:
         mc neutral "Uh, I'm [playername]. And I don't believe we've met before."
-    n "Ho $ ho $ ho (rich laughter effect). I am Ronan, Ronan X.Y. Sinclair! The first in line to inherit the reputable Sinclair X.Y. Industries!"
+        n "What, have you been living under a rock all your life? Or do you really not know who I am?"
+        $ narcissist = "Ronan"
+        n "I am Ronan, Ronan X.Y. Sinclair! The first in line to inherit the reputable Sinclair X.Y. Industries!"
+        mc neutral "(Sinclair X.Y. Industries... kind of rings a bell. I think they source parts from dad's company?)"
+        mc deadpan "And? Don't get on a high horse. My father is a CEO too."
+        
+        n "Ha! Tell me, then, what famous company is your father the CEO of?"
+        mc deadpan "Fuyu Group."
+        n "..."
+        n "...Huh?"
+        mc happy "(Exactly.)"
 
-    mc neutral "(Sinclair X.Y. Industries... kind of rings a bell. I think they source parts from dad's company?)"
+        "You notice the snobby guy's left eye twitch, but then he composes himself in a split second."
 
     "Then Ronan looks at you expectantly, waiting for you to initiate the handshake and say \"It's an honor to meet you\" and whatnot."
     "But pity, you can't read his mind. And he doesn't realize that not everyone can read his mind since his closest attendants are so used to his habits and daily schedule."
@@ -512,6 +524,8 @@ label episode_2_join:
     "In a perfect parabolic path, the football flies by and slaps Ronan right in the cheek."
     "As graceful as a swan, Ronan falls to the ground. And in slow motion, too. But at least he landed in the lush football field of fake grass."
     
+    hide narcissist_neutral
+
     "*tweet*"
     "It's Mr. Teacher, blowing the whistle and dashing over."
 
@@ -523,7 +537,6 @@ label episode_2_join:
 
     hide cashier_neutral
     "Mr. Teacher glances down at the fallen Ronan, who's out cold. He presses his finger against his temple and sighs."
-    show cashier_neutral
     show cashier_neutral with dissolve:
         zoom 1.5
         xcenter 0.5
@@ -536,6 +549,8 @@ label episode_2_join:
     mc neutral "Yes, sir."
 
     "You load the fainted Ronan onto your back, and Mr. Teacher goes back to monitoring the football game."
+
+    hide cashier_neutral
 
     "Of course, not without prying eyes."
 
@@ -551,8 +566,8 @@ label episode_2_join:
         zoom 0.25
         xalign 0.5
         yalign 0.0
-    b1_neutral "Oh my gosh." # :P
-    b1_neutral "Olivia's gonna tweak if she hears about this."
+    b1 "Oh my gosh." # :P
+    b1 "Olivia's gonna tweak if she hears about this."
     
 
     "You've reached the end :p" # mark so i can still go back while testing the game
