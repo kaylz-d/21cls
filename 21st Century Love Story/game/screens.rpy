@@ -266,6 +266,7 @@ screen quick_menu():
 
             hbox:
                 xalign 0.5
+                yalign 0.35
                 style_prefix "quick"
                 spacing 20
 

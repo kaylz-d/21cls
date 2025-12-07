@@ -55,6 +55,7 @@ image bg school_hallway_1 = "school_corridor_background.webp"
 image bg school_hallway_2 = "uncle mugen school corridor morning.webp"
 image bg school_nurse = "hospital.webp"
 image bg classroom_morning = "classroom_morning.webp"
+image bg quad_outside_arts_building = "monele_arts_building.webp"
 
 # The game starts here.
 
@@ -66,6 +67,7 @@ label start:
     $ performative = "???"
     $ narcissist = "Guy Sitting By Himself"
     $ weeb = "Guy With Disheveled Hair"
+    $ gymbro = "Tough Looking Guy"
 
     # black screen
     # if time, cutscene of alice during her rich childhood
@@ -1124,6 +1126,43 @@ label episode_3_savior:
 
     return
 
-label episode_3_to_4:
+# lunch + meet gymbro
+label episode_4:
+    scene bg classroom_morning with fade
+    "One long lecture later..."
+    "*RING!*"
+    mc happy "(It's finally time for lunch! What a day it's been...)"
+    mc neutral "(Milkyway High School really is full of interesting characters.)"
+    "Some students stay behind in the classroom, some students rush to leave, and some students come to eat with their friends."
+    "Hopefully, you can get along with everyone, too. But first, where do you want to eat?"
+    menu:
+        "(Eat lunch in the classroom.)":
+            # results in encounter with mean gurlz (olivia/sophia?)
+            mc neutral "(Yep, I won't bother getting up right now.)"
+            "You reach into your bag and take out the bento you made this morning."
+        "(Eat lunch outside.)":
+            # just encounter with gymbro
+            jump episode_4_outside
+        "(Grab something from the cafe.)":
+            # another encounter with performative maybe?
+            jump episode_4_cafe
     
+    return
 
+label episode_4_outside:
+
+    scene bg quad_outside_arts_building with fade
+    
+    show king neutral with dissolve:
+        zoom 0.25
+        xcenter 0.5
+        yalign 1.0
+
+    g neutral "Females...*sigh*"
+
+    "When you exit the classroom, you're greeted by the smell of coffee, which is probably coming from this tough looking guy."
+
+    return
+
+label episode_4_cafe:
+    return
