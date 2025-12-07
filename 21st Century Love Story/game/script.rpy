@@ -13,6 +13,7 @@ define cashier = Character("Cashier")
 define p = Character("[performative]", image="kyren")
 define n = Character("[narcissist]")
 define w = Character("[weeb]")
+define g = Character("[gymbro]", image="king")
 # pnw = pacific northwest!
 define teacher = Character("Mr. Teacher")
 define classmate = Character("classmate")
@@ -27,6 +28,9 @@ image kyren angry = "kyren_angry.png"
 image kyren sad = "kyren_sad.png"
 image kyren happy = "kyren_happy.png"
 image kyren shocked = "kyren_shocked.png"
+
+image king neutral = "gymbro_neutral.png"
+image king disgusted = "gymbro_disgusted.png"
 
 image cashier_neutral = "cashier.png"
 image classmate_neutral = "billG.jpg"
@@ -50,6 +54,7 @@ image bg football_field = "football_field_day.webp"
 image bg school_hallway_1 = "school_corridor_background.webp"
 image bg school_hallway_2 = "uncle mugen school corridor morning.webp"
 image bg school_nurse = "hospital.webp"
+image bg classroom_morning = "classroom_morning.webp"
 
 # The game starts here.
 
@@ -151,22 +156,6 @@ label intro2:
     jump episode_1
     # jump testinglol
     return
-
-# label testinglol:
-#     show kyren neutral with dissolve:
-#         zoom 0.25
-#         xcenter 0.5
-#         yalign 1.0
-#     # show p_neutral:
-#     #     zoom 0.25
-#     #     xcenter 0.5
-#     #     yalign 1.0
-#     p neutral "yo"
-#     p happy "BRUH"
-#     p sad "bruh..."
-
-#     "END"
-#     return
 
 label episode_1:
 
@@ -1135,12 +1124,6 @@ label episode_3_savior:
 
     return
 
-
-
-
-
-
-
-
-
+label episode_3_to_4:
+    
 
