@@ -237,28 +237,47 @@ style choice_button_text is default:
 ## The quick menu is displayed in-game to provide easy access to the out-of-game
 ## menus.
 
+# screen quick_nav():
+#     zorder 99
+
+style quick_nav:
+    
+    background Image("gui/quick_nav.png")
+    xalign 0.5
+    yalign 1.0
+    xsize 1249
+    ysize 58
+
 screen quick_menu():
 
     ## Ensure this appears on top of other screens.
     zorder 100
 
+
     if quick_menu:
 
-        hbox:
-            style_prefix "quick"
+        frame:
+            style "quick_nav"
 
             xalign 0.5
-            yalign 1.0
+            # yalign 1.0
+            ## adding styling - kaylee
+            yalign 0.0
 
-            textbutton _("Back") action Rollback()
-            textbutton _("History") action ShowMenu('history')
-            textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
-            textbutton _("Auto") action Preference("auto-forward", "toggle")
-            textbutton _("Save") action ShowMenu('save')
-            textbutton _("Q.Save") action QuickSave()
-            textbutton _("Q.Load") action QuickLoad()
-            textbutton _("Prefs") action ShowMenu('preferences')
+            hbox:
+                xalign 0.5
+                yalign 0.35
+                style_prefix "quick"
+                spacing 20
 
+                textbutton _("Back") action Rollback()
+                textbutton _("History") action ShowMenu('history')
+                textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
+                textbutton _("Auto") action Preference("auto-forward", "toggle")
+                textbutton _("Save") action ShowMenu('save')
+                textbutton _("Q.Save") action QuickSave()
+                textbutton _("Q.Load") action QuickLoad()
+                textbutton _("Prefs") action ShowMenu('preferences')
 
 ## This code ensures that the quick_menu screen is displayed in-game, whenever
 ## the player has not explicitly hidden the interface.

@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 697: expected statement.
-    jump_episode_3
-                  ^
+File "game/screens.rpy", line 268: 'background' is not a keyword argument or valid child of the screen statement.
+    background Image("gui/quick_nav.png", xalign=0.5, yalign=1.0)
+              ^
 
 Ren'Py Version: Ren'Py 8.2.3.24061702
-Fri Dec  5 15:00:02 2025
+Sun Dec  7 01:14:37 2025
