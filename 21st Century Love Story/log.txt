@@ -1,121 +1,36 @@
-2025-12-09 21:40:24 UTC
+2025-12-09 22:34:25 UTC
 Windows-10-10.0.26100
 Ren'Py 8.2.3.24061702
 
-Early init took 0.36s
-Loading error handling took 0.22s
-Loading script took 1.08s
-Loading save slot metadata took 0.72s
-Loading persistent took 0.00s
-Running init code took 0.39s
-Loading analysis data took 0.05s
-Analyze and compile ATL took 0.01s
-Reloading save slot metadata took 0.28s
-Index archives took 0.00s
-Dump and make backups took 0.17s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.08s
-DPI scale factor: 1.250000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: b"Couldn't load nvlib." (can be ignored)
-Creating interface object took 0.05s
-Cleaning stores took 0.00s
-Init translation took 0.08s
-Build styles took 0.01s
-Load screen analysis took 0.10s
-Analyze screens took 0.00s
-Save screen analysis took 0.00s
-Prepare screens took 0.18s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.07s
-Running _start took 0.00s
-Interface start took 0.91s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1920, 1080)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'ATI Technologies Inc.'"
-Renderer: b'AMD Radeon(TM) Graphics'
-Version: b'4.6.0 Compatibility Profile Context 25.5.1.250226'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1760, 990) drawable=(1760, 990)
-Maximum texture size: 4096x4096
-Screen sizes: virtual=(1920, 1080) physical=(1920, 991) drawable=(1920, 991)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 1436.66s
-Loading error handling took 0.14s
-Loading script took 1.01s
-Loading save slot metadata took 0.18s
-Loading persistent took 0.00s
-
-File "game/script.rpy", line 1320: choice menuitem expects a non-empty block.
-    "Throwing away trash is the bare minimum.":
-                                               ^
-
-File "game/script.rpy", line 1343: end of line expected.
-    mc neutral "No, thank you.":
-                               ^
-DPI scale factor: 1.250000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: b"Couldn't load nvlib." (can be ignored)
-Interface start took 0.56s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1920, 1080)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'ATI Technologies Inc.'"
-Renderer: b'AMD Radeon(TM) Graphics'
-Version: b'4.6.0 Compatibility Profile Context 25.5.1.250226'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1920, 991) drawable=(1920, 991)
-Maximum texture size: 4096x4096
-Screen sizes: virtual=(1920, 1080) physical=(1920, 991) drawable=(1920, 991)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 1450.10s
+Early init took 0.24s
 Loading error handling took 0.11s
-Loading script took 0.84s
-Loading save slot metadata took 0.11s
-Loading persistent took 0.03s
-
-File "game/script.rpy", line 1343: end of line expected.
-    mc neutral "No, thank you.":
-                               ^
-DPI scale factor: 1.250000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: b"Couldn't load nvlib." (can be ignored)
-Interface start took 0.42s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1920, 1080)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'ATI Technologies Inc.'"
-Renderer: b'AMD Radeon(TM) Graphics'
-Version: b'4.6.0 Compatibility Profile Context 25.5.1.250226'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1920, 991) drawable=(1920, 991)
-Maximum texture size: 4096x4096
-Screen sizes: virtual=(1920, 1080) physical=(1920, 991) drawable=(1920, 991)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 1454.76s
-Loading error handling took 0.09s
-Loading script took 0.73s
-Loading save slot metadata took 0.11s
+Loading script took 1.44s
+Loading save slot metadata took 0.14s
 Loading persistent took 0.00s
 
-File "game/script.rpy", line 1343: end of line expected.
-    mc neutral "No, thank you.":
-                               ^
+Full traceback:
+  File "game/script.rpy", line 1288, in script
+    define moveoutleft_plus_fade = ComposeTransition(dissolve, before=mvoveoutleft, after=moveoutright)
+  File "C:\Users\Andreas\Downloads\renpy-8.2.3-sdk\renpy\ast.py", line 2222, in execute
+    self.set()
+  File "C:\Users\Andreas\Downloads\renpy-8.2.3-sdk\renpy\ast.py", line 2236, in set
+    value = renpy.python.py_eval_bytecode(self.code.bytecode)
+  File "C:\Users\Andreas\Downloads\renpy-8.2.3-sdk\renpy\python.py", line 1202, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/script.rpy", line 1288, in <module>
+    define moveoutleft_plus_fade = ComposeTransition(dissolve, before=mvoveoutleft, after=moveoutright)
+NameError: name 'mvoveoutleft' is not defined
+
+While running game code:
+  File "game/script.rpy", line 1288, in script
+    define moveoutleft_plus_fade = ComposeTransition(dissolve, before=mvoveoutleft, after=moveoutright)
+  File "game/script.rpy", line 1288, in <module>
+    define moveoutleft_plus_fade = ComposeTransition(dissolve, before=mvoveoutleft, after=moveoutright)
+NameError: name 'mvoveoutleft' is not defined
 DPI scale factor: 1.250000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: b"Couldn't load nvlib." (can be ignored)
-Interface start took 0.42s
+Interface start took 1.24s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1920, 1080)
@@ -125,133 +40,18 @@ Vendor: "b'ATI Technologies Inc.'"
 Renderer: b'AMD Radeon(TM) Graphics'
 Version: b'4.6.0 Compatibility Profile Context 25.5.1.250226'
 Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1920, 991) drawable=(1920, 991)
-Maximum texture size: 4096x4096
-Screen sizes: virtual=(1920, 1080) physical=(1920, 991) drawable=(1920, 991)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 1459.67s
-Loading error handling took 0.09s
-Loading script took 0.72s
-Loading save slot metadata took 0.11s
-Loading persistent took 0.00s
-
-File "game/script.rpy", line 1343: end of line expected.
-    mc neutral "No, thank you.":
-                               ^
-DPI scale factor: 1.250000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: b"Couldn't load nvlib." (can be ignored)
-Interface start took 0.42s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1920, 1080)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'ATI Technologies Inc.'"
-Renderer: b'AMD Radeon(TM) Graphics'
-Version: b'4.6.0 Compatibility Profile Context 25.5.1.250226'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1920, 991) drawable=(1920, 991)
-Maximum texture size: 4096x4096
-Screen sizes: virtual=(1920, 1080) physical=(1920, 991) drawable=(1920, 991)
-Maximum texture size: 4096x4096
 Screen sizes: virtual=(1920, 1080) physical=(1760, 990) drawable=(1760, 990)
 Maximum texture size: 4096x4096
 Screen sizes: virtual=(1920, 1080) physical=(1920, 991) drawable=(1920, 991)
 Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 1492.04s
-Loading error handling took 0.13s
-Loading script took 1.01s
-Loading save slot metadata took 0.11s
-Loading persistent took 0.00s
-Running init code took 0.16s
-Loading analysis data took 0.04s
-Analyze and compile ATL took 0.01s
-Reloading save slot metadata took 0.11s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\Andreas\\AppData\\Roaming/RenPy/backups\\21st Century Love Story':
-Dump and make backups took 0.22s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.09s
-DPI scale factor: 1.250000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: b"Couldn't load nvlib." (can be ignored)
-Creating interface object took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.09s
-Build styles took 0.01s
-Load screen analysis took 0.00s
-Analyze screens took 0.03s
-Save screen analysis took 0.05s
-Prepare screens took 0.19s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.05s
-Running _start took 0.00s
-Interface start took 0.32s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1920, 1080)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'ATI Technologies Inc.'"
-Renderer: b'AMD Radeon(TM) Graphics'
-Version: b'4.6.0 Compatibility Profile Context 25.5.1.250226'
-Display Info: None
 Screen sizes: virtual=(1920, 1080) physical=(1920, 991) drawable=(1920, 991)
 Maximum texture size: 4096x4096
 Screen sizes: virtual=(1920, 1080) physical=(1920, 991) drawable=(1920, 991)
 Maximum texture size: 4096x4096
 Resetting cache.
-Early init took 1526.39s
-Loading error handling took 0.07s
-Loading script took 0.84s
-Loading save slot metadata took 0.11s
-Loading persistent took 0.00s
-Running init code took 0.10s
-Loading analysis data took 0.05s
-Analyze and compile ATL took 0.01s
-Reloading save slot metadata took 0.10s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\Andreas\\AppData\\Roaming/RenPy/backups\\21st Century Love Story':
-Dump and make backups took 0.21s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.12s
-DPI scale factor: 1.250000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: b"Couldn't load nvlib." (can be ignored)
-Creating interface object took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.09s
-Build styles took 0.01s
-Load screen analysis took 0.00s
-Analyze screens took 0.03s
-Save screen analysis took 0.05s
-Prepare screens took 0.19s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.04s
-Running _start took 0.00s
-Interface start took 0.31s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1920, 1080)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'ATI Technologies Inc.'"
-Renderer: b'AMD Radeon(TM) Graphics'
-Version: b'4.6.0 Compatibility Profile Context 25.5.1.250226'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1920, 991) drawable=(1920, 991)
-Maximum texture size: 4096x4096
-Screen sizes: virtual=(1920, 1080) physical=(1920, 991) drawable=(1920, 991)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 1606.58s
+Early init took 17.11s
 Loading error handling took 0.06s
-Loading script took 0.85s
+Loading script took 0.83s
 Loading save slot metadata took 0.11s
 Loading persistent took 0.00s
 Running init code took 0.10s
@@ -260,97 +60,10 @@ Analyze and compile ATL took 0.01s
 Reloading save slot metadata took 0.10s
 Index archives took 0.00s
 Backing up script files to 'C:\\Users\\Andreas\\AppData\\Roaming/RenPy/backups\\21st Century Love Story':
-Dump and make backups took 0.17s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.11s
-DPI scale factor: 1.250000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: b"Couldn't load nvlib." (can be ignored)
-Creating interface object took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.09s
-Build styles took 0.01s
-Load screen analysis took 0.00s
-Analyze screens took 0.03s
-Save screen analysis took 0.05s
-Prepare screens took 0.18s
-Save pyanalysis. took 0.04s
-Save bytecode. took 0.04s
-Running _start took 0.00s
-Interface start took 0.31s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1920, 1080)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'ATI Technologies Inc.'"
-Renderer: b'AMD Radeon(TM) Graphics'
-Version: b'4.6.0 Compatibility Profile Context 25.5.1.250226'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1920, 991) drawable=(1920, 991)
-Maximum texture size: 4096x4096
-Screen sizes: virtual=(1920, 1080) physical=(1920, 991) drawable=(1920, 991)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 1628.42s
-Loading error handling took 0.06s
-Loading script took 0.51s
-Loading save slot metadata took 0.12s
-Loading persistent took 0.00s
-Running init code took 0.11s
-Loading analysis data took 0.05s
-Analyze and compile ATL took 0.01s
-Reloading save slot metadata took 0.11s
-Index archives took 0.00s
 Dump and make backups took 0.18s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
-Initial gc took 0.12s
-DPI scale factor: 1.250000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: b"Couldn't load nvlib." (can be ignored)
-Creating interface object took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.10s
-Build styles took 0.01s
-Load screen analysis took 0.08s
-Analyze screens took 0.00s
-Save screen analysis took 0.00s
-Prepare screens took 0.19s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.00s
-Running _start took 0.00s
-Interface start took 0.32s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1920, 1080)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'ATI Technologies Inc.'"
-Renderer: b'AMD Radeon(TM) Graphics'
-Version: b'4.6.0 Compatibility Profile Context 25.5.1.250226'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1920, 991) drawable=(1920, 991)
-Maximum texture size: 4096x4096
-Screen sizes: virtual=(1920, 1080) physical=(1920, 991) drawable=(1920, 991)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 1687.52s
-Loading error handling took 0.06s
-Loading script took 0.93s
-Loading save slot metadata took 0.11s
-Loading persistent took 0.00s
-Running init code took 0.10s
-Loading analysis data took 0.04s
-Analyze and compile ATL took 0.01s
-Reloading save slot metadata took 0.10s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\Andreas\\AppData\\Roaming/RenPy/backups\\21st Century Love Story':
-Dump and make backups took 0.21s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.12s
+Initial gc took 0.10s
 DPI scale factor: 1.250000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: b"Couldn't load nvlib." (can be ignored)
@@ -362,10 +75,10 @@ Load screen analysis took 0.00s
 Analyze screens took 0.03s
 Save screen analysis took 0.05s
 Prepare screens took 0.19s
-Save pyanalysis. took 0.00s
+Save pyanalysis. took 0.04s
 Save bytecode. took 0.04s
 Running _start took 0.00s
-Interface start took 0.32s
+Interface start took 0.35s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1920, 1080)
@@ -379,36 +92,54 @@ Screen sizes: virtual=(1920, 1080) physical=(1920, 991) drawable=(1920, 991)
 Maximum texture size: 4096x4096
 Screen sizes: virtual=(1920, 1080) physical=(1920, 991) drawable=(1920, 991)
 Maximum texture size: 4096x4096
+
+Full traceback:
+  File "game/script.rpy", line 1284, in script
+    $ move_left = MoveOutLeft(0.5)
+  File "C:\Users\Andreas\Downloads\renpy-8.2.3-sdk\renpy\ast.py", line 823, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "C:\Users\Andreas\Downloads\renpy-8.2.3-sdk\renpy\python.py", line 1178, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "game/script.rpy", line 1284, in <module>
+    $ move_left = MoveOutLeft(0.5)
+NameError: name 'MoveOutLeft' is not defined
+
+While running game code:
+  File "game/script.rpy", line 1284, in script
+    $ move_left = MoveOutLeft(0.5)
+  File "game/script.rpy", line 1284, in <module>
+    $ move_left = MoveOutLeft(0.5)
+NameError: name 'MoveOutLeft' is not defined
 Resetting cache.
-Early init took 1946.27s
-Loading error handling took 0.06s
-Loading script took 0.91s
-Loading save slot metadata took 0.18s
+Early init took 96.71s
+Loading error handling took 0.07s
+Loading script took 0.94s
+Loading save slot metadata took 0.12s
 Loading persistent took 0.00s
-Running init code took 0.14s
-Loading analysis data took 0.06s
-Analyze and compile ATL took 0.02s
-Reloading save slot metadata took 0.10s
+Running init code took 0.11s
+Loading analysis data took 0.04s
+Analyze and compile ATL took 0.01s
+Reloading save slot metadata took 0.11s
 Index archives took 0.00s
 Backing up script files to 'C:\\Users\\Andreas\\AppData\\Roaming/RenPy/backups\\21st Century Love Story':
-Dump and make backups took 0.19s
+Dump and make backups took 0.17s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
-Initial gc took 0.12s
+Initial gc took 0.15s
 DPI scale factor: 1.250000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: b"Couldn't load nvlib." (can be ignored)
-Creating interface object took 0.00s
+Creating interface object took 0.04s
 Cleaning stores took 0.00s
 Init translation took 0.09s
 Build styles took 0.01s
 Load screen analysis took 0.00s
-Analyze screens took 0.04s
-Save screen analysis took 0.12s
-Prepare screens took 0.21s
+Analyze screens took 0.03s
+Save screen analysis took 0.05s
+Prepare screens took 0.18s
 Save pyanalysis. took 0.04s
 Save bytecode. took 0.04s
-Running _start took 0.00s
+Running _start took 0.01s
 Interface start took 0.33s
 
 Initializing gl2 renderer:
@@ -424,18 +155,18 @@ Maximum texture size: 4096x4096
 Screen sizes: virtual=(1920, 1080) physical=(1920, 991) drawable=(1920, 991)
 Maximum texture size: 4096x4096
 Resetting cache.
-Early init took 1954.76s
+Early init took 137.11s
 Loading error handling took 0.06s
-Loading script took 0.94s
-Loading save slot metadata took 0.11s
+Loading script took 0.89s
+Loading save slot metadata took 0.10s
 Loading persistent took 0.00s
-Running init code took 0.11s
+Running init code took 0.10s
 Loading analysis data took 0.04s
-Analyze and compile ATL took 0.07s
-Reloading save slot metadata took 0.12s
+Analyze and compile ATL took 0.01s
+Reloading save slot metadata took 0.10s
 Index archives took 0.00s
 Backing up script files to 'C:\\Users\\Andreas\\AppData\\Roaming/RenPy/backups\\21st Century Love Story':
-Dump and make backups took 0.23s
+Dump and make backups took 0.17s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
 Initial gc took 0.12s
@@ -444,16 +175,16 @@ nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: b"Couldn't load nvlib." (can be ignored)
 Creating interface object took 0.00s
 Cleaning stores took 0.00s
-Init translation took 0.10s
+Init translation took 0.09s
 Build styles took 0.01s
 Load screen analysis took 0.00s
-Analyze screens took 0.03s
+Analyze screens took 0.04s
 Save screen analysis took 0.05s
-Prepare screens took 0.20s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.05s
+Prepare screens took 0.19s
+Save pyanalysis. took 0.04s
+Save bytecode. took 0.04s
 Running _start took 0.00s
-Interface start took 0.38s
+Interface start took 0.37s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1920, 1080)
@@ -467,34 +198,8 @@ Screen sizes: virtual=(1920, 1080) physical=(1920, 991) drawable=(1920, 991)
 Maximum texture size: 4096x4096
 Screen sizes: virtual=(1920, 1080) physical=(1920, 991) drawable=(1920, 991)
 Maximum texture size: 4096x4096
-
-Full traceback:
-  File "game/script.rpy", line 1284, in script
-    hide king disgusted with move_left_and_fade
-  File "C:\Users\Andreas\Downloads\renpy-8.2.3-sdk\renpy\ast.py", line 1363, in execute
-    renpy.exports.with_statement(trans, paired=paired)
-  File "C:\Users\Andreas\Downloads\renpy-8.2.3-sdk\renpy\exports.py", line 1782, in with_statement
-    return renpy.game.interface.do_with(trans, paired, clear=clear)
-  File "C:\Users\Andreas\Downloads\renpy-8.2.3-sdk\renpy\display\core.py", line 1549, in do_with
-    return self.interact(trans_pause=True,
-  File "C:\Users\Andreas\Downloads\renpy-8.2.3-sdk\renpy\display\core.py", line 2166, in interact
-    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
-  File "C:\Users\Andreas\Downloads\renpy-8.2.3-sdk\renpy\display\core.py", line 2609, in interact_core
-    trans = instantiate_transition(None, old_root, layers_root)
-  File "C:\Users\Andreas\Downloads\renpy-8.2.3-sdk\renpy\display\core.py", line 2519, in instantiate_transition
-    trans = self.ongoing_transition[layer](
-  File "C:\Users\Andreas\Downloads\renpy-8.2.3-sdk\renpy\display\transition.py", line 1113, in ComposeTransition
-    return trans(new_widget=new, old_widget=old)
-  File "C:\Users\Andreas\Downloads\renpy-8.2.3-sdk\renpy\display\movetransition.py", line 538, in MoveTransition
-    raise Exception("MoveTransition can only be applied to one or all layers, not %s." % type(widget).__name__)
-Exception: MoveTransition can only be applied to one or all layers, not MultipleTransition.
-
-While running game code:
-  File "game/script.rpy", line 1284, in script
-    hide king disgusted with move_left_and_fade
-Exception: MoveTransition can only be applied to one or all layers, not MultipleTransition.
 Resetting cache.
-Early init took 2083.51s
+Early init took 157.14s
 Loading error handling took 0.06s
 Loading script took 0.90s
 Loading save slot metadata took 0.11s
@@ -502,10 +207,10 @@ Loading persistent took 0.00s
 Running init code took 0.10s
 Loading analysis data took 0.04s
 Analyze and compile ATL took 0.01s
-Reloading save slot metadata took 0.10s
+Reloading save slot metadata took 0.09s
 Index archives took 0.00s
 Backing up script files to 'C:\\Users\\Andreas\\AppData\\Roaming/RenPy/backups\\21st Century Love Story':
-Dump and make backups took 0.18s
+Dump and make backups took 0.21s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
 Initial gc took 0.12s
@@ -523,7 +228,7 @@ Prepare screens took 0.19s
 Save pyanalysis. took 0.00s
 Save bytecode. took 0.04s
 Running _start took 0.00s
-Interface start took 0.32s
+Interface start took 0.31s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1920, 1080)
@@ -537,30 +242,61 @@ Screen sizes: virtual=(1920, 1080) physical=(1920, 991) drawable=(1920, 991)
 Maximum texture size: 4096x4096
 Screen sizes: virtual=(1920, 1080) physical=(1920, 991) drawable=(1920, 991)
 Maximum texture size: 4096x4096
-
-Full traceback:
-  File "game/script.rpy", line 1284, in script
-    hide king disgusted with MultipleTransition([Pixellate(0.5), Blinds(0.5)])
-  File "C:\Users\Andreas\Downloads\renpy-8.2.3-sdk\renpy\ast.py", line 1359, in execute
-    paired = renpy.python.py_eval(self.paired)
-  File "C:\Users\Andreas\Downloads\renpy-8.2.3-sdk\renpy\python.py", line 1209, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-  File "C:\Users\Andreas\Downloads\renpy-8.2.3-sdk\renpy\python.py", line 1202, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/script.rpy", line 1284, in <module>
-    hide king disgusted with MultipleTransition([Pixellate(0.5), Blinds(0.5)])
-NameError: name 'Blinds' is not defined
-
-While running game code:
-  File "game/script.rpy", line 1284, in script
-    hide king disgusted with MultipleTransition([Pixellate(0.5), Blinds(0.5)])
-  File "game/script.rpy", line 1284, in <module>
-    hide king disgusted with MultipleTransition([Pixellate(0.5), Blinds(0.5)])
-NameError: name 'Blinds' is not defined
+Cleaning stores took 0.00s
+Init translation took 0.00s
+Build styles took 0.01s
+Load screen analysis took 0.08s
+Analyze screens took 0.00s
+Prepare screens took 0.00s
+Running _start took 0.00s
 Resetting cache.
-Early init took 2104.87s
+Early init took 232.65s
+Loading error handling took 0.10s
+Loading script took 1.09s
+Loading save slot metadata took 0.13s
+Loading persistent took 0.00s
+Running init code took 0.11s
+Loading analysis data took 0.04s
+Analyze and compile ATL took 0.01s
+Reloading save slot metadata took 0.11s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\Andreas\\AppData\\Roaming/RenPy/backups\\21st Century Love Story':
+Dump and make backups took 0.19s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.14s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: b"Couldn't load nvlib." (can be ignored)
+Creating interface object took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.10s
+Build styles took 0.01s
+Load screen analysis took 0.00s
+Analyze screens took 0.04s
+Save screen analysis took 0.05s
+Prepare screens took 0.19s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.04s
+Running _start took 0.00s
+Interface start took 0.36s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'ATI Technologies Inc.'"
+Renderer: b'AMD Radeon(TM) Graphics'
+Version: b'4.6.0 Compatibility Profile Context 25.5.1.250226'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1920, 991) drawable=(1920, 991)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1920, 1080) physical=(1920, 991) drawable=(1920, 991)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 258.58s
 Loading error handling took 0.06s
-Loading script took 0.83s
+Loading script took 0.88s
 Loading save slot metadata took 0.11s
 Loading persistent took 0.00s
 Running init code took 0.10s
@@ -569,16 +305,16 @@ Analyze and compile ATL took 0.01s
 Reloading save slot metadata took 0.10s
 Index archives took 0.00s
 Backing up script files to 'C:\\Users\\Andreas\\AppData\\Roaming/RenPy/backups\\21st Century Love Story':
-Dump and make backups took 0.21s
+Dump and make backups took 0.18s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
-Initial gc took 0.11s
+Initial gc took 0.12s
 DPI scale factor: 1.250000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: b"Couldn't load nvlib." (can be ignored)
 Creating interface object took 0.00s
 Cleaning stores took 0.00s
-Init translation took 0.09s
+Init translation took 0.10s
 Build styles took 0.01s
 Load screen analysis took 0.00s
 Analyze screens took 0.03s
@@ -603,8 +339,8 @@ Screen sizes: virtual=(1920, 1080) physical=(1920, 991) drawable=(1920, 991)
 Maximum texture size: 4096x4096
 
 Full traceback:
-  File "game/script.rpy", line 1284, in script
-    hide king disgusted with MultipleTransition([Pixellate(0.5), Fade(0.5)])
+  File "game/script.rpy", line 1285, in script
+    hide king disgusted with moveoutleft_plus_fade
   File "C:\Users\Andreas\Downloads\renpy-8.2.3-sdk\renpy\ast.py", line 1363, in execute
     renpy.exports.with_statement(trans, paired=paired)
   File "C:\Users\Andreas\Downloads\renpy-8.2.3-sdk\renpy\exports.py", line 1782, in with_statement
@@ -617,28 +353,43 @@ Full traceback:
     trans = instantiate_transition(None, old_root, layers_root)
   File "C:\Users\Andreas\Downloads\renpy-8.2.3-sdk\renpy\display\core.py", line 2519, in instantiate_transition
     trans = self.ongoing_transition[layer](
-  File "C:\Users\Andreas\Downloads\renpy-8.2.3-sdk\renpy\display\transition.py", line 140, in __init__
-    raise Exception("MultipleTransition requires an odd number of items, and at least 3 items.")
-Exception: MultipleTransition requires an odd number of items, and at least 3 items.
+TypeError: ComposeTransition() missing 1 required positional argument: 'trans'
 
 While running game code:
-  File "game/script.rpy", line 1284, in script
-    hide king disgusted with MultipleTransition([Pixellate(0.5), Fade(0.5)])
-Exception: MultipleTransition requires an odd number of items, and at least 3 items.
+  File "game/script.rpy", line 1285, in script
+    hide king disgusted with moveoutleft_plus_fade
+TypeError: ComposeTransition() missing 1 required positional argument: 'trans'
 Resetting cache.
-Early init took 2428.11s
-Loading error handling took 0.08s
-Loading script took 0.85s
-Loading save slot metadata took 0.13s
+Early init took 275.14s
+Loading error handling took 0.06s
+Loading script took 0.84s
+Loading save slot metadata took 0.11s
 Loading persistent took 0.00s
-
-File "game/script.rpy", line 1287: expected 'simple_expression' not found.
-    hide king disgusted with
-                            ^
+Running init code took 0.10s
+Loading analysis data took 0.04s
+Analyze and compile ATL took 0.01s
+Reloading save slot metadata took 0.10s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\Andreas\\AppData\\Roaming/RenPy/backups\\21st Century Love Story':
+Dump and make backups took 0.21s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.12s
 DPI scale factor: 1.250000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: b"Couldn't load nvlib." (can be ignored)
-Interface start took 0.49s
+Creating interface object took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.09s
+Build styles took 0.01s
+Load screen analysis took 0.00s
+Analyze screens took 0.03s
+Save screen analysis took 0.05s
+Prepare screens took 0.19s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.04s
+Running _start took 0.00s
+Interface start took 0.30s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1920, 1080)
@@ -653,21 +404,65 @@ Maximum texture size: 4096x4096
 Screen sizes: virtual=(1920, 1080) physical=(1920, 991) drawable=(1920, 991)
 Maximum texture size: 4096x4096
 Resetting cache.
-Early init took 2443.77s
+Early init took 288.54s
 Loading error handling took 0.06s
-Loading script took 0.93s
+Loading script took 1.09s
+Loading save slot metadata took 0.14s
+Loading persistent took 0.00s
+Running init code took 0.19s
+Loading analysis data took 0.05s
+Analyze and compile ATL took 0.01s
+Reloading save slot metadata took 0.11s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\Andreas\\AppData\\Roaming/RenPy/backups\\21st Century Love Story':
+Dump and make backups took 0.18s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.12s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: b"Couldn't load nvlib." (can be ignored)
+Creating interface object took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.10s
+Build styles took 0.01s
+Load screen analysis took 0.00s
+Analyze screens took 0.03s
+Save screen analysis took 0.05s
+Prepare screens took 0.20s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.04s
+Running _start took 0.00s
+Interface start took 0.32s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'ATI Technologies Inc.'"
+Renderer: b'AMD Radeon(TM) Graphics'
+Version: b'4.6.0 Compatibility Profile Context 25.5.1.250226'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1920, 991) drawable=(1920, 991)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1920, 1080) physical=(1920, 991) drawable=(1920, 991)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 334.07s
+Loading error handling took 0.06s
+Loading script took 0.89s
 Loading save slot metadata took 0.11s
 Loading persistent took 0.00s
-Running init code took 0.15s
+Running init code took 0.10s
 Loading analysis data took 0.04s
 Analyze and compile ATL took 0.01s
 Reloading save slot metadata took 0.10s
 Index archives took 0.00s
 Backing up script files to 'C:\\Users\\Andreas\\AppData\\Roaming/RenPy/backups\\21st Century Love Story':
-Dump and make backups took 0.21s
+Dump and make backups took 0.22s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
-Initial gc took 0.09s
+Initial gc took 0.12s
 DPI scale factor: 1.250000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: b"Couldn't load nvlib." (can be ignored)
@@ -679,8 +474,8 @@ Load screen analysis took 0.00s
 Analyze screens took 0.03s
 Save screen analysis took 0.05s
 Prepare screens took 0.19s
-Save pyanalysis. took 0.04s
-Save bytecode. took 0.05s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.04s
 Running _start took 0.00s
 Interface start took 0.31s
 
@@ -696,237 +491,12 @@ Screen sizes: virtual=(1920, 1080) physical=(1920, 991) drawable=(1920, 991)
 Maximum texture size: 4096x4096
 Screen sizes: virtual=(1920, 1080) physical=(1920, 991) drawable=(1920, 991)
 Maximum texture size: 4096x4096
-
-Full traceback:
-  File "game/script.rpy", line 1287, in script
-    hide king disgusted with moveoutleft_and_fade
-  File "C:\Users\Andreas\Downloads\renpy-8.2.3-sdk\renpy\ast.py", line 1359, in execute
-    paired = renpy.python.py_eval(self.paired)
-  File "C:\Users\Andreas\Downloads\renpy-8.2.3-sdk\renpy\python.py", line 1209, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-  File "C:\Users\Andreas\Downloads\renpy-8.2.3-sdk\renpy\python.py", line 1202, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/script.rpy", line 1287, in <module>
-    hide king disgusted with moveoutleft_and_fade
-NameError: name 'moveoutleft_and_fade' is not defined
-
-While running game code:
-  File "game/script.rpy", line 1287, in script
-    hide king disgusted with moveoutleft_and_fade
-  File "game/script.rpy", line 1287, in <module>
-    hide king disgusted with moveoutleft_and_fade
-NameError: name 'moveoutleft_and_fade' is not defined
-Resetting cache.
-Early init took 2453.87s
-Loading error handling took 0.06s
-Loading script took 0.86s
-Loading save slot metadata took 0.11s
-Loading persistent took 0.00s
-
-Full traceback:
-  File "game/script.rpy", line 1286, in script
-    define moveoutleft_and_fade = composeTransition(fade_out, move_left)
-  File "C:\Users\Andreas\Downloads\renpy-8.2.3-sdk\renpy\ast.py", line 2222, in execute
-    self.set()
-  File "C:\Users\Andreas\Downloads\renpy-8.2.3-sdk\renpy\ast.py", line 2236, in set
-    value = renpy.python.py_eval_bytecode(self.code.bytecode)
-  File "C:\Users\Andreas\Downloads\renpy-8.2.3-sdk\renpy\python.py", line 1202, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/script.rpy", line 1286, in <module>
-    define moveoutleft_and_fade = composeTransition(fade_out, move_left)
-NameError: name 'composeTransition' is not defined
-
-While running game code:
-  File "game/script.rpy", line 1286, in script
-    define moveoutleft_and_fade = composeTransition(fade_out, move_left)
-  File "game/script.rpy", line 1286, in <module>
-    define moveoutleft_and_fade = composeTransition(fade_out, move_left)
-NameError: name 'composeTransition' is not defined
-DPI scale factor: 1.250000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: b"Couldn't load nvlib." (can be ignored)
-Interface start took 0.57s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1920, 1080)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'ATI Technologies Inc.'"
-Renderer: b'AMD Radeon(TM) Graphics'
-Version: b'4.6.0 Compatibility Profile Context 25.5.1.250226'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1920, 991) drawable=(1920, 991)
-Maximum texture size: 4096x4096
-Screen sizes: virtual=(1920, 1080) physical=(1920, 991) drawable=(1920, 991)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 2515.63s
-Loading error handling took 0.07s
-Loading script took 0.89s
-Loading save slot metadata took 0.11s
-Loading persistent took 0.00s
-
-Full traceback:
-  File "game/script.rpy", line 1286, in script
-    define moveoutleft_and_fade = ComposeTransition(fade_out, move_left)
-  File "C:\Users\Andreas\Downloads\renpy-8.2.3-sdk\renpy\ast.py", line 2222, in execute
-    self.set()
-  File "C:\Users\Andreas\Downloads\renpy-8.2.3-sdk\renpy\ast.py", line 2236, in set
-    value = renpy.python.py_eval_bytecode(self.code.bytecode)
-  File "C:\Users\Andreas\Downloads\renpy-8.2.3-sdk\renpy\python.py", line 1202, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/script.rpy", line 1286, in <module>
-    define moveoutleft_and_fade = ComposeTransition(fade_out, move_left)
-NameError: name 'fade_out' is not defined
-
-While running game code:
-  File "game/script.rpy", line 1286, in script
-    define moveoutleft_and_fade = ComposeTransition(fade_out, move_left)
-  File "game/script.rpy", line 1286, in <module>
-    define moveoutleft_and_fade = ComposeTransition(fade_out, move_left)
-NameError: name 'fade_out' is not defined
-DPI scale factor: 1.250000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: b"Couldn't load nvlib." (can be ignored)
-Interface start took 0.56s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1920, 1080)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'ATI Technologies Inc.'"
-Renderer: b'AMD Radeon(TM) Graphics'
-Version: b'4.6.0 Compatibility Profile Context 25.5.1.250226'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1920, 991) drawable=(1920, 991)
-Maximum texture size: 4096x4096
-Screen sizes: virtual=(1920, 1080) physical=(1920, 991) drawable=(1920, 991)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 2601.78s
-Loading error handling took 0.07s
-Loading script took 1.00s
-Loading save slot metadata took 0.11s
-Loading persistent took 0.00s
-
-Full traceback:
-  File "game/script.rpy", line 1286, in script
-    define moveoutleft_and_fade = ComposeTransition(fade_out, move_left, 1.0)
-  File "C:\Users\Andreas\Downloads\renpy-8.2.3-sdk\renpy\ast.py", line 2222, in execute
-    self.set()
-  File "C:\Users\Andreas\Downloads\renpy-8.2.3-sdk\renpy\ast.py", line 2236, in set
-    value = renpy.python.py_eval_bytecode(self.code.bytecode)
-  File "C:\Users\Andreas\Downloads\renpy-8.2.3-sdk\renpy\python.py", line 1202, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/script.rpy", line 1286, in <module>
-    define moveoutleft_and_fade = ComposeTransition(fade_out, move_left, 1.0)
-NameError: name 'fade_out' is not defined
-
-While running game code:
-  File "game/script.rpy", line 1286, in script
-    define moveoutleft_and_fade = ComposeTransition(fade_out, move_left, 1.0)
-  File "game/script.rpy", line 1286, in <module>
-    define moveoutleft_and_fade = ComposeTransition(fade_out, move_left, 1.0)
-NameError: name 'fade_out' is not defined
-DPI scale factor: 1.250000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: b"Couldn't load nvlib." (can be ignored)
-Interface start took 0.58s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1920, 1080)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'ATI Technologies Inc.'"
-Renderer: b'AMD Radeon(TM) Graphics'
-Version: b'4.6.0 Compatibility Profile Context 25.5.1.250226'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1920, 991) drawable=(1920, 991)
-Maximum texture size: 4096x4096
-Screen sizes: virtual=(1920, 1080) physical=(1920, 991) drawable=(1920, 991)
-Maximum texture size: 4096x4096
-Screen sizes: virtual=(1920, 1080) physical=(1920, 991) drawable=(1920, 991)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 2689.80s
-Loading error handling took 0.08s
-Loading script took 0.91s
-Loading save slot metadata took 0.11s
-Loading persistent took 0.00s
-Running init code took 0.10s
-Loading analysis data took 0.04s
-Analyze and compile ATL took 0.01s
-Reloading save slot metadata took 0.10s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\Andreas\\AppData\\Roaming/RenPy/backups\\21st Century Love Story':
-Dump and make backups took 0.20s
-Cleaning cache took 0.01s
-Making clean stores took 0.00s
-Initial gc took 0.11s
-DPI scale factor: 1.250000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: b"Couldn't load nvlib." (can be ignored)
-Creating interface object took 0.00s
 Cleaning stores took 0.00s
-Init translation took 0.09s
+Init translation took 0.00s
 Build styles took 0.01s
-Load screen analysis took 0.00s
-Analyze screens took 0.03s
-Save screen analysis took 0.05s
-Prepare screens took 0.20s
-Save pyanalysis. took 0.04s
-Save bytecode. took 0.05s
-Running _start took 0.00s
-Interface start took 0.32s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1920, 1080)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'ATI Technologies Inc.'"
-Renderer: b'AMD Radeon(TM) Graphics'
-Version: b'4.6.0 Compatibility Profile Context 25.5.1.250226'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1760, 990) drawable=(1760, 990)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 2704.88s
-Loading error handling took 0.07s
-Loading script took 0.55s
-Loading save slot metadata took 0.11s
-Loading persistent took 0.00s
-Running init code took 0.11s
-Loading analysis data took 0.05s
-Analyze and compile ATL took 0.01s
-Reloading save slot metadata took 0.11s
-Index archives took 0.00s
-Dump and make backups took 0.17s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.12s
-DPI scale factor: 1.250000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: b"Couldn't load nvlib." (can be ignored)
-Creating interface object took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.10s
-Build styles took 0.01s
-Load screen analysis took 0.08s
+Load screen analysis took 0.09s
 Analyze screens took 0.00s
-Save screen analysis took 0.00s
-Prepare screens took 0.21s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.00s
+Prepare screens took 0.00s
 Running _start took 0.00s
-Interface start took 0.34s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1920, 1080)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'ATI Technologies Inc.'"
-Renderer: b'AMD Radeon(TM) Graphics'
-Version: b'4.6.0 Compatibility Profile Context 25.5.1.250226'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1760, 990) drawable=(1760, 990)
+Screen sizes: virtual=(1920, 1080) physical=(1920, 991) drawable=(1920, 991)
 Maximum texture size: 4096x4096

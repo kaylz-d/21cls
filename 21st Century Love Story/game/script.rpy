@@ -1279,13 +1279,12 @@ label episode_4_outside:
             else:
                 mc happy "Hello-"
             
-            
-            $ fade_out = Fade(0.5)
-            $ move_left = MoveOutLeft(0.5)
+            # OKAY PURRRR so if u wanna have 2 transitions instead of 3, set the after transition to None
+            define moveoutleft_plus_fade = ComposeTransition(dissolve, before=moveoutleft, after=None)
 
-            # define moveoutleft_and_fade = ComposeTransition(fade_out, move_left, 1.0)
-            # hide king disgusted with moveoutleft_and_fade
-            hide king disgusted with moveoutleft
+            hide king disgusted with moveoutleft_plus_fade
+            
+
             
             "The tough-looking guy turns around and goes back into the classroom."
 
