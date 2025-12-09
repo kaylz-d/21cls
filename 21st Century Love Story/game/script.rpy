@@ -19,6 +19,9 @@ define teacher = Character("Mr. Teacher")
 define classmate = Character("classmate")
 define b1 = Character("Bully 1", image="bully1")
 define b2 = Character("Bully 2", image="bully2")
+# mean gurlz
+define s = Character("[meangirl]")
+# i'm thinking about combining Sophia and Olivia to be the same person? :p will bring it up next call
 
 # character sprites
 image player neutral = "side player neutral.png"
@@ -70,6 +73,7 @@ label start:
     $ narcissist = "Guy Sitting By Himself"
     $ weeb = "Guy With Disheveled Hair"
     $ gymbro = "Tough Looking Guy"
+    $ meangirl = "???"
 
     # i think it'll be cute if we add a "prologue" scene b4 everything of alice getting ready
     "Monday, 5:00 AM."
@@ -1226,7 +1230,7 @@ label episode_3_savior:
 
     return
 
-# lunch + meet gymbro
+# lunch + meet gymbro (CURRENTLY UNFINISHED)
 label episode_4:
     scene bg classroom_04 with fade
     "One long lecture later..."
@@ -1249,6 +1253,7 @@ label episode_4:
     
     return
 
+# CURRENTLY UNFINISHED: sayhi, walkpast
 label episode_4_outside:
 
     scene bg quad_outside_arts_building with fade
@@ -1283,14 +1288,36 @@ label episode_4_outside:
             define moveoutleft_plus_fade = ComposeTransition(dissolve, before=moveoutleft, after=None)
 
             hide king disgusted with moveoutleft_plus_fade
-            
-
-            
             "The tough-looking guy turns around and goes back into the classroom."
+
+            #minus 500 aura
 
             mc neutral "..."
             mc deadpan "(What the?)"
             mc deadpan "(So rude.)"
+            mc neutral "(Whatever.)"
+            mc happy "(All that matters is that I get to eat lunch now!)"
+
+            "Finding an empty bench, you place down your bag and take out your bento."
+            mc happy "Home-cooked food is always the best! *om nom nom nom nom*"
+
+            s "Soooo...YOU'RE [playername]?"
+            "Mid=chew, you look up and see..."
+            # show s neutral
+            "...an unfamiliar face."
+
+            # also results in encounter with mean girl?
+            #  _______________
+            # |COME BACK!!!!!|
+            # ---------------
+            #   __  __
+            #  | |_| |
+            # |   _ _|
+            # (    ^ )
+            # different route...
+            
+
+            "This is a bookmark for testing purposes."
 
         "(Walk past him.)":
             "You stare straight ahead and walk just a little faster than usual, because you've got places to be and lunch to eat."
