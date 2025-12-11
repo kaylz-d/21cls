@@ -48,7 +48,9 @@ image b1_neutral = "bully1 neutral.png"
 image b2_neutral = "bully2 neutral.png"
 
 # define backgrounds
+    # general backgrounds
 image bg black_background = "black-background.png"
+    # school backgrounds
 image bg school_street = "this_better_be_good_because_the_render_time_for_this_bg_is_horrendous_despite_having_a_render_farm.webp"
 image bg cafe_outside = "cafe_memoria_outside_04_afternoon.webp"
 image bg cafe = "cafe_memoria_inside_03_afternoon.webp"
@@ -61,6 +63,13 @@ image bg school_nurse = "hospital.webp"
 image bg classroom_04 = "Classroom_04_day.webp"
 # image bg classroom_morning = "classroom_morning.webp" it dont work its too small
 image bg quad_outside_arts_building = "monele_arts_building.webp"
+    # house backgrounds
+image bg bedroom_afternoon = "room_afternoon_light_loff.jpg"
+image bg bedroom_dusk = "room_dusk_light_on.jpg"
+image bg bedroom_morning = "room_morning_light_off.jpg"
+image bg bedroom_night = "room_night_light_off.jpg"
+image bg dining_room = "condo_Day 03.jpg"
+image bg living_room = "condo_Day 05.jpg"
 
 # The game starts here.
 
@@ -76,7 +85,7 @@ label start:
     $ meangirl = "???"
 
     # i think it'll be cute if we add a "prologue" scene b4 everything of alice getting ready
-    "Monday, 5:00 AM."
+    "Thursday, 5:00 AM."
     "Enveloped by the fluffy warmth of a blanket, you shuffle in your bed as the sun's soft rays caress your face through the window."
     "Softly breathing, you pull the blanket closer and allow slumber to consume you further."
     "What were you dreaming about just now?"
@@ -97,6 +106,9 @@ label start:
     # insert alarm clock sound
     "*RING!*"
     "...Or maybe not."
+
+    scene bg bedroom_dusk with fade
+
     mc deadpan "Ugh..."
     mc deadpan "It's too early... I'm still recovering from jet lag..."
     mc neutral "Whatever. I need to get ready for school now."
@@ -132,7 +144,7 @@ label intro:
 
     scene bg school_street with fade
 
-    "Monday, 7:00 AM."
+    "Thursday, 7:00 AM."
     "After getting ready and eating a light breakfast, your chauffeur picked you up from your penthouse and brought you to school."
 
     mc neutral "(Finally arrived at school... I'm so thirsty...)"
@@ -1361,7 +1373,7 @@ label episode_4_outside:
                     #     "(Walk away.)":
                     #         # idk yet
 
-
+    jump episode_5
     return
 
 label episode_4_cafe:
@@ -1381,5 +1393,132 @@ label episode_4_cafe:
     #         #idk
 
     scene bg cafe_memoria_outside_04_afternoon with dissolve
+    jump episode_5
+    return
+
+# conflict/climax, all characters confess
+label episode_5:
+    # if u see this, after u finish ep 4 im gonna tweak the beginning of this ep so it flows nicely
+    scene bg black_background with fade
+
+    "After an... interesting first day of school, you decided to go to bed early to relax."
+    "However, ever since you woke up this morning, you feel as if there's been signs telling you that today won't be so typical either."
+    "Let's take a look, shall we?"
+
+    scene bg bedroom_dusk with fade
+
+    "Friday, 5:00 AM."
+    "*RING!*"
+    "..."
+    "*RING!* *RING!*"
+
+    mc deadpan "...Ugh, I'm awake..."
+
+    "The ringing of your phone's alarm burned through your ears."
+    "Reaching an arm over with your eyes barely open, you try to find your phone to turn off the alarm."
+
+    mc neutral "Where is it..."
+    mc happy "Oh, here it is-"
+    
+    "*CRASH!*"
+
+    mc shocked "..."
+
+    "*RING!*"
+    "Once you found your phone on your nightstand, you lazily dragged it across the marble surface..."
+    "...But in doing so, you knocked over a mini mirror that happened to be sitting on the table."
+    "Sitting up, you lean over the side of your bed, just to meet face-to-face with broken shards across the floor."
+
+    mc deadpan "...Oops."
+    mc neutral "Unfortunate... That's the mirror I got when I was a kid, too."
+    mc deadpan "What a great start to the day..."
+
+    "And unfortunately, this was definitely not the only strange thing to happen."
+
+    scene bg living_room with fade
+
+    "Friday, 6:00 AM."
+    mc neutral "Cleaning up the glass was annoying."
+    mc happy "It's fine. Nothing's better than starting the day with a fulfilling meal!"
+    mc happy "And at least the weather's nice today."
+
+    "After putting your plate in the sink for the housekeeper to wash while you're at school, you make your way towards the giant window in your living room."
+    "From all the way up in your penthouse, all the pedestrians look like tiny ants, and cars look like pebbles."
+    "However, before you can appreciate the view further, a black blob covered in feathers flew towards you and slammed against the window!"
+    "*THUD!*"
+
+    mc shocked "Ah!"
+    mc shocked "Was that a bird?!"
+
+    "Getting closer to the window, you notice that same feathered blob unelegantly falling to the streets."
+
+    mc neutral "That scared me... It just came out of nowhere."
+
+    "It's only 6 in the morning, and you already experienced two bad omens!"
+    "Too bad for you, because that's not it!"
+
+    scene bg school_street with fade
+
+    "Friday, 7:30 AM."
+    "After those two unfortunate events, you still managed to get yourself together and go to school."
+    "Once your chauffeur dropped you off, you decided to explore the shops near the school until class started."
+
+    show cashier_neutral with dissolve:
+        zoom 1.5
+        xcenter 0.5
+        yalign 1.0
+
+    cashier "Good luck charms, only sold today! Only $20 per charm! Protect yourself with these charms!!"
+    mc neutral "(Hm? What's this?)"
+    cashier "Young lady! Good morning! Would you like to purchase a good luck charm? Only sold today!"
+    mc neutral "Why are they only being sold today?"
+    cashier "Hoho! Look at a calendar! What day is it today?"
+    mc deadpan "It's Friday, but so what?"
+
+    "Taking out your phone, you quickly glance at the top of the screen where it shows the date."
+
+    mc deadpan "It's the 13th...?"
+    cashier "Exactly! Friday the 13th! The unluckiest day of the year!"
+    cashier "Young lady, with such a beautiful face and a heart of gold like yours, you can't take any risks on such an unlucky day!"
+    mc neutral "(Isn't this just a superstition? What could possibly happen today out of all days?)"
+    mc neutral "(Whatever. Twenty dollars is just twenty dollars.)"
+    mc neutral "Here you go."
+    cashier "Hehehe... Thank you for your purchase!! A lucky charm for a lucky girl! Have a good day!"
+    mc deadpan "(...Yeah, this is just a placebo effect.)"
+    mc neutral "Thank you, you as well."
+    
+    hide cashier_neutral with dissolve
+
+    "After making the purchase, you head over to the school entrance with the charm in your hand."
+
+    mc neutral "(Ah, I have to remember to talk to my counselors about applying to American universities as an internation stude-)"
+
+    "*CRACK!*"
+    mc shocked "...?!"
+
+    "...Not even ten minutes after buying it, the wooden charm in your hand snapped in half!"
+
+    mc deadpan "That... probably isn't a good sign if I follow the superstition."
+
+    jump episode_6
+    return
+
+# date w/ performative (athena)
+label episode_6:
+
+    return
+
+# date w/ narcissist (kaylee)
+label episode_7:
+    
+    return
+
+# date w/ weeb (athena)
+label episode_8:
+
+    return
+
+# date w/ gym bro (kaylee)
+label episode_9:
 
     return
