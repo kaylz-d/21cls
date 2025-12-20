@@ -1518,9 +1518,44 @@ label episode_4_cafe:
 # date w/ performative (athena)
 label episode_5:
     scene bg black_background with fade
-    "After a busy day, "
 
-    jump episode_6
+    "Friday, 3:00 PM."
+    "Thankfully, your day was less... eventful compared to your first day of school."
+    "However, you were quickly reminded that you are now a student at THE Milkyway High School..."
+    "...meaning you have a mountain of homework and assignments to complete before Monday."
+    "Let's lock in!"
+
+    scene bg bedroom_afternoon with fade
+
+    mc neutral "Nothing looks that difficult..."
+    mc deadpan "Just tedious."
+    mc neutral "What should I start with?"
+
+    menu:
+        "English presentation":
+            mc happy "The English presentation will take a bit. I should get it over with."
+            "You open the assignment on your laptop to read the instructions for the presentation:"
+            "\"Students must prepare an extensive, 5-7 minute presentation about a topic of their choice.\""
+            mc neutral "A topic of my choice?"
+            mc neutral "Maybe I should head to the library to get ideas."
+            jump episode_5_english
+        "Math homework":
+            mc happy "The math homework is pretty simply. I'll start with it first."
+            mc neutral "Maybe I should head to the library so I can concentrate."
+            jump episode_5_math
+
+    return
+
+label episode_5_english:
+
+    
+    
+    return
+
+label episode_5_math:
+
+
+
     return
 
 # date w/ narcissist (kaylee)
