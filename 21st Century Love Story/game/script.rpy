@@ -61,6 +61,7 @@ image bg school_hallway_1 = "school_corridor_background.webp"
 image bg school_hallway_2 = "uncle mugen school corridor morning.webp"
 image bg school_nurse = "hospital.webp"
 image bg classroom_04 = "Classroom_04_day.webp"
+image bg library_1 = "library___1_by_houseofimagistudio_df8thpa-pre.jpg"
 # image bg classroom_morning = "classroom_morning.webp" it dont work its too small
 image bg quad_outside_arts_building = "monele_arts_building.webp"
 image bg rooftop_afternoon = "rooftop.png"
@@ -269,7 +270,6 @@ label episode_1:
     "Extending a napkin to you, the boy gently smiles as he takes a sip out of his own drink that seems to exude the faint scent of low quality matcha."
     
     mc neutral "Oh, thank you."
-    hide per_neutral
     p happy "Of course. Mind if I take a seat?"
     mc neutral "...Go ahead."
     p neutral "Thank you."
@@ -1535,8 +1535,8 @@ label episode_5:
         "English presentation":
             mc happy "The English presentation will take a bit. I should get it over with."
             "You open the assignment on your laptop to read the instructions for the presentation:"
-            "\"Students must prepare an extensive, 5-7 minute presentation about a topic of their choice.\""
-            mc neutral "A topic of my choice?"
+            "\"Students must prepare an extensive, 5-7 minute presentation about an author of their choice.\""
+            mc neutral "An author of my choice?"
             mc neutral "Maybe I should head to the library to get ideas."
             jump episode_5_english
         "Math homework":
@@ -1546,12 +1546,86 @@ label episode_5:
 
     return
 
+# performative guy helps mc with presentation
 label episode_5_english:
 
+    scene bg library_1 with fade
+
+    "You called your chauffeur to drive you to a nearby library so you could work on your presentation."
+    "Thankfully, the library wasn't too packed, and your presence was mostly unnoticed."
+
+    mc neutral "(Since I'm in New York City, I should probably make my presentation about an author that grew up here.)"
+
+    "You find an empty table to set your belongings down before roaming the shelves."
+    "As you walk around and brush your fingers on the spines of displayed books, you catch a lingering scent in the air."
+    "The library smelled of dusty books and heavy coffee. You notice a faint, musky sweetness exuding from every corner."
+    "But you soon realize there's a new aroma slowly getting stronger, and you can't help but find this scent... familiar."
+    "It's fresh and grassy, yet sweet and creamy."
+    "Almost like..."
+
+    mc neutral "(...Matcha?)"
+
+    "Eh, whatever."
+    "You continue looking through the shelves labeled with a \"NYC-Born Authors\" sign until one book catches your eye."
+
+    mc neutral "(Hm? What's this?)"
+    mc happy "(This looks interesting.)"
+
+    "You reach a hand out to grab the book from the shelf..."
+    "But instead, you make contact with another hand."
+    "Looking up, you meet a familiar face."
     
+    # cutscene?
+
+    "Only inches away from you stands Kyren Miller, one of the people you met yesterday."
+    "Once again in his quarter zip-up and baggy jeans, Kyren had a cup of matcha in his grip with a book tucked under his arm."
+    "His eyes widened once you made contact, and his lips parted ever so slightly."
+    
+    # end cutscene
+
+    show kyren neutral with dissolve:
+        zoom 0.25
+        xcenter 0.5
+        yalign 1.0
+
+    p neutral "Oh, [playername], I didn't expect to see you here."
+    p happy "I was looking for you at school and didn't see you."
+    mc deadpan "(It's this guy.)" 
+    mc neutral "(Why is he here?)"
+    p neutral "What are you doing here?"
+    mc neutral "I'm..."
+
+    menu:
+        "Working on a presentation":
+            mc neutral "I'm working on a presentation for English."
+            p neutral "Really? What kind of presentation?"
+        "None of your business":
+            mc neutral "It's none of your business."
+            p sad "Well... it wouldn't hurt to tell me, would it?"
+            mc deadpan "..."
+            mc neutral "(I guess I'll tell him.)"
+    
+    mc neutral "I have to research an author."
+    p neutral "An author? Like, any author?"
+    mc neutral "Yes, I'm trying to find one who was born in New York City."
+    
+    "Noticing that Kyren moved his hand away from the book you were both looking at, you wonder if you should take it first."
+
+    menu:
+        "Take it":
+            "You quickly extend your hand to grab the book."
+            mc neutral "...I'll take this."
+            p neutral "Huh? Oh, feel free!"
+        "Let Kyren take it":
+            "Your eyes glance over to the book before making their way back to Kyren."
+            mc neutral "You can have the book."
+            p neutral "Huh? Oh, don't worry. You can have it."
+
+    p neutral "It's only natural that I let women choose first."
     
     return
 
+# mc tutors performative guy
 label episode_5_math:
 
 
@@ -1827,8 +1901,5 @@ label episode_9:
     "Again, this guy just doesn't know when to stop talking nonsense."
     "What will you do?"
 
-    menu:
-        "Run away"
-        ""
 
     return
