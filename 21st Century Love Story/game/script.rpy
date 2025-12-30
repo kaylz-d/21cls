@@ -78,9 +78,14 @@ image bg bedroom_night = "room_night_light_off.jpg"
 image bg dining_room = "condo_Day 03.jpg"
 image bg living_room = "condo_Day 05.jpg"
 
+screen new_episode_menu():
+    text "Episode Menu" align (0.5, 0.5)
+
 # The game starts here.
 
 label start:
+
+    call screen new_episode_menu
 
     scene bg black_background
 
@@ -1423,6 +1428,8 @@ label episode_4_outside:
 
             # plan: olivia comes by and IS the one who spills the food hohoho...
 
+            $ olivia_temperament_counter = 0
+
             o "Soooo...YOU'RE [playername]?"
             "Mid=chew, you look up and see..."
             show o neutral
@@ -1433,6 +1440,7 @@ label episode_4_outside:
                     o "*gasp* It's SO great to meet you, [playername]!"
                 "Who are you?":
                     o "Oh GIRL, don't be so on edge!"
+                    $ olivia_temperament_counter += 1
 
             $ meangirl = "Olivia"
             o "My NAME is Olivia. And I'm a total girls' girl."
