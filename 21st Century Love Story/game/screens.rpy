@@ -241,7 +241,7 @@ style choice_button_text is default:
 #     zorder 99
 
 style quick_nav:
-    
+
     background Image("gui/quick_nav.png")
     xalign 0.5
     yalign 1.0
@@ -305,6 +305,38 @@ style quick_button_text:
 ## This screen is included in the main and game menus, and provides navigation
 ## to other menus, and to start the game.
 
+screen episode_selection():
+
+    tag menu
+    # modal True
+
+    text "Episode Menu" align (0.5, 0.5)
+
+    vbox:
+        xalign 0.5
+        yalign 0.5
+
+        if main_menu:
+            textbutton "Episode 1" action Start("episode_1")
+            textbutton "Episode 2" action Start("episode_2")
+            textbutton "Episode 3" action Start("episode_3")
+            textbutton "Episode 4" action Start("episode_4")
+            textbutton "Episode 5" action Start("epsiode_5")
+        else:
+            # textbutton "Episode 1" action [Return(), Jump("episode_1")]
+            # textbutton "Episode 2" action [Return(), Jump("episode_2")]
+            # textbutton "Episode 3" action [Return(), Jump("episode_3")]
+            # textbutton "Episode 4" action [Return(), Jump("episode_4")]
+            # textbutton "Episode 5" action [Return(), Jump("episode_5")]
+
+            # for now, ep selection in game is disabled
+
+            textbutton "Episode 1" action [Return(), Jump("episode_1")]
+            textbutton "Episode 2" action [Return(), Jump("episode_2")]
+            textbutton "Episode 3" action [Return(), Jump("episode_3")]
+            textbutton "Episode 4" action [Return(), Jump("episode_4")]
+            textbutton "Episode 5" action [Return(), Jump("episode_5")]
+
 screen navigation():
 
     vbox:
@@ -327,6 +359,9 @@ screen navigation():
 
         textbutton _("Load") action ShowMenu("load")
 
+        if main_menu:
+            textbutton _("Episode Selection") action ShowMenu("episode_selection")
+
         textbutton _("Preferences") action ShowMenu("preferences")
 
         if _in_replay:
@@ -335,7 +370,7 @@ screen navigation():
 
         elif not main_menu:
 
-            textbutton _("Main Menu") action MainMenu()
+            textbutton _("Title Screen") action MainMenu()
 
         textbutton _("About") action ShowMenu("about")
 

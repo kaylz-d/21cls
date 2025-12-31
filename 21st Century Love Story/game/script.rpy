@@ -5,12 +5,13 @@
 
 init:
     define config.layers = ['master', 'transient', 'screens', 'overlay', 'ontop']
-    $ playername = "You"
-    $ performative = "???"
-    $ narcissist = "Guy Sitting By Himself"
-    $ weeb = "Guy With Disheveled Hair"
-    $ gymbro = "Tough Looking Guy"
-    $ meangirl = "???"
+
+default playername = "You"
+default performative = "Kyren"
+default narcissist = "Ronan"
+default weeb = "Lucien"
+default gymbro = "King"
+default meangirl = "Olivia"
 
 # character define
 define mc = Character("[playername]", image="player")
@@ -71,21 +72,86 @@ image bg library_1 = "library___1_by_houseofimagistudio_df8thpa-pre.jpg"
 image bg quad_outside_arts_building = "monele_arts_building.webp"
 image bg rooftop_afternoon = "rooftop.png"
     # house backgrounds
-image bg bedroom_afternoon = "room_afternoon_light_loff.jpg"
+image bg bedroom_afternoon = "room_afternoon_light_off.jpg"
 image bg bedroom_dusk = "room_dusk_light_on.jpg"
 image bg bedroom_morning = "room_morning_light_off.jpg"
 image bg bedroom_night = "room_night_light_off.jpg"
 image bg dining_room = "condo_Day 03.jpg"
 image bg living_room = "condo_Day 05.jpg"
 
-screen new_episode_menu():
-    text "Episode Menu" align (0.5, 0.5)
+# screen new_episode_menu():
+
+#     tag menu
+
+#     text "Episode Menu" align (0.5, 0.5)
+    
+#     vbox:
+#         xalign 0.5
+#         yalign 0.5
+
+#         textbutton "Episode 1" action
+
+label open_episode_selection:
+    call screen episode_selection
+    
+# aura points for route percentage
+default p_aura = 0
+default n_aura = 0
+default g_aura = 0
+default w_aura = 0
+
+# AURAAAAAAAAA SYSTEM ICONS
+
+screen p_heart_box():
+    add "kyren_heart.png":
+        xpos 0.92
+        ypos 0.1
+    text "[p_aura]":
+        # just eyeballing...
+        xpos 0.9435
+        ypos 0.132
+
+# idea: hearts appear on screen with each encounter!
+
+screen n_heart_box():
+    add "ronan_heart.png":
+        xpos 0.92
+        ypos 0.22
+    text "[n_aura]":
+        xpos 0.9435
+        ypos 0.252
+
+screen g_heart_box():
+    add "king_heart.png":
+        xpos 0.92
+        ypos 0.34
+    text "[g_aura]":
+        xpos 0.9435
+        ypos 0.372
+
+screen w_heart_box():
+    add "lucien_heart.png":
+        xpos 0.92
+        ypos 0.46
+    text "[w_aura]":
+        xpos 0.9435
+        ypos 0.492
 
 # The game starts here.
 
 label start:
 
-    call screen new_episode_menu
+    show screen p_heart_box
+    show screen n_heart_box
+    show screen g_heart_box
+    show screen w_heart_box
+
+    $ playername = "You"
+    $ performative = "???"
+    $ narcissist = "Guy Sitting By Himself"
+    $ weeb = "Guy With Disheveled Hair"
+    $ gymbro = "Tough Looking Guy"
+    $ meangirl = "???"
 
     scene bg black_background
 
@@ -241,7 +307,7 @@ label intro:
 
 label episode_1:
 
-    scene bg cafe_2 with fade 
+    scene bg cafe_2 with fade
 
     "You take a sip as you walk towards the closest empty table."
     "As the drink makes contact with your tongue, the taste of artificial sweetness floods your mouth."
