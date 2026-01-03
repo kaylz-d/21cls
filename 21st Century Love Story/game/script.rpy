@@ -1768,7 +1768,7 @@ label episode_5:
             mc neutral "Maybe I should head to the library to get ideas."
             jump episode_5_english
         "Math homework":
-            mc happy "The math homework is pretty simply. I'll start with it first."
+            mc happy "The math homework is pretty simple. I'll start with it first."
             mc neutral "Maybe I should head to the library so I can concentrate."
             jump episode_5_math
 
@@ -2033,6 +2033,37 @@ label episode_5_math:
     "But before you could begin working, you hear a series of footsteps making their way towards you."
     "You turn to look in the direction of the footsteps, and you find a familiar figure."
 
+    show kyren neutral with dissolve:
+        zoom 0.25
+        xcenter 0.5
+        yalign 1.0
+
+    p neutral "Oh, [playername], I didn't expect to see you here."
+    p happy "I was looking for you at school and didn't see you."
+    mc deadpan "(It's this guy.)"
+    mc neutral "(Why is he here?)"
+    p neutral "What are you doing here?"
+    mc neutral "I'm..."
+
+    menu:
+        "Doing math homework":
+            mc neutral "I'm doing math homework."
+            p neutral "Really? What kind of math is it?"
+        "None of your business":
+            mc neutral "It's none of your business."
+            p sad "Well... it wouldn't hurt to tell me, would it?"
+            mc deadpan "..."
+            mc neutral "(I guess I'll tell him.)"
+
+    mc neutral "I have some linear algebra worksheets to complete."
+    p neutral "Wow... linear algebra..."
+    p neutral "That seems hard."
+    p happy "You're such a genius, you know."
+    p neutral "I'm just taking statistics this year, thankfully."
+    p neutral "I'm soooo average and soooo dumb unlike you..."
+    p neutral "I could never be smart enough to take those advanced math courses."
+    p neutral "How many worksheets do you have to do?"
+
     
     jump episode_6
     return
@@ -2287,7 +2318,7 @@ label episode_9:
 
     mc deadpan "(Why do I have a bad feeling about this...)"
     p neutral "The truth is..."
-    p neutral "I'm in love with you', [playername]."
+    p neutral "I'm in love with you, [playername]."
     mc shocked "...?!"
 
     "Wow."
