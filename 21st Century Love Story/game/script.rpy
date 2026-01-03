@@ -12,6 +12,7 @@ default narcissist = "Ronan"
 default weeb = "Lucien"
 default gymbro = "King"
 default meangirl = "Olivia"
+default olivia_ticked_off = False
 
 # character define
 define mc = Character("[playername]", image="player")
@@ -52,6 +53,10 @@ image weeb_neutral = "weeb_neutral.png"
 
 image b1_neutral = "bully1 neutral.png"
 image b2_neutral = "bully2 neutral.png"
+image olivia_neutral = "olivia neutral.png"
+
+image manga = "manga.png"
+image manga_run = "manga_run_cutscene.png"
 
 # define backgrounds
     # general backgrounds
@@ -94,11 +99,18 @@ image bg living_room = "condo_Day 05.jpg"
 label open_episode_selection:
     call screen episode_selection
     
-# aura points for route percentage
-default p_aura = 0
-default n_aura = 0
-default g_aura = 0
-default w_aura = 0
+# aura points/level for route percentage
+default p_aura = 1
+# default p_points = 0
+
+default n_aura = 1
+# default n_points = 0
+
+default g_aura = 1
+# default g_points = 0
+
+default w_aura = 1
+# default w_points = 0
 
 # AURAAAAAAAAA SYSTEM ICONS
 
@@ -106,10 +118,15 @@ screen p_heart_box():
     add "kyren_heart.png":
         xpos 0.92
         ypos 0.1
-    text "[p_aura]":
-        # just eyeballing...
-        xpos 0.9435
-        ypos 0.132
+    if (p_aura < 10) or (p_aura < 0):
+        text "[p_aura]":
+            # just eyeballing...
+            xpos 0.9435
+            ypos 0.13
+    else:
+        text "[p_aura]":
+            xpos 0.9385
+            ypos 0.13
 
 # idea: hearts appear on screen with each encounter!
 
@@ -117,25 +134,42 @@ screen n_heart_box():
     add "ronan_heart.png":
         xpos 0.92
         ypos 0.22
-    text "[n_aura]":
-        xpos 0.9435
-        ypos 0.252
+    
+    if (n_aura < 10) or (n_aura < 0):
+        text "[n_aura]":
+            xpos 0.9435
+            ypos 0.25
+    else:
+        text "[n_aura]":
+            xpos 0.9385
+            ypos 0.25
 
 screen g_heart_box():
     add "king_heart.png":
         xpos 0.92
         ypos 0.34
-    text "[g_aura]":
-        xpos 0.9435
-        ypos 0.372
+    
+    if (g_aura < 10) or (g_aura < 0):
+        text "[g_aura]":
+            xpos 0.9435
+            ypos 0.37
+    else:
+        text "[g_aura]":
+            xpos 0.9385
+            ypos 0.37
 
 screen w_heart_box():
     add "lucien_heart.png":
         xpos 0.92
         ypos 0.46
-    text "[w_aura]":
-        xpos 0.9435
-        ypos 0.492
+    if (w_aura < 10) or (w_aura < 0):
+        text "[w_aura]":
+            xpos 0.9435
+            ypos 0.49
+    else:
+        text "[w_aura]":
+            xpos 0.9385
+            ypos 0.49
 
 # The game starts here.
 
@@ -268,12 +302,14 @@ label intro:
         cashier "Our matcha is the drink of the day for only $5.25!"
     elif choice == "frappuccino":
         mc neutral "Could I get a frappuccino?"
-        cashier "Are you sure? Our mathc alattes are the drink of the day for only $5.25!"
+        cashier "Are you sure? Our matcha lattes are the drink of the day for only $5.25!"
         mc deadpan "Um..."
         menu:
             "Order the matcha latte":
                 mc deadpan "Um... sure."
                 mc neutral "(Doesn't hurt to give it a try...)"
+                $ p_aura += 1
+                "+1 Aura!"
             "Order the frappuccino":
                 mc deadpan "...No, I'll take the frappuccino'."
 
@@ -372,7 +408,7 @@ label episode_1:
             mc neutral "It's been alright."
             p neutral "That's good!"
         "It's been bad":
-            me neutral "I haven't been adjusting very well."
+            mc neutral "I haven't been adjusting very well."
             p sad "Sorry to hear that, hopefully it gets better."
 
     p neutral "I saw you deciding between matcha and a frappuccino when I was waiting in line earlier."
@@ -825,7 +861,9 @@ label episode_2_join:
                 mc deadpan "..."
                 mc "(He's not supposed to be in elementary school, right...?)"
             "(Pretend like you didn't hear anything.)":
-                mc neutral "..."
+                $ n_aura += 1
+                "+1 Aura!"
+                pass
         "Ronan slicks his hair back. It's, like, the equivalent of a cool girl's hair flip."
         n "Hmph! I forgive you for your transgressions."
         n "After all, I'm young, rich, tall, handsome, AND nice."
@@ -962,6 +1000,8 @@ label episode_2_nurse:
         "Don't worry about it.":
             #LOWKEYYYYYYYYYYYYYYYYYY i feel like this scene is not in character?! might remove/move to later episode
             mc happy "Don't worry about it."
+            $ n_aura += 1
+            "+1 Aura!"
             n "Hm...Hmph. You're quite down to earth."
             mc happy "Thank you."
             n "..."
@@ -1352,6 +1392,19 @@ label episode_3_savior:
     w "The poster on the wall above her had my waifu-"
 
     hide weeb_neutral
+
+    window hide
+
+    show manga with dissolve:
+        zoom 0.3
+        xalign 0.5
+        yalign 0.5
+    
+    pause
+
+    hide manga with dissolve
+    window show
+
     show b1_neutral with dissolve:
         zoom 0.25
         xalign 0.5
@@ -1379,12 +1432,30 @@ label episode_3_savior:
     show weeb_neutral with dissolve
 
     w "*Hic* S-S-S-Suzuki Harukaaaaaaaa!!!! M-m-m-my savior!!!!"
+
+    hide weeb_neutral
+
+    window hide
+
+    show manga_run with dissolve:
+        zoom 0.5
+        xalign 0.5
+        yalign 0.5
+    
+    pause
+
+    window show
+
     mc angry "If you call me that one more time, I'm going to beat you up myself."
+
+    hide manga_run with dissolve
+
+    show weeb_neutral with dissolve
     w "B-b-b-b-but you really are her!!!"
 
     hide weeb_neutral
 
-    "...Maybe you should've let this guy to get beat."
+    "...Maybe you should've just let this guy get beat."
     "After a few more minutes of running through the halls, you slow down to glance at a nearby clock."
     "15 seconds until the bell rings."
 
@@ -1414,6 +1485,9 @@ label episode_3_savior:
     "*RING!*"
     "Fortunately, the bell saved you! As students fill the halls, you turn to go to your next class."
 
+    $ w_aura += 1
+    "+1 Aura!"
+
     mc neutral "Well... bye."
     w "W-w-w-wait!! Suzuki Harukaaaaaaa!!!!"
 
@@ -1438,9 +1512,6 @@ label episode_4:
         "(Eat lunch outside.)":
             # just encounter with gymbro
             jump episode_4_outside
-        "(Grab something from the cafe.)":
-            # another encounter with performative maybe?
-            jump episode_4_cafe
     
     return
 
@@ -1482,6 +1553,8 @@ label episode_4_outside:
             "The tough-looking guy turns around and goes back into the classroom."
 
             #minus 500 aura
+            $ g_aura -= 1
+            "-1 Aura!"
 
             mc neutral "..."
             mc deadpan "(What the?)"
@@ -1497,16 +1570,17 @@ label episode_4_outside:
             $ olivia_temperament_counter = 0
 
             o "Soooo...YOU'RE [playername]?"
-            "Mid=chew, you look up and see..."
-            show o neutral
+            "Mid-chew, you look up and see..."
+            show olivia_neutral with dissolve
             "...an unfamiliar face."
 
             menu:
-                "Yes, that's me.":
+                "Yes, I'm [playername].":
                     o "*gasp* It's SO great to meet you, [playername]!"
                 "Who are you?":
                     o "Oh GIRL, don't be so on edge!"
                     $ olivia_temperament_counter += 1
+                    mc deadpan "(How am I being on edge?)"
 
             $ meangirl = "Olivia"
             o "My NAME is Olivia. And I'm a total girls' girl."
@@ -1514,6 +1588,8 @@ label episode_4_outside:
             o "Um...HAHAHA...one moment please...where is it..."
             mc neutral "No, please. Take your time."
             "As if you gave a magician's command, Olivia instantly pulls a small card out of her bag with a slightly embarrassed smile."
+
+
             o "You're SO sweet, [playername]. I was looking for this--thanks for being patient."
             # inventory idea? collectible trophy/memento system? it can be the same menu as a cutscene gallery
             # display business card cutscene here
@@ -1521,19 +1597,82 @@ label episode_4_outside:
                 "I didn't do anything.":
                     o "Aw, you're SUCH a humble queen."
                     mc deadpan "Uhh...thank you."
+                    # $ g_aura += 1
+                    # "+1 Aura!"
                 "No problem.":
-                    pass
+                    $ olivia_temperament_counter += 1
+
+            "Flashing a pretty corporate smile, Olivia presents the small card to you, which you recognize to be a business card. You accept the card and glance at the printed text."
+            # "Olivia smoothly takes your hand and curls your fingers over her business card."
+            mc neutral "(Olivia Johnson...)"
+            mc deadpan "(...on WinkedIn.)"
 
             # o "Oh my gosh, you don't know how EXCITED I've been to meet you!"
             o "*giggle* When I heard the heiress to Fuyu Group was coming to OUR school..."
             o "I didn't think you'd be so pretty AND kind!"
-            mc neutral "Thank you."
+            menu:
+                "Thank you.":
+                    mc neutral "Thank you."
+                    # $ g_aura += 1
+                    # "+1 Aura!"
+                "So you thought I was ugly and mean?":
+                    mc angry "So you thought I was ugly and mean?"
+                    $ olivia_temperament_counter += 1
+                    o "WOAH, girl, way to put words into my mouth."
+                    o "I guess the rumors WERE right, then."
+
+                    menu:
+                        "(Scoff.)":
+                            $ olivia_temperament_counter += 3
+                            # mc angry "..."
+                            mc neutral "You're not really a \"girl's girl\" if you believe rumors and mindless gossip so easily."
+                            mc neutral "You're just a hypocrite."
+                            # olivia angry
+                            o "You...you're one to talk!"
+                            # o "You act all high and mighty just because your parents are loaded."
+                            o "You act all high and mighty just because your family owns a huge company."
+                            o "But listen carefully, [playername]. You're NOT special."
+                            "Olivia Johnson's blood is boiling now. Her voice goes up a couple decibels, and you notice some students staring at you two from a distance."
+                            o "Take another good look at that business card I gave you."
+                            
+                            "In small print at the bottom of the card, you read: \"Johnson Big Law Firm\"."
+                            o "I was trying to be humble, but you SHOULD know that I'm also Olivia JOHNSON, next in line to take over the Johnson Big Law Firm!"
+                            mc happy "(She kind of reminds me of someone...)"
+                            mc neutral "Ahem. I see. Noted."
+                            $ n_aura += 1
+                            "+1 Aura!"
+
+                        "(Say you were just kidding.)":
+                            mc neutral "I was just kidding."
+                            o "Oh, good. I HATE it when people can't take a joke."
+                            o "But you seem like a nice girl. I think we'll get along QUITE well."
+                            $ olivia_temperament_counter -= 2
+
             # "Olivia looks away into the distance as her voice trails off..."
+
             "*RING RING RING*"
-            o "And would you look at the time! Sorry our meeting was so short. I have an IMPORTANT call to take right now."
-            o "Anyways, I just gave you my business card, with my WinkedIn on the back side. We're friends now, 'kay?"
-            mc neutral "Uh-"
-            o "[playername], don't hesitate to say hello when you see me in the halls. Bye now!"
+            "It's Olivia's phone, and she once again rummages through her bag to find it."
+
+            if (olivia_temperament_counter < 3):
+                o "Oh my, would you look at the time. Sorry our meeting was so short. I have an IMPORTANT call to take right now."
+                o "ANYWAYS, I just gave you my business card, with my WinkedIn on the back side. We're friends now, 'kay?"
+                mc neutral "Uh-"
+                o "[playername], don't hesitate to say hello when you see me in the halls. Bye now!"
+                hide olivia_neutral
+            else:
+                
+                $ olivia_ticked_off = True
+
+                o "See, this is an IMPORTANT call I have to take right now."
+                o "Bye, [playername]."
+
+                hide olivia_neutral
+
+                "Olivia runs past you in a jiffy, and you watch as she wears her corporate smile, answering her phone with her happy corporate voice."
+                "As if you two weren't just on the verge of pulling each other's hair."
+
+                mc neutral "(Finally, some peace and quiet.)"
+                mc neutral "(But that whole fiasco made ne lose my appetite.)"
 
             # or should she deliberately knock over the bento? maybe add ANOTHER route for that? (if you tick her off)
 
@@ -1601,26 +1740,6 @@ label episode_4_outside:
                     #     "(Walk away.)":
                     #         # idk yet
 
-    jump episode_5
-    return
-
-label episode_4_cafe:
-    scene bg quad_outside_arts_building with fade
-    mc neutral "(Hmm...I think the cafe should be this way.)"
-
-    show kyren neutral with dissolve
-    p happy "[playername]? What a coincidence! You're going to the cafe too?"
-    p neutral "Wanna go together?"
-
-    # menu:
-    #     "Yes":
-    #         mc neutral "Sure, why not."
-    #         jump episode_4_in_cafe
-    #     "No":
-    #         mc neutral "No, thank you.":
-    #         #idk
-
-    scene bg cafe_memoria_outside_04_afternoon with dissolve
     jump episode_5
     return
 
@@ -1726,11 +1845,15 @@ label episode_5_english:
             "You quickly extend your hand to grab the book."
             mc neutral "...I'll take this."
             p neutral "Huh? Oh, feel free!"
+            $ p_aura -= 1
+            "-1 Aura!"
         # +1 point
         "Let Kyren take it":
             "Your eyes glance over to the book before making their way back to Kyren."
             mc neutral "You can have the book."
             p neutral "Huh? Oh, don't worry. You can have it."
+            $ p_aura += 1
+            "+1 Aura!"
 
     p neutral "It's only natural that I let women choose first."
     p neutral "Are you going to make your presentation about this author?"
@@ -1761,11 +1884,15 @@ label episode_5_english:
             mc neutral "I'll use this one."
             p sad "Oh, alright then."
             "You watch as Kyren returns the book to his bag, almost looking disappointed that you didn't choose it."
+            $ p_aura -= 1
+            "-1 Aura!"
         # +1 point
         "Choose y":
             mc neutral "I'll use that one."
             p happy "Of course! You can keep it too."
             p neutral "It's a signed copy, by the way."
+            $ p_aura += 1
+            "+1 Aura!"
     
     p neutral "Are you going to work on your presentation here?"
     p neutral "If so, do you mind if I accompany you?"
@@ -1773,6 +1900,8 @@ label episode_5_english:
     menu:
         # +1 point
         "Let Kyren accompany you":
+            $ p_aura += 1
+            "+1 Aura!"
             mc neutral "That's fine."
             p happy "Thanks!"
             p neutral "I won't disturb you, I promise!"
@@ -1780,6 +1909,8 @@ label episode_5_english:
         "Don't let Kyren accompany you":
             mc deadpan "No thank you."
             p sad "...Oh, that's okay."
+            $ p_aura -= 1
+            "-1 Aura!"
             p neutral "I'll get going now then."
             p neutral "See you at school, [playername]."
             jump episode_6
@@ -1799,10 +1930,14 @@ label episode_5_english:
         "Accept Kyren's laptop charger":
             mc neutral "Thank you."
             p happy "Of course!"
+            $ p_aura += 1
+            "+1 Aura!"
         # -1
         "Reject Kyren's laptop charger":
             mc neutral "I'll just work on it at home."
             p sad "Huh? Oh, that's fine..."
+            $ p_aura -= 1
+            "-1 Aura!"
             p neutral "See you at school then, [playername]."
             jump episode_6
 
@@ -1827,6 +1962,8 @@ label episode_5_english:
             mc neutral "(I could just call my chauffeur...)"
             mc deadpan "(Eh, whatever.)"
             mc neutral "Sure."
+            $ p_aura += 1
+            "+1 Aura!"
             p happy "Okay!"
         "Don't let Kyren take you home":
             mc neutral "No, I'll have someone drive me home."
@@ -1844,6 +1981,8 @@ label episode_5_english:
         # +1
         "Accept":
             "You reach out to accept the earbud and insert it in your ear."
+            $ p_aura += 1
+            "+1 Aura!"
             "What plays in your ear is a popular RnB song you've heard being played in the school cafe several times."
             "Glancing over to you again, Kyren softly whispers, only inches away from your face."
             p neutral "Do you know this song?"
@@ -1852,6 +1991,8 @@ label episode_5_english:
         "Reject":
             mc neutral "...No thank you."
             "With an apologetic look, Kyren retracts his hand and inserts the earbud into his ear."
+            $ p_aura -= 1
+            "-1 Aura!"
             "However, you realize that the earbuds must be of low quality, as you can hear his music spilling out."
             "It's not too noticeable, but you identify a popular RnB song you've heard being played in the school cafe several times."
     
