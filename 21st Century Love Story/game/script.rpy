@@ -184,7 +184,7 @@ label start:
     $ performative = "???"
     $ narcissist = "Guy Sitting By Himself"
     $ weeb = "Guy With Disheveled Hair"
-    $ gymbro = "Tough Looking Guy"
+    $ gymbro = "Tough-Looking Guy"
     $ meangirl = "???"
 
     scene bg black_background
@@ -1516,15 +1516,39 @@ label episode_4:
             mc neutral "*om nom nom nom nom*"
 
             # other fun idea: change mc sprite to a dining bib
-            "The enticing aroma of your lunch draws a few peers closer to your table. It seems that everyone can smell the butter lobster, which you admit has been pan-seared a {i}little{/i} too well."
+            "The enticing aroma of your lunch draws attention to your table. It seems that everyone can smell the butter-poached lobster especially, which you admit has been pan-seared a {i}little{/i} too well."
             
             show olivia_neutral with dissolve
             o "OMG. Who brings an entire lobster to school? On the first day, no less!"
+
+            # idk, show sophia too?
 
             show king neutral with dissolve:
                 zoom 0.25
                 xcenter 0.5
                 yalign 1.0
+            g disgusted "Women get jealous over every little thing."
+            g neutral "If anything, this is a meal packed with protein!"
+            
+            "Suddenly, this tough-looking guy throws a straight punch. With that scowl, you'd think he was gonna start shadowboxing."
+            "But then, he unfurls his index finger to point at your lunch."
+
+            # replace with happy sprite
+            g neutral "Yo, female! Could you cook me up some lobster and steak too?"
+            mc neutral "(Yeah, I'll cook YOU up.)"
+            mc angry "Don't call me \"female.\" My name is [playername]."
+            mc angry "So uncouth. Where are your manners?"
+
+            "The tough-looking guy retracts his pointer finger and relaxes his muscles, although still scowling."
+
+            $ gymbro = "King"
+            g neutral "Well pardon me, then. The name's King."
+
+            # g neutral "That made you angry? ...Women are so emotional."
+
+
+
+
             
 
             # "Mid-chew, you look up and see..."
@@ -1539,7 +1563,7 @@ label episode_4:
             jump episode_4_outside
 
         
-    
+    jump episode_5
     return
 
 # CURRENTLY UNFINISHED: sayhi, walkpast
