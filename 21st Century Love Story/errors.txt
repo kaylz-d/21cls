@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 318: invalid syntax
-        renpy.show_screen(_"p_heart_box")
-                            ^
+File "game/script.rpy", line 1586: Line is indented, but the preceding show statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    zoom 0.25
+    ^
 
 Ren'Py Version: Ren'Py 8.2.3.24061702
-Mon Jan  5 23:13:44 2026
+Tue Jan  6 19:29:48 2026
