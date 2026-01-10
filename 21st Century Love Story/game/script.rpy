@@ -2182,7 +2182,31 @@ label episode_5_math:
     p neutral "I'm soooo average and soooo dumb unlike you..."
     p neutral "I could never be smart enough to take those advanced math courses."
     p neutral "How many worksheets do you have to do?"
+    "You scan through the pile of worksheets in front of you, mentally counting each paper."
+    mc neutral "Eight."
+    p shocked "Wow, that's insane."
+    p neutral "Hey, do you mind if I work on my math homework with you?"
 
+    menu:
+        # +1 point
+        "Let Kyren accompany you":
+            $ p_aura += 1
+            "+1 Aura!"
+            mc neutral "That's fine."
+            p happy "Thanks!"
+            p neutral "I won't disturb you, I promise!"
+        # -1 point
+        "Don't let Kyren accompany you":
+            mc deadpan "No thank you."
+            p sad "...Oh, that's okay."
+            $ p_aura -= 1
+            "-1 Aura!"
+            p neutral "I'll get going now then."
+            p neutral "See you at school, [playername]."
+            jump episode_6
+
+    "You watch Kyren pull a chair before setting his belongings on the ground before taking a seat."
+    "At the same time, you "
     
     jump episode_6
     return
