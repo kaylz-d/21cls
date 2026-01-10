@@ -2,17 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 1576: expected statement.
-    mc neutral ("Olivia Johnson...")
-               ^
-
-File "game/script.rpy", line 1577: expected statement.
-    mc deadpan ("...on WinkedIn.")
-               ^
-
-File "game/script.rpy", line 1607: expecting name after dot.
-    "In small print at the bottom of the card, you read: \"Johnson Big Law Firm\"".
-                                                                                   ^
+File "game/script.rpy", line 1586: Line is indented, but the preceding show statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    zoom 0.25
+    ^
 
 Ren'Py Version: Ren'Py 8.2.3.24061702
-Thu Jan  1 13:55:45 2026
+Tue Jan  6 19:29:48 2026

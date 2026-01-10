@@ -1,5 +1,8 @@
 ﻿# The script of the game goes in this file.
 
+# TODO: in episode 2 (ronan), remove bullies and replace with turtleneck overheating scene
+# TODO: maybe also revise episode 4? @thenarabbits feel free to edit anything to make story smoother
+
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
@@ -12,6 +15,7 @@ default narcissist = "Ronan"
 default weeb = "Lucien"
 default gymbro = "King"
 default meangirl = "Olivia"
+# if this is true, then olivia becomes your enemy - otherwise, you become friends
 default olivia_ticked_off = False
 
 # character define
@@ -53,7 +57,14 @@ image weeb_neutral = "weeb_neutral.png"
 
 image b1_neutral = "bully1 neutral.png"
 image b2_neutral = "bully2 neutral.png"
-image olivia_neutral = "olivia neutral.png"
+
+image olivia neutral = "olivia neutral.png"
+image olivia happy = "olivia happy.png"
+image olivia angry = "olivia angry.png"
+image olivia sad = "olivia sad.png"
+image olivia shocked = "olivia shocked.png"
+
+# cutscene images
 
 image manga = "manga.png"
 image manga_run = "manga_run_cutscene.png"
@@ -115,7 +126,7 @@ screen p_heart_box():
             xpos 0.9385
             ypos 0.13
 
-# idea: hearts appear on screen with each encounter!
+# idea: hearts appear on screen with each encounter? not implemented yet
 
 screen n_heart_box():
     add "ronan_heart.png":
@@ -131,30 +142,33 @@ screen n_heart_box():
             xpos 0.9385
             ypos 0.25
 
-screen g_heart_box():
-    add "king_heart.png":
-        xpos 0.92
-        ypos 0.34
-    
-    if (g_aura < 10) or (g_aura < 0):
-        text "[g_aura]":
-            xpos 0.9435
-            ypos 0.37
-    else:
-        text "[g_aura]":
-            xpos 0.9385
-            ypos 0.37
 
 screen w_heart_box():
     add "lucien_heart.png":
         xpos 0.92
-        ypos 0.46
+        ypos 0.34
+
     if (w_aura < 10) or (w_aura < 0):
         text "[w_aura]":
             xpos 0.9435
-            ypos 0.49
+            ypos 0.37
     else:
         text "[w_aura]":
+            xpos 0.9385
+            ypos 0.37
+
+
+screen g_heart_box():
+    add "king_heart.png":
+        xpos 0.92
+        ypos 0.46
+    
+    if (g_aura < 10) or (g_aura < 0):
+        text "[g_aura]":
+            xpos 0.9435
+            ypos 0.49
+    else:
+        text "[g_aura]":
             xpos 0.9385
             ypos 0.49
 
@@ -560,7 +574,7 @@ label episode_1_tour:
 
     "You reach into your pocket to take out the slip of paper again."
 
-    mc neutral "PE, Linear Algebra, English, Quantum Physics, Ethnic Studies, and Discrete Math."
+    mc neutral "After PE, I have...Linear Algebra, English, Quantum Physics, Ethnic Studies, and Discrete Math."
     p neutral "Wow, two math classes and Quantum Physics?"
     p neutral "You're so smart. I could never do something like that..."
     p neutral "I'm just soooo average..."
@@ -1494,6 +1508,10 @@ label episode_4:
     menu:
         "(Eat lunch in the classroom.)":
             # results in encounter with mean gurlz (olivia/sophia?)
+            
+            $ meangirl = "Some Girl In Your Class"
+            $ gymbro = "Tough-Looking Guy"
+            
             mc neutral "(Yep, I won't bother getting up right now.)"
             "You reach into your bag and take out your bento, which was prepared by your home cook before you woke up for school this morning."
             # fun cutscene idea: show the bento! WITH DELICIOUS SPARKLES like in genshin!!
@@ -1505,16 +1523,21 @@ label episode_4:
             # other fun idea: change mc sprite to a dining bib
             "The enticing aroma of your lunch draws attention to your table. It seems that everyone can smell the butter-poached lobster especially, which you admit has been pan-seared a {i}little{/i} too well."
             
-            show olivia_neutral with dissolve
-            o "OMG. Who brings an entire lobster to school? On the first day, no less!"
-
-            # idk, show sophia too?
-
-            show king neutral with dissolve:
+            show olivia neutral with dissolve:
                 zoom 0.25
                 xcenter 0.5
                 yalign 1.0
-            g disgusted "Women get jealous over every little thing."
+            o neutral "OMG. Who brings an entire lobster to school?"
+
+            hide olivia neutral
+
+            # idk, show sophia too?
+
+            show king disgusted with dissolve:
+                zoom 0.25
+                xcenter 0.5
+                yalign 1.0
+            g "Women get jealous over every little thing."
             g neutral "If anything, this is a meal packed with protein!"
             
             "Suddenly, this tough-looking guy throws a straight punch. With that scowl, you'd think he was gonna start shadowboxing."
@@ -1528,35 +1551,71 @@ label episode_4:
             "The tough-looking guy retracts his pointer finger and relaxes his muscles, although still scowling."
             $ gymbro = "King"
             g neutral "Well pardon me, then. The name's King."
-            g neutral "[playername]... you seem different from other women."
             "King's eyes dart around the classroom before they return to freeze at yours."
-            g neutral "In a world of 3s, you are a 10."
+            g neutral "[playername]... you seem different from most women."
+            
+            # g neutral "In a world of 3s, you are a 10."
             mc deadpan "(What's his deal?)"
 
+            hide king neutral
+
             menu:
-                "Tell King to be quiet.":
+                "Buy his silence.":
+                    # define moveoutleft_plus_fade = ComposeTransition(dissolve, before=moveoutleft, after=None)
+
+                    transform move_left:
+                        easeout 0.3 xalign 0.25
+
+                    # transform move_right:
+                    #     easeout 0.3 xalign 0.75
+
+                    transform olivia_move_left:
+                        easeout 0.3 xalign 0.75
+
+                    show king neutral:
+                        zoom 0.25
+                        xcenter 0.5
+                        yalign 1.0
+
+                    # mc neutral "Hey, if I give you $100, will you be quiet?"
+                    mc neutral "Will you be quiet if I give you $100?"
+
+                    show king neutral at move_left
+
+                    show olivia neutral:
+                        zoom 0.25
+                        xalign 0.9
+                        yalign 1.0
+                    show olivia shocked at olivia_move_left
+
+                    o "Hey! [playername], are you naive or what?"
+                    mc neutral "Excuse me... who are you?"
+                    $ meangirl = "Olivia"
+                    o "Olivia Johnson."
+                    o neutral "But anyways, don't give him the hundred bucks-"
+
+                    g disgusted "Don't interrupt me, female. I don't need it anyways."
+                    g neutral "As a real man, I make my own money."
+                    # g neutral "I even have a podcast and drive a Wamborghini."
+                    g neutral "Wealth and success are merely byproducts of discipline."
+
+                    g disgusted "Besides, you're no better. You know you're only after Ronan for his money."
+                    o angry "You take that back right now."
+
+                    mc neutral "(Should I get involved?)"
+
                     pass
+
                 "Ask what he means.":
+                    mc neutral "I'm different from other women? What do you mean by that?"
                     pass
                 "Offer him food.":
+                    mc neutral "(Well...I've heard Americans say that you're not you when you're hungry.)"
                     pass
 
             # g neutral "That made you angry? ...Women are so emotional."
 
-
-
-
-            
-
-            # "Mid-chew, you look up and see..."
-            # show olivia_neutral with dissolve
-            # "...an unfamiliar face."
-
-            # o "Wait...YOU'RE [playername], aren't you?"
-
-
         "(Eat lunch outside.)":
-            # just encounter with gymbro
             jump episode_4_outside
 
         
@@ -1619,7 +1678,10 @@ label episode_4_outside:
 
             o "Soooo...YOU'RE [playername]?"
             "Mid-chew, you look up and see..."
-            show olivia_neutral with dissolve
+            show olivia neutral with dissolve:
+                zoom 0.25
+                xcenter 0.5
+                yalign 1.0
             "...an unfamiliar face."
 
             menu:
@@ -1706,7 +1768,8 @@ label episode_4_outside:
                 o "ANYWAYS, I just gave you my business card, with my WinkedIn on the back side. We're friends now, 'kay?"
                 mc neutral "Uh-"
                 o "[playername], don't hesitate to say hello when you see me in the halls. Bye now!"
-                hide olivia_neutral
+                hide olivia neutral
+                mc neutral "(...What a character.)"
             else:
                 
                 $ olivia_ticked_off = True
@@ -1714,26 +1777,29 @@ label episode_4_outside:
                 o "See, this is an IMPORTANT call I have to take right now."
                 o "Bye, [playername]."
 
-                hide olivia_neutral
+                hide olivia neutral
 
                 "Olivia runs past you in a jiffy, and you watch as she wears her corporate smile, answering her phone with her happy corporate voice."
                 "As if you two weren't just on the verge of pulling each other's hair."
 
                 mc neutral "(Finally, some peace and quiet.)"
-                mc neutral "(But...lunch is just about to end. Better head to my next class.)"
+                
+            mc neutral "(I get the feeling that it won't be long before I run into her again.)"
+            "Sluggishly, you take out your phone to check the time. As you thought, lunch is ending soon."
+            mc neutral "(Better head to my next class, Quantum Physics.)"
 
-                menu:
-                    "Head back to the classroom.":
-                        scene bg black with fade
-
+            menu:
+                "Head to your next class.":
+                    scene bg classroom_04 with fade
+                    "The rest of your day is unremarkable."
+                    "Time goes by slowly. You find your new classes easy because your teachers only walk through slideshows today."
+                    "After dismissal, you find no reason to stick around at school, so your chauffeur drives you back to your penthouse."
 
             # or should she deliberately knock over the bento? maybe add ANOTHER route for that? (if you tick her off)
 
             # olivia (nepo baby) likes narcissist, confronts mc
                 # pretending to befriend her, "i have connections too, you're not special"
             # gym bro comes back
-
-
 
             # gym bro and twin secret twin brothers
             # also results in encounter with mean girl?
@@ -1747,7 +1813,7 @@ label episode_4_outside:
             # different route...
             
 
-            "This is a bookmark for testing purposes."
+            jump episode_5
 
         "Walk past him.":
             "You stare straight ahead and walk just a little faster than usual, because you've got places to be and lunch to eat."
