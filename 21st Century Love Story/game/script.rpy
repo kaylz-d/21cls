@@ -1592,7 +1592,7 @@ label episode_4:
                     mc neutral "Excuse me... who are you?"
                     $ meangirl = "Olivia"
                     o "Olivia Johnson."
-                    o neutral "But anyways, don't give him the hundred bucks-"
+                    o neutral "But anyways, why would you give him a hundred bucks-"
 
                     g disgusted "Don't interrupt me, female. I don't need it anyways."
                     g neutral "As a real man, I make my own money."
@@ -1603,22 +1603,90 @@ label episode_4:
                     o angry "You take that back right now."
 
                     mc neutral "(Should I get involved?)"
+                    menu:
+                        "Stand up for Olivia.":
+                            mc angry "Too far, King."
+                        "Interrogate Olivia.":
+                            
+                            mc neutral "Olivia... do you have feelings for Ronan?"
+                            o shocked "That's...that's none of your business!"
+                            o angry "We just met, [playername]. You don't even know me. Who are you to judge?"
+                            mc deadpan "(I could say the same thing, though.)"
+
+                            mc neutral "Then doesn't that make you a hypocrite?"
+                            mc neutral "First, I heard you making comments on my lunch. And now, to my face, you're telling me how I should spend my money."
+
+                            o shocked "..."
+                            o angry "*mumbling* So annoying."
+
+                            "Olivia mumbles some other things you can't hear. Maybe cursing you out."
+                            "She shoves her way between you and King, storming out of the classroom."
+
+                            mc neutral "Huh. I didn't expect her to just leave like that."
+                            g disgusted "..."
+
+                            "What you thought would be a relaxing lunch ended up creating tension."
+                            "Tension in the air, and tension between you and your new classmates."
+
+                            mc shocked "(Did I...make the wrong decision?)"
+                            mc shocked "(Will my high school life only go downhill from here?)"
+                            "You keep your head down and finish eating your lunch. When lunch is over, you drag your feet to your next class."
+
+                            g neutral "Women can be scary sometimes."
+                            g neutral "Hmm...it's probably better that I don't get involved with [playername]."
+
+                            hide king with dissolve
+
+                            pass
+                        "Don't do anything.":
+
+                            hide olivia
+                            hide king 
+                            with dissolve
+                            
+                            transform blur_screen:
+                                blur 0.0
+                                easeout 0.5 blur 16.0
+
+                            show bg classroom_04 at blur_screen
+                            with dissolve
+
+                            "While Olivia and King bicker with each other, you remain silent and focus on your meal."
+                            "Before you know it, lunch is over, and your tummy is full."
+
+                            mc happy "(Life is good.)"
+                            mc happy "(Just gotta stay away from all the drama.)"
+
+                            pass
 
                     pass
 
-                "Ask what he means.":
-                    mc neutral "I'm different from other women? What do you mean by that?"
-                    pass
                 "Offer him food.":
-                    mc neutral "(Well...I've heard Americans say that you're not you when you're hungry.)"
+                    # mc neutral "(Well...I've heard Americans say that you're not you when you're hungry.)"
+                    mc deadpan "I have no idea what you mean by that."
+                    mc neutral "(Though... I've heard Americans say that you're not you when you're hungry.)"
+
+                    mc happy "King, would you like a lobster tail?"
+                    g disgusted "...?"
+                    g neutral "You know what? Sure, okay."
+                    g neutral "Protein is protein."
+
                     pass
+
+            "The rest of your day is unremarkable."
+            "Time goes by slowly. You find your new classes easy because your teachers only walk through slideshows today."
+            "After dismissal, you find no reason to stick around at school, so your chauffeur drives you back to your penthouse."
+            
+            jump episode_5
 
             # g neutral "That made you angry? ...Women are so emotional."
+
+            g neutral "LOLOL!!! end!!!"
+            g neutral "bookmark!!!"
 
         "(Eat lunch outside.)":
             jump episode_4_outside
 
-        
     jump episode_5
     return
 
@@ -1795,24 +1863,6 @@ label episode_4_outside:
                     "Time goes by slowly. You find your new classes easy because your teachers only walk through slideshows today."
                     "After dismissal, you find no reason to stick around at school, so your chauffeur drives you back to your penthouse."
 
-            # or should she deliberately knock over the bento? maybe add ANOTHER route for that? (if you tick her off)
-
-            # olivia (nepo baby) likes narcissist, confronts mc
-                # pretending to befriend her, "i have connections too, you're not special"
-            # gym bro comes back
-
-            # gym bro and twin secret twin brothers
-            # also results in encounter with mean girl?
-            #  _______________
-            # |COME BACK!!!!!|
-            # ---------------
-            #   __  __
-            #  | |_| |
-            # |   _ _|
-            # (    ^ )
-            # different route...
-            
-
             jump episode_5
 
         "Walk past him.":
@@ -1859,12 +1909,23 @@ label episode_4_outside:
                     #     "(Walk away.)":
                     #         # idk yet
 
+                    # |COME BACK!!!!!|
+                    # ---------------
+                    #   __  __
+                    #  | |_| |
+                    # |   _ _|
+                    # (    ^ )
+                    # different route...
+
     jump episode_5
     return
 
 # date w/ performative (athena)
 label episode_5:
     scene bg black_background with fade
+
+    "The next day..."
+    # maybe a quick cutscene of mc going through her day
 
     "Friday, 3:00 PM."
     "Thankfully, your day was less... eventful compared to your first day of school."
