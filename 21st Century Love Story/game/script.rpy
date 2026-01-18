@@ -9,6 +9,21 @@
 init:
     define config.layers = ['master', 'transient', 'screens', 'overlay', 'ontop']
 
+    transform blur_screen:
+        blur 0.0
+        easeout 0.5 blur 16.0
+
+    # far left side
+    transform move_left:
+        easeout 0.3 xalign 0.25
+
+    # right side
+    transform olivia_move_left:
+        easeout 0.3 xalign 0.75
+    
+    transform move_back_to_middle:
+        easeout 0.3 xalign 0.5
+
 default playername = "You"
 default performative = "Kyren"
 default narcissist = "Ronan"
@@ -24,7 +39,6 @@ define cashier = Character("Cashier")
 define p = Character("[performative]", image="kyren")
 define n = Character("[narcissist]")
 define w = Character("[weeb]")
-# pnw = pacific northwest!
 define g = Character("[gymbro]", image="king")
 define teacher = Character("Mr. Teacher")
 define classmate = Character("classmate")
@@ -32,7 +46,6 @@ define b1 = Character("Bully 1", image="bully1")
 define b2 = Character("Bully 2", image="bully2")
 # mean gurlz
 define o = Character("[meangirl]", image="olivia")
-# i'm thinking about combining Sophia and Olivia to be the same person? :p will bring it up next call
 
 # character sprites
 image player neutral = "side player neutral.png"
@@ -45,16 +58,13 @@ image kyren shocked = "kyren_shocked.png"
 
 image king neutral = "gymbro_neutral.png"
 image king disgusted = "gymbro_disgusted.png"
+image king angry = "gymbro_angry.png"
 
 image cashier_neutral = "cashier.png"
 image classmate_neutral = "billG.jpg"
 
 image narcissist_neutral = "narcissist_neutral.png"
 image weeb_neutral = "weeb_neutral.png"
-
-# image define b1 neutral = "bully1 neutral.png"
-# image define b2 neutral = "bully2 neutral.png"
-
 image b1_neutral = "bully1 neutral.png"
 image b2_neutral = "bully2 neutral.png"
 
@@ -65,7 +75,6 @@ image olivia sad = "olivia sad.png"
 image olivia shocked = "olivia shocked.png"
 
 # cutscene images
-
 image manga = "manga.png"
 image manga_run = "manga_run_cutscene.png"
 
@@ -100,18 +109,14 @@ image bg living_room = "condo_Day 05.jpg"
 # aura points/level for route percentage
 default p_aura = 1
 # default p_points = 0
-
 default n_aura = 1
 # default n_points = 0
-
 default g_aura = 1
 # default g_points = 0
-
 default w_aura = 1
 # default w_points = 0
 
 # AURAAAAAAAAA SYSTEM ICONS
-
 screen p_heart_box():
     add "kyren_heart.png":
         xpos 0.92
@@ -606,7 +611,7 @@ label episode_1_tour:
     jump episode_2
     return
 
-# THIS SECTION IS A SKIP TO THE NARCISSIST SCENE
+# NARCISSIST SCENE
 
 label episode_2:
     
@@ -1497,6 +1502,7 @@ label episode_3_savior:
     return
 
 # lunch + meet gymbro (CURRENTLY UNFINISHED)
+# MAKE SURE THAT OLIVIA ENCOUNTER IS IN EACH ROUTE
 label episode_4:
     scene bg classroom_04 with fade
     "One long lecture later..."
@@ -1553,31 +1559,18 @@ label episode_4:
             g neutral "Well pardon me, then. The name's King."
             "King's eyes dart around the classroom before they return to freeze at yours."
             g neutral "[playername]... you seem different from most women."
-            
-            # g neutral "In a world of 3s, you are a 10."
             mc deadpan "(What's his deal?)"
 
             hide king neutral
 
             menu:
                 "Buy his silence.":
-                    # define moveoutleft_plus_fade = ComposeTransition(dissolve, before=moveoutleft, after=None)
-
-                    transform move_left:
-                        easeout 0.3 xalign 0.25
-
-                    # transform move_right:
-                    #     easeout 0.3 xalign 0.75
-
-                    transform olivia_move_left:
-                        easeout 0.3 xalign 0.75
 
                     show king neutral:
                         zoom 0.25
                         xcenter 0.5
                         yalign 1.0
 
-                    # mc neutral "Hey, if I give you $100, will you be quiet?"
                     mc neutral "Will you be quiet if I give you $100?"
 
                     show king neutral at move_left
@@ -1592,33 +1585,170 @@ label episode_4:
                     mc neutral "Excuse me... who are you?"
                     $ meangirl = "Olivia"
                     o "Olivia Johnson."
-                    o neutral "But anyways, don't give him the hundred bucks-"
-
-                    g disgusted "Don't interrupt me, female. I don't need it anyways."
+                    o neutral "But anyways, why would you give him a hundred bucks-"
+                    g angry "Don't interrupt me, female. I don't need it anyways."
                     g neutral "As a real man, I make my own money."
                     # g neutral "I even have a podcast and drive a Wamborghini."
                     g neutral "Wealth and success are merely byproducts of discipline."
-
                     g disgusted "Besides, you're no better. You know you're only after Ronan for his money."
                     o angry "You take that back right now."
-
                     mc neutral "(Should I get involved?)"
 
+                    menu:
+                        # maybe i'll do this route at a later time lol
+                        # "Stand up for Olivia.":
+                        #     $ olivia_ticked_off = False
+                        #     mc angry "Too far, King."
+                        "Interrogate Olivia.":
+                            $ olivia_ticked_off = True
+                            show king neutral
+                            mc neutral "Olivia... do you have feelings for Ronan?"
+                            o shocked "That's...that's none of your business!"
+                            o angry "We just met, [playername]. You don't even know me. Who are you to judge?"
+                            mc deadpan "(I could say the same thing, though.)"
+                            mc neutral "Then doesn't that make you a hypocrite?"
+                            mc neutral "First, I heard you making comments on my lunch. And now, to my face, you're telling me how I should spend my money."
+                            o shocked "..."
+                            o angry "*mumbling* So annoying."
+                            "Olivia mumbles some other things you can't hear. Maybe cursing you out."
+                            
+                            hide olivia angry
+                            with dissolve
+
+                            "She shoves her way between you and King, storming out of the classroom."
+
+                            show king neutral at move_back_to_middle
+
+                            mc neutral "Huh. I didn't expect her to just leave like that."
+                            g neutral "Yeah! I knew you'd win."
+                            g neutral "Olivia's just a 3, but you're a solid 10."
+                            mc neutral "What?"
+                            g neutral "Anyways... you know Ronan Sinclair?"
+                            mc neutral "He's in my PE class."
+                            g neutral "Ronan's taking PE? That's good. He should work out more. Like I do."
+
+                            "King goes on to talk about the importance of maintaining appearances, and he explains how it all starts with a healthy lifestyle."
+                            "He uses funny words like \"looksmaxxing\" and offers you plenty of tips for your next gym session."
+                            "You decide to just let him keep talking while you finish eating your lunch."
+
+                            g neutral "Hey [playername], you're a pretty good listener-"
+                            "*RING!*"
+                            g angry "...since I hate being interrupted."
+                            "The bell rings, signaling that lunch is over. You need to get going to Quantum Physics, which is all the way on the other side of campus!"
+                            "You frantically pack up your things and make a beeline for the door."
+                            mc neutral "Sorry, I gotta run."
+                            g neutral "Yeah, okay then."
+                            g neutral "Join me at the gym sometime. I'll be your personal trainer."
+
+                            # scrapped lines
+                            
+                            # g disgusted "This is why I don't get involved in female drama..."
+                            # g neutral "Though you seem to have cooled down quick."
+                            
+                            # "What you thought would be a relaxing lunch ended up creating tension."
+                            # "Tension in the air, and tension between you and your new classmates."
+                            # mc shocked "(Did I...make the wrong decision?)"
+                            # mc shocked "(Will my high school life only go downhill from here?)"
+                            # "You keep your head down and finish eating your lunch. When lunch is over, you drag your feet to your next class."
+                            # g neutral "Women can be scary sometimes."
+                            # g neutral "Hmm...it's probably better that I don't get involved with [playername]."
+
+                            hide king with dissolve
+                            show bg classroom_04 at blur_screen
+                            with dissolve
+
+                            pass
+
+                        "Remain neutral.":
+
+                            hide olivia
+                            hide king 
+                            with dissolve
+
+                            show bg classroom_04 at blur_screen
+                            with dissolve
+
+                            "While Olivia and King bicker with each other, you remain silent and focus on your meal."
+                            "Before you know it, lunch is over, and your tummy is full."
+
+                            mc happy "(Life is good.)"
+                            mc happy "(Just gotta stay away from all the drama.)"
+
+                            pass
+
                     pass
 
-                "Ask what he means.":
-                    mc neutral "I'm different from other women? What do you mean by that?"
-                    pass
                 "Offer him food.":
-                    mc neutral "(Well...I've heard Americans say that you're not you when you're hungry.)"
+                    # mc neutral "(Well...I've heard Americans say that you're not you when you're hungry.)"
+                    mc deadpan "I have no idea what you mean by that."
+                    mc neutral "(Though... I've heard Americans say that you're not you when you're hungry.)"
+
+                    mc happy "King, would you like a lobster tail?"
+                    show king disgusted:
+                        zoom 0.25
+                        xcenter 0.5
+                        yalign 1.0
+                    g "...?"
+                    g neutral "You know what? Sure, okay."
+                    g neutral "Protein is protein."
+
+                    "You serve King a lobster tail on a clean napkin."
+
+                    show king neutral at move_left
+
+                    show olivia happy:
+                        zoom 0.25
+                        xalign 0.9
+                        yalign 1.0
+                    show olivia happy at olivia_move_left
+
+                    o happy "Hey [playername]! Could I try a lobster tail too?"
+                    mc neutral "Sorry, but who are you?"
+
+                    $ meangirl = "Olivia"
+                    o neutral "I'm Olivia. Olivia JOHNSON, next in line to take over the Johnson Big Law Firm."
+                    o happy "I've heard all about you, [playername]. Let's be friends, okay?"
+                    mc neutral "(She could either become an ally or an enemy...let's just try to stay on her good side.)"
+                    mc happy "Okay."
+                    "Olivia brings her own napkin, and you serve her a lobster tail too."
+                    g disgusted "..."
+                    o angry "What are you looking at?"
+                    g neutral "Hm? I was just thinking about how women can be so two-faced."
+                    o angry "Excuse me?"
+                    g neutral "Woah, calm down. I'm not just targeting you."
+                    mc deadpan "(What is going on?)"
+                    mc neutral "Not cool, King. I'm not sure what you have against women, but making comments like that say more about YOU than they do about us."
+                    o happy "YES!!! YOU TELL HIM SIS!!!"
+                    g neutral "..."
+                    "*RING*"
+                    "King doesn't say anything else before the bell rings, signaling that lunch has ended. You get up and pack your things."
+                    mc neutral "Let's go, Olivia."
+                    $ olivia_ticked_off = False
+                    # next scene can be gymbro apologizing!!
+
+                    hide olivia
+                    hide king 
+                    with dissolve
+
+                    show bg classroom_04 at blur_screen
+                    with dissolve
+
                     pass
+
+            "The rest of your day is unremarkable."
+            "Time goes by slowly. You find your new classes easy because your teachers only walk through slideshows today."
+            "After dismissal, you find no reason to stick around at school, so your chauffeur drives you back to your penthouse."
+            
+            jump episode_5
 
             # g neutral "That made you angry? ...Women are so emotional."
+
+            g neutral "LOLOL!!! end!!!"
+            g neutral "bookmark!!!"
 
         "(Eat lunch outside.)":
             jump episode_4_outside
 
-        
     jump episode_5
     return
 
@@ -1795,24 +1925,6 @@ label episode_4_outside:
                     "Time goes by slowly. You find your new classes easy because your teachers only walk through slideshows today."
                     "After dismissal, you find no reason to stick around at school, so your chauffeur drives you back to your penthouse."
 
-            # or should she deliberately knock over the bento? maybe add ANOTHER route for that? (if you tick her off)
-
-            # olivia (nepo baby) likes narcissist, confronts mc
-                # pretending to befriend her, "i have connections too, you're not special"
-            # gym bro comes back
-
-            # gym bro and twin secret twin brothers
-            # also results in encounter with mean girl?
-            #  _______________
-            # |COME BACK!!!!!|
-            # ---------------
-            #   __  __
-            #  | |_| |
-            # |   _ _|
-            # (    ^ )
-            # different route...
-            
-
             jump episode_5
 
         "Walk past him.":
@@ -1859,12 +1971,23 @@ label episode_4_outside:
                     #     "(Walk away.)":
                     #         # idk yet
 
+                    # |COME BACK!!!!!|
+                    # ---------------
+                    #   __  __
+                    #  | |_| |
+                    # |   _ _|
+                    # (    ^ )
+                    # different route...
+
     jump episode_5
     return
 
 # date w/ performative (athena)
 label episode_5:
     scene bg black_background with fade
+
+    "The next day..."
+    # maybe a quick cutscene of mc going through her day
 
     "Friday, 3:00 PM."
     "Thankfully, your day was less... eventful compared to your first day of school."
@@ -2182,31 +2305,7 @@ label episode_5_math:
     p neutral "I'm soooo average and soooo dumb unlike you..."
     p neutral "I could never be smart enough to take those advanced math courses."
     p neutral "How many worksheets do you have to do?"
-    "You scan through the pile of worksheets in front of you, mentally counting each paper."
-    mc neutral "Eight."
-    p shocked "Wow, that's insane."
-    p neutral "Hey, do you mind if I work on my math homework with you?"
 
-    menu:
-        # +1 point
-        "Let Kyren accompany you":
-            $ p_aura += 1
-            "+1 Aura!"
-            mc neutral "That's fine."
-            p happy "Thanks!"
-            p neutral "I won't disturb you, I promise!"
-        # -1 point
-        "Don't let Kyren accompany you":
-            mc deadpan "No thank you."
-            p sad "...Oh, that's okay."
-            $ p_aura -= 1
-            "-1 Aura!"
-            p neutral "I'll get going now then."
-            p neutral "See you at school, [playername]."
-            jump episode_6
-
-    "You watch Kyren pull a chair before setting his belongings on the ground before taking a seat."
-    "At the same time, you "
     
     jump episode_6
     return
