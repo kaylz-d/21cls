@@ -37,7 +37,7 @@ default gymbro = "King"
 default meangirl = "Olivia"
 # if this is true, then olivia becomes your enemy - otherwise, you become friends
 default olivia_ticked_off = False
-default know_gymbro = True
+# default know_gymbro = True
 
 # character define
 define mc = Character("[playername]", image="player")
@@ -692,7 +692,7 @@ label episode_2_meeting:
         n "And since you're uneducated, I'll show some mercy and inform you about WHO I am exactly."
         $ narcissist = "Ronan"
         n "I am Ronan, Ronan X.Y. Sinclair! The first in line to inherit the reputable Sinclair X.Y. Industries!"
-        mc neutral "(Sinclair X.Y. Industries... kind of rings a bell. I think they source parts from dad's company?)"
+        mc neutral "(Sinclair X.Y. Industries... kind of rings a bell. I think they source parts from one of dad's subsidiaries?)"
         n "So, you-"
         n "..."
         n "Why do you look familiar?"
@@ -1782,7 +1782,7 @@ label episode_4_outside:
         xcenter 0.5
         yalign 1.0
     
-    g disgusted "Females... *sigh*"
+    g disgusted "Wom... *sigh*"
     "That smell of coffee is probably coming from this tough-looking guy, who's leaving the classroom at the same time you are."
 
     menu:
@@ -1905,16 +1905,18 @@ label episode_4_outside:
 
             if (olivia_temperament_counter < 3):
                 o shocked "Oh my, would you look at the time. Sorry our meeting was so short. I have an IMPORTANT call to take right now."
-                o neutral "ANYWAYS, I just gave you my business card, with my WinkedIn on the back side. We're friends now, 'kay?"
+                o neutral "ANYWAYS, I just gave you my business card, with my number and WinkedIn on the back side. We're friends now, 'kay?"
                 mc neutral "Uh-"
                 o happy "[playername], don't hesitate to say hello when you see me in the halls. Bye now!"
                 hide olivia neutral
                 mc neutral "(...What a character.)"
+                "Olivia excuses herself politely, like how you'd expect a career woman to do."
             else:
                 
                 $ olivia_ticked_off = True
 
                 o angry "See, this is an IMPORTANT call I have to take right now."
+                o angry "You should be honored that I offered you MY business card. With my WinkedIn on it!"
                 o neutral "Bye, [playername]."
 
                 hide olivia neutral
@@ -1922,17 +1924,43 @@ label episode_4_outside:
                 "Olivia runs past you in a jiffy, and you watch as she wears her corporate smile, answering her phone with her happy corporate voice."
                 "As if you two weren't just on the verge of pulling each other's hair."
 
-                mc neutral "(Finally, some peace and quiet.)"
-                
-            mc neutral "(I get the feeling that it won't be long before I run into her again.)"
+            mc neutral "(Finally, some peace and quiet.)"
+
+            show king neutral with dissolve:
+                zoom 0.25
+                xcenter 0.5
+                yalign 1.0
+            g neutral "Hold it."
+            mc deadpan "(Or not.)"
+            g neutral "What do you know about WinkedIn?"
+            g focused "Because I'd love to connect. You know, I'm currently building a tech startup that [[insert AI B2B SaaS WhyCombinator big tech buzzwords], if you wanna join the team."
+            mc neutral "(Oh... he must have heard my conversation with Olivia.)"
+            # mc neutral "(I get the feeling that it won't be long before I run into her again.)"
+
+            # maybe come back and add secret route where you actually join the startup and make it successful LOL
+            menu:
+                "Flex your status.":
+                    mc neutral "Have you heard of Fuyu Group?"
+                    mc "I'm the heiress. We have quite a few subsidiaries that focus on tech."
+                    pass
+                "Not interested.":
+                    mc neutral "Sorry, but I'm not interested."
+                "No idea what you're talking about.":
+                    pass
+            
+            g neutral "Take this anyways, in case you change your mind."
+            "Just like Olivia, King "
+
             "Sluggishly, you take out your phone to check the time. As you thought, lunch is ending soon."
             mc neutral "(Better head to my next class, Quantum Physics.)"
 
-            $ know_gymbro = False
+            # $ know_gymbro = False
 
             menu:
                 "Head to your next class.":
-                    scene bg classroom_04 with fade
+                    show bg quad_outside_arts_building at blur_screen
+                    with dissolve
+
                     "The rest of your day is unremarkable."
                     "Time goes by slowly. You find your new classes easy because your teachers only walk through slideshows today."
                     "After dismissal, you find no reason to stick around at school, so your chauffeur drives you back to your penthouse."
@@ -1960,6 +1988,9 @@ label episode_4_outside:
 
             menu:
                 "Use napkins to clean up after yourself.":
+                    
+                    $ meangirl = "???"
+
                     "Taking a napkin out of your pocket, you wipe your little spill."
                     mc happy "There. All clean."
                     # olivia: "wowww ur cleaning urself? ur not having ur little housemaids do it for u?" (pretentious, fake tone)
@@ -1977,15 +2008,32 @@ label episode_4_outside:
                     mc shocked "(Wait, that's the guy I ran into earlier!)"
                     mc neutral "Um, who are you?"
                     g neutral "King."
-                    mc neutral "Okay... nice. To. Meet you. King."
-                    mc "(He's seems to be much more friendly than earlier.)"
+                    mc neutral "Okay. Nice. To. Meet. You. King."
                     g neutral "I really misjudged you. I thought you were just like other women... but you're not."
                     g "You get what I mean?"
                     mc deadpan "No, I do not."
-                    g neutral "Aha. Not everyone can comprehend complex ideas like this."
-                    g neutral "Basically, yeah"
+                    mc neutral "(At least, he seems to be much more friendly than earlier.)"
+                    mc happy "...But maybe I misjudged you too."
+                    g focused "Aha. Not everyone can comprehend complex ideas like this, but it looks like you've got potential."
+                    g neutral "When I saw you pick up that napkin..."
+                    show mc shocked
+                    g neutral "I just thought that you would be a good, stable partner to have."
+                    g neutral "To your advantage, you're attractive and composed. Truly a traditional woman. I respect you for that."
+                    mc "Uh..."
 
+                    menu:
+                        "Pretend you didn't hear that.":
+                            pass
+                        "Thank you.":
+                            mc neutral "Thank you?"
+                            g focused "You're welcome."
                     
+                    g neutral "Anyways, tell me more about yourself. "
+
+                    # new strategy: don't try to force olivia in if she doesn't fit
+
+
+
 
                     # gym bro sees olivia, is like "you women are so emotional. at least this girl has potential"
                     # mc deadpan "(What's his deal?)"
