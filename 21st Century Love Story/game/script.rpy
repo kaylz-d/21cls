@@ -30,10 +30,10 @@ init:
         yalign 1.0
 
 default playername = "You"
-default performative = "Kyren"
-default narcissist = "Ronan"
-default weeb = "Lucien"
-default gymbro = "King"
+default performative = "Kyren" #WheeChat
+default narcissist = "Ronan" #Instagwam
+default weeb = "Lucien" #Weddit
+default gymbro = "King" #WinkedIn
 default meangirl = "Olivia"
 # if this is true, then olivia becomes your enemy - otherwise, you become friends
 default olivia_ticked_off = False
@@ -1910,13 +1910,13 @@ label episode_4_outside:
                 o happy "[playername], don't hesitate to say hello when you see me in the halls. Bye now!"
                 hide olivia neutral
                 mc neutral "(...What a character.)"
-                "Olivia excuses herself politely, like how you'd expect a career woman to do."
+                "Olivia excuses herself politely and takes her call, like how you'd expect a career woman to do."
             else:
                 
                 $ olivia_ticked_off = True
 
                 o angry "See, this is an IMPORTANT call I have to take right now."
-                o angry "You should be honored that I offered you MY business card. With my WinkedIn on it!"
+                o angry "Be thankful that I offered you MY business card. With my WinkedIn on it!"
                 o neutral "Bye, [playername]."
 
                 hide olivia neutral
@@ -1933,25 +1933,64 @@ label episode_4_outside:
             g neutral "Hold it."
             mc deadpan "(Or not.)"
             g neutral "What do you know about WinkedIn?"
-            g focused "Because I'd love to connect. You know, I'm currently building a tech startup that [[insert AI B2B SaaS WhyCombinator big tech buzzwords], if you wanna join the team."
+            $ gymbro = "King"
+            g focused "Because I'd love to connect. My name is King, and I'm currently building a tech startup that [[insert AI B2B SaaS WhyCombinator big tech buzzwords], if you wanna join the team."
             mc neutral "(Oh... he must have heard my conversation with Olivia.)"
-            # mc neutral "(I get the feeling that it won't be long before I run into her again.)"
-
+            mc shocked "(Wait, that's the guy from earlier!)"
             # maybe come back and add secret route where you actually join the startup and make it successful LOL
             menu:
                 "Flex your status.":
+                    show g neutral
                     mc neutral "Have you heard of Fuyu Group?"
                     mc "I'm the heiress. We have quite a few subsidiaries that focus on tech."
+                    mc happy "So... my apologies. I don't have time to join your startup."
+                    g neutral "I see. That's okay, then."
+                    show mc neutral
+                    "King looks at the ground for a moment, appearing to be in deep thought."
+                    "Then, he looks up to make eye contact with you."
+                    g "You're... more competent than you seem. Very impressive."
                     pass
                 "Not interested.":
                     mc neutral "Sorry, but I'm not interested."
+                    g neutral "Alright then."
+                    pass
                 "No idea what you're talking about.":
+                    mc neutral "I have no idea what you're talking about."
+                    pass
+                "Why did you ignore me earlier?":
+                    mc angry "Why did you ignore me earlier?"
+                    mc neutral "We met outside the classroom, and I wanted to say hi."
+                    g neutral "Is that so?"
+                    g "Sorry. I didn't see you. Must be because I'm so tall- just so you know, I'm 6'2."
+                    mc "Oh. Okay."
+                    g "Truly sorry about that. And please consider my business proposal."
+                    mc "..."
+                    pass
+                "I don't use WinkedIn.":
+                    mc neutral "I don't use WinkedIn."
+                    g "What?"
+                    g angry "You NEED to get WinkedIn. Don't you know how important networking is? How else will you prove yourself?"
+                    mc deadpan "(I don't really need to.)"
+                    g neutral "*sigh* Apologies. I don't mean to get aggravated."
+                    mc neutral "No worries."
+                    g "..."
                     pass
             
-            g neutral "Take this anyways, in case you change your mind."
-            "Just like Olivia, King "
+            g neutral "Could you at least tell me your name?"
+            mc "[playername]."
+            g "Well, it was nice to meet you, [playername]."
+            g "Take this anyways, in case you change your mind."
+            g "I'll see you around."
 
-            "Sluggishly, you take out your phone to check the time. As you thought, lunch is ending soon."
+            "Just like Olivia, King had given you his business card before he left."
+            "King Kim."
+            "A peculiar name."
+            "To your surprise, his business card looks clean and professional. It's got his WinkedIn, email, and phone number."
+
+            mc neutral "(People here use so many apps. WheeChat, WinkedIn... what's next?)"
+
+            "Sluggishly, you take out your phone to check if you even have WinkedIn installed on your phone."
+            "Then you see the time. Soon, lunch will be over."
             mc neutral "(Better head to my next class, Quantum Physics.)"
 
             # $ know_gymbro = False
