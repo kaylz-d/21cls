@@ -1756,11 +1756,6 @@ label episode_4:
             
             jump episode_5
 
-            # g neutral "That made you angry? ...Women are so emotional."
-
-            g neutral "LOLOL!!! end!!!"
-            g neutral "bookmark!!!"
-
         "(Eat lunch outside.)":
             jump episode_4_outside
 
@@ -1961,7 +1956,7 @@ label episode_4_outside:
                     mc angry "Why did you ignore me earlier?"
                     mc neutral "We met outside the classroom, and I wanted to say hi."
                     g neutral "Is that so?"
-                    g "Sorry. I didn't see you. Must be because I'm so tall- just so you know, I'm 6'2."
+                    g "Sorry. I probably didn't see you. Must be because I'm so tall- just so you know, I'm 6'2."
                     mc "Oh. Okay."
                     g "Truly sorry about that. And please consider my business proposal."
                     mc "..."
@@ -2069,8 +2064,6 @@ label episode_4_outside:
         #                     g focused "You're welcome."
                     
         #             g neutral "Anyways, tell me more about yourself. "
-
-
     jump episode_5
     return
 
@@ -2081,8 +2074,8 @@ label episode_5:
     "The next day..."
     # maybe a quick cutscene of mc going through her day
 
-    "Friday, 3:00 PM."
-    "Thankfully, your day was less... eventful compared to your first day of school."
+    "Friday, 3:00 PM. At home, after school."
+    "Thankfully, your second day was less... eventful compared to your first day of school."
     "However, you were quickly reminded that you are now a student at THE Milkyway High School..."
     "...meaning you have a mountain of homework and assignments to complete before Monday."
     "Let's lock in!"
@@ -2317,7 +2310,7 @@ label episode_5_english:
             "You reach out to accept the earbud and insert it in your ear."
             $ p_aura += 1
             "+1 Aura!"
-            "What plays in your ear is a popular RnB song you've heard being played in the school cafe several times."
+            "What plays in your ear is a popular R&B song you've heard being played in the school cafe several times."
             "Glancing over to you again, Kyren softly whispers, only inches away from your face."
             p neutral "Do you know this song?"
             mc neutral "Yes, I've heard it before."
@@ -2328,7 +2321,7 @@ label episode_5_english:
             $ p_aura -= 1
             "-1 Aura!"
             "However, you realize that the earbuds must be of low quality, as you can hear his music spilling out."
-            "It's not too noticeable, but you identify a popular RnB song you've heard being played in the school cafe several times."
+            "It's not too noticeable, but you identify a popular R&B song you've heard being played in the school cafe several times."
     
     "Surprisingly, there's not too many people on the train."
     "The soft rumble of the train tracks and the shuffling of feet numb your mind, and you feel your eyelids growing heavy."
@@ -2402,13 +2395,42 @@ label episode_5_math:
     jump episode_6
     return
 
-# date w/ narcissist (kaylee)
+# date w/ weeb (kaylee)
+# friday ends with doomscrolling (you pick the app you want, which gives you aura boost)
+# mc tryna go 2 mall but she gets on wrong train (stuck on train w/ weeb for an hour)
+# eventually they split so weeb goes to anime convention/weddit meetup, since he is the 21cls subweddit moderator
+# mc goes 2 mall and sees ronan and king together
+# run into king when he picks up weeb from the train station
 label episode_6:
+
+    scene bg bedroom_night with fade
+    mc neutral "10:30 PM."
+    "You read the shiny numbers on your phone screen."
+    "It's about time you went to bed..."
+    mc shocked "But it's the weekend."
+    mc happy "(What app should I check first?)"
+    menu:
+        "WheeChat":
+            pass
+        "Instagwam":
+            pass
+        "Weddit":
+            pass
+        "WinkedIn":
+            pass
+
+    scene bg black_background with fade
+
+    "The next day..."
+    # maybe a quick cutscene of mc going through her day
+
+    "Saturday, 11:00 AM. At home."
+    c
 
     jump episode_7
     return
 
-# date w/ weeb (athena)
+# date w/ Ronan, narcissist (kaylee)
 label episode_7:
     
     jump episode_8
