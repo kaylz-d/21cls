@@ -2401,22 +2401,60 @@ label episode_5_math:
 # eventually they split so weeb goes to anime convention/weddit meetup, since he is the 21cls subweddit moderator
 # mc goes 2 mall and sees ronan and king together
 # run into king when he picks up weeb from the train station
-label episode_6:
+label episode_6: # MAYBE add short scrolling gameplay like osu?
 
     scene bg bedroom_night with fade
     mc neutral "10:30 PM."
-    "You read the shiny numbers on your phone screen."
+    "You read the shiny numbers on your phone screen, which glows brighter than the moonlight, as seconds continue to pass."
     "It's about time you went to bed..."
-    mc shocked "But it's the weekend."
+    mc shocked "But it's Friday night. That's basically the weekend."
+    mc neutral "After a busy first week, a little screen time won't hurt."
     mc happy "(What app should I check first?)"
     menu:
         "WheeChat":
-            pass
+            "(I wonder what everyone's up to.)"
         "Instagwam":
+            "Naturally, you open Instagwam; perhaps it's out of force of habit. "
+            menu:
+                "Doomscroll on Instagwam Weels.":
+                    $ n_aura += 1
+                    # mc shocked "No way... I can't believe Bigfoot lives in New York."
+                    mc happy "Let's see... those egg tarts look real tasty. I should ask the cook to make some soon."
+                    show mc neutral
+                    "*swipe*"
+                    mc shocked "Another school shooting happened?"
+                    mc neutral "This is so depressing to read, but I can't stop..."
+                    "*swipe*"
+                    mc neutral "Wow, that's a nice Wolex watch. I hope they have it in purple, too."
+                    "You save the post, and then tap to see the user's profile."
+                    mc neutral "..."
+                    mc shocked "Wait, huh? Ronan X.Y. Sinclair?"
+                    mc "This is Ronan's Instagwam account!"
+                    "You tap the button to follow the account."
+                    mc "What a productive day. That's enough Instagwam for now."
+                    menu:
+                        "Go to sleep.":
+                            pass
             pass
         "Weddit":
+            "Some subweddits are questionable, but it's not a bad place to learn new things."
             pass
         "WinkedIn":
+            # mc happy "I will become a WinkedIn warrior!"
+            show mc neutral
+            "It's been a hot minute since you last opened WinkedIn. Upon entering the app, you're bombarded with activity."
+            mc shocked "Wow, there are so many requests to connect."
+            "*swipe*"
+            mc neutral "Some nonprofit founder..."
+            "*swipe*"
+            mc neutral "Student from Milkyway High School..."
+            "*swipe*"
+            "You scroll down a lengthy list of requests to connect from students at your school."
+            mc shocked "I literally just transferred to this school. I don't know most of these people, but there are so many of them!"
+            mc happy "Heh... am I already that popular?"
+            "Actually, this is just because Milkyway Academy is full of WinkedIn warriors."
+            "You may feel like you've been adjusting well as an exchange student. But for some kids, they still struggle to keep up with Milkyway's rigorous coursework, even after having attended the institution for a few years longer than you."
+            "And as if the rigorous coursework wasn't enough, "
             pass
 
     scene bg black_background with fade
@@ -2425,7 +2463,6 @@ label episode_6:
     # maybe a quick cutscene of mc going through her day
 
     "Saturday, 11:00 AM. At home."
-    c
 
     jump episode_7
     return
