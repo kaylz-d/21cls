@@ -2443,37 +2443,41 @@ label episode_6: # MAYBE add short scrolling gameplay like osu?
 
             menu:
                 "Check out w/ELI4.":
+                    menu: 
+                        "Check out w/TIL":
+                            menu:
+                                "Check out w/ttigrtotiafw":
+                                    pass
+                            pass
+                        "Check out w/ttigrtotiafw":
+                            menu:
+                                "Check out w/TIL":
+                                    pass
+                            pass
                     pass
                 "Check out w/TIL":
+                    menu:
+                        "Check out w/ELI4":
+                            menu:
+                                "Check out w/ttigrtotiafw":
+                                    pass
+                            pass
+                        "Check out w/ttigrtotiafw":
+                            pass
                     pass
                 "Check out w/ttigrtotiafw":
+                    # immediately cuts to lucien's weddit post
                     pass
                 
-                # while len(weddit_friday_posts) > 0:
-                #     menu:
-                #         "Check out [weddit_friday_posts[0]]"
-
-            # me cuz idk how i wanna do the logic
-
-            # while weddit_friday_posts:
-            #     menu:
-            #         for post in weddit_friday_posts[:]:
-            #             "Check out [post]":
-            #                 if post != "w/ttigrtotiafw":
-            #                     "heh"
-            #                     return
-            #                 else:
-            #                     "yay"
-            #                     pass
-            #                 $ weddit_friday_posts.remove(post)
-
-
+            # results
             mc "\"Explain Like I'm Four: how do websites check that you're human?\""
             "*swipe*"
             mc "\"Today I Learned: fish breathe oxygen...\""
             "*swipe*"
             # mc "\"OMG. This girl who just transferred to my school is Suzuki Haruka in real life!\""
-            mc "\"The princess transferred to my school yesterday.\""
+            mc "\"w/ttigrtotiafw: The princess transferred to my school yesterday.\""
+            mc "Huh? What's this?"
+            mc "\"You won't believe this, but I met Princess Suzuki Haruka in real life.\""
 
             pass
         "WinkedIn":
