@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 2428: expected statement.
-    c
-     ^
+File "game/script.rpy", line 2450: expected menuitem
+    for post in weddit_friday_posts[:]:
+    ^
 
 Ren'Py Version: Ren'Py 8.2.3.24061702
-Tue Jan 20 22:05:44 2026
+Thu Jan 22 01:47:21 2026

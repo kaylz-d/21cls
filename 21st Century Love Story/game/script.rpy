@@ -1285,7 +1285,6 @@ label episode_3_meeting_2:
 label episode_3_savior:
 
     scene bg school_hallway_2
-
     hide b1_neutral
     hide b2_neutral
     show weeb_neutral with dissolve
@@ -2437,10 +2436,49 @@ label episode_6: # MAYBE add short scrolling gameplay like osu?
                             pass
             pass
         "Weddit":
+            # how to make choices disappear after you click them?
+            define weddit_friday_posts = ["w/ELI4", "w/TIL", "w/ttigrtotiafw"]
             "Some subweddits are questionable, but it's not a bad place to learn new things."
+            mc neutral "Let's see..."
+
+            menu:
+                "Check out w/ELI4.":
+                    pass
+                "Check out w/TIL":
+                    pass
+                "Check out w/ttigrtotiafw":
+                    pass
+                
+                # while len(weddit_friday_posts) > 0:
+                #     menu:
+                #         "Check out [weddit_friday_posts[0]]"
+
+            # me cuz idk how i wanna do the logic
+
+            # while weddit_friday_posts:
+            #     menu:
+            #         for post in weddit_friday_posts[:]:
+            #             "Check out [post]":
+            #                 if post != "w/ttigrtotiafw":
+            #                     "heh"
+            #                     return
+            #                 else:
+            #                     "yay"
+            #                     pass
+            #                 $ weddit_friday_posts.remove(post)
+
+
+            mc "\"Explain Like I'm Four: how do websites check that you're human?\""
+            "*swipe*"
+            mc "\"Today I Learned: fish breathe oxygen...\""
+            "*swipe*"
+            # mc "\"OMG. This girl who just transferred to my school is Suzuki Haruka in real life!\""
+            mc "\"The princess transferred to my school yesterday.\""
+
             pass
         "WinkedIn":
             # mc happy "I will become a WinkedIn warrior!"
+            $ g_aura += 1
             show mc neutral
             "It's been a hot minute since you last opened WinkedIn. Upon entering the app, you're bombarded with activity."
             mc shocked "Wow, there are so many requests to connect."
@@ -2452,9 +2490,15 @@ label episode_6: # MAYBE add short scrolling gameplay like osu?
             "You scroll down a lengthy list of requests to connect from students at your school."
             mc shocked "I literally just transferred to this school. I don't know most of these people, but there are so many of them!"
             mc happy "Heh... am I already that popular?"
+            # for worldbuiling purposes - idk if i should keep this here or move it somewhere else
             "Actually, this is just because Milkyway Academy is full of WinkedIn warriors."
-            "You may feel like you've been adjusting well as an exchange student. But for some kids, they still struggle to keep up with Milkyway's rigorous coursework, even after having attended the institution for a few years longer than you."
-            "And as if the rigorous coursework wasn't enough, "
+            "You may feel like you've been adjusting well to your new school as an exchange student. But for some kids, they still struggle to keep up with Milkyway's rigorous coursework, even after having attended the institution for a few years longer than you."
+            "And as if the rigorous coursework wasn't enough, there's always a pressure to find research positions or internships, if not jobs."
+            "*swipe*"
+            mc neutral "It's almost 11:00 PM now... guess I'll go to bed."
+            menu:
+                "Turn off your phone.":
+                    pass
             pass
 
     scene bg black_background with fade
