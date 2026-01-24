@@ -2437,9 +2437,49 @@ label episode_6: # MAYBE add short scrolling gameplay like osu?
             pass
         "Weddit":
             # how to make choices disappear after you click them?
-            define weddit_friday_posts = ["w/ELI4", "w/TIL", "w/ttigrtotiafw"]
-            "Some subweddits are questionable, but it's not a bad place to learn new things."
+            # define weddit_friday_posts = ["w/ELI4", "w/TIL", "w/ttigrtotiafw"]
+            "Some subweddits are questionable, but it's honestly not a bad place to learn new things."
             mc neutral "Let's see..."
+            menu:
+                "Check out w/ELI4.":
+                    mc "\"Explain Like I'm Four: What happens to bugs that get stuck in cars and accidentally travel long distances?\""
+                    # "As you scroll through the discussion thread, you fail to be satisfied by a concrete answer. Apparently, it depends on the species."
+                    "The most agreed-upon answer seems to be that it depends on the species. One Wedditor comments that some species will perish due to being unable to find their usual food or shelter."
+                    "Another Wedditor says that the species could adapt and even dominate their new environment, potentially becoming an invasive species and permanently changing their environment. For the better, or worse."
+                    mc "That's somewhat interesting. *swipe*"
+                    pass
+                "Check out w/TIL":
+                    mc "\"Today I Learned: in humans, the right lung has three lobes while the left only has 2.\""
+                    "You tap on the linked source and learn that the third lobe is the space for the human heart."
+                    mc "That makes sense."
+                    pass
+                "Check out w/ttigrtotiafw":
+                    mc "\"The princess appeared at my school yesterday.\""
+                    "This Wedditor shares a heartfelt story: \"I'm honestly kind of a loner, but that's because I don't have many friends who I vibe with, you get me?\""
+                    "\"'That Time I Got Reincarnated 21 Times in a Fantasy World' has been my only source of happiness these past few days.\""
+                    "\"If only there were more people at my school who enjoy anime and manga as much as I do. They don't understand that liking anime and manga is not just a hobby, it's a lifestyle! If it was normalized, then I wouldn't be picked on so often :(\""
+                    mc shocked "Woah, this is a really lengthy post. When does the princess come in?"
+                    
+                    menu:
+                        "Keep reading.":
+                            "\"I know you guys won't believe me, but I'm telling the truth. These two bullies were picking on me again (this happens a lot, unfortunately, I know, I'm such a loser),\""
+                            "\"and usually, no one cares enough to say anything, but today was different. A girl I had never seen around campus before took me by the hand, and then we ran away from the bullies together.\""
+                            "\"I wasn't wearing my glasses, but her figure was all too familiar. That flowing hair, that cool style, the same beautiful features.\""
+                            "\"I met Princess Suzuki Haruka in the flesh... and she saved me from those bullies. EDIT: She saved my life. Is this what people call fate?\""
+                            mc deadpan "Suzuki Haruka again?"
+                            show mc neutral
+                            # "\"I hope I can see her again soon. I want to thank her and become closer to her. If people see me walking with Suzuki Haruka, those people won't think I'm weird anymore.\""
+                            "\"I really want to thank her and become closer to her, but I don't have much experience talking to girls... what do I do??? Ideas on how to start a conversation please. I don't want to blow this opportunity.\""
+                            mc "*swipe*"
+                            pass
+                        "Stop reading.":
+                            pass
+
+                    pass
+                
+                # while len(weddit_friday_posts) > 0:
+                #     menu:
+                #         "Check out [weddit_friday_posts[0]]"
 
             menu:
                 "Check out w/ELI4.":
@@ -2468,16 +2508,6 @@ label episode_6: # MAYBE add short scrolling gameplay like osu?
                 "Check out w/ttigrtotiafw":
                     # immediately cuts to lucien's weddit post
                     pass
-                
-            # results
-            mc "\"Explain Like I'm Four: how do websites check that you're human?\""
-            "*swipe*"
-            mc "\"Today I Learned: fish breathe oxygen...\""
-            "*swipe*"
-            # mc "\"OMG. This girl who just transferred to my school is Suzuki Haruka in real life!\""
-            mc "\"w/ttigrtotiafw: The princess transferred to my school yesterday.\""
-            mc "Huh? What's this?"
-            mc "\"You won't believe this, but I met Princess Suzuki Haruka in real life.\""
 
             pass
         "WinkedIn":
