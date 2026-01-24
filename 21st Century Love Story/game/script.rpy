@@ -110,6 +110,8 @@ image bg bedroom_morning = "room_morning_light_off.jpg"
 image bg bedroom_night = "room_night_light_off.jpg"
 image bg dining_room = "condo_Day 03.jpg"
 image bg living_room = "condo_Day 05.jpg"
+image bg street = "street_redux_day.webp"
+image bg park = "park_not_so_winter.webp"
 
 # ========================AURA STUFF=============================
     
@@ -2394,12 +2396,7 @@ label episode_5_math:
     jump episode_6
     return
 
-# date w/ weeb (kaylee)
-# friday ends with doomscrolling (you pick the app you want, which gives you aura boost)
-# mc tryna go 2 mall but she gets on wrong train (stuck on train w/ weeb for an hour)
-# eventually they split so weeb goes to anime convention/weddit meetup, since he is the 21cls subweddit moderator
-# mc goes 2 mall and sees ronan and king together
-# run into king when he picks up weeb from the train station
+# filler doomscrolling scene, start saturday
 label episode_6: # MAYBE add short scrolling gameplay like osu?
 
     scene bg bedroom_night with fade
@@ -2436,43 +2433,9 @@ label episode_6: # MAYBE add short scrolling gameplay like osu?
                             pass
             pass
         "Weddit":
+            $ w_aura += 1
             "Some subweddits are questionable, but it's honestly not a bad place to learn new things."
             mc neutral "Let's see..."
-            # menu:
-            #     "Check out w/ELI4.":
-            #         mc "\"Explain Like I'm Four: What happens to bugs that get stuck in cars and accidentally travel long distances?\""
-            #         "The most agreed-upon answer seems to be that it depends on the species. One Wedditor comments that some species will perish due to being unable to find their usual food or shelter."
-            #         "Another Wedditor says that the species could adapt and even dominate their new environment, potentially becoming an invasive species and permanently changing their environment. For the better, or worse."
-            #         mc "That's somewhat interesting. *swipe*"
-            #         pass
-            #     "Check out w/TIL":
-            #         mc "\"Today I Learned: in humans, the right lung has three lobes while the left only has 2.\""
-            #         "You tap on the linked source and learn that the third lobe is the space for the human heart."
-            #         mc "That makes sense."
-            #         pass
-            #     "Check out w/ttigrtotiafw":
-            #         mc "\"The princess appeared at my school yesterday.\""
-            #         "This Wedditor shares a heartfelt story: \"I'm honestly kind of a loner, but that's because I don't have many friends who I vibe with, you get me?\""
-            #         "\"'That Time I Got Reincarnated 21 Times in a Fantasy World' has been my only source of happiness these past few days.\""
-            #         "\"If only there were more people at my school who enjoy anime and manga as much as I do. They don't understand that liking anime and manga is not just a hobby, it's a lifestyle! If it was normalized, then I wouldn't be picked on so often :(\""
-            #         mc shocked "Woah, this is a really lengthy post. When does the princess come in?"
-                    
-            #         menu:
-            #             "Keep reading.":
-            #                 "\"I know you guys won't believe me, but I'm telling the truth. These two bullies were picking on me again (this happens a lot, unfortunately, I know, I'm such a loser),\""
-            #                 "\"and usually, no one cares enough to say anything, but today was different. A girl I had never seen around campus before took me by the hand, and then we ran away from the bullies together.\""
-            #                 "\"I wasn't wearing my glasses, but her figure was all too familiar. That flowing hair, that cool style, the same beautiful features.\""
-            #                 "\"I met Princess Suzuki Haruka in the flesh... and she saved me from those bullies. EDIT: She saved my life. Is this what people call fate?\""
-            #                 mc deadpan "Suzuki Haruka again?"
-            #                 show mc neutral
-            #                 # "\"I hope I can see her again soon. I want to thank her and become closer to her. If people see me walking with Suzuki Haruka, those people won't think I'm weird anymore.\""
-            #                 "\"I really want to thank her and become closer to her, but I don't have much experience talking to girls... what do I do??? Ideas on how to start a conversation please. I don't want to blow this opportunity.\""
-            #                 mc "*swipe*"
-            #                 pass
-            #             "Stop reading.":
-            #                 pass
-
-            #         pass
 
             menu:
                 "Check out w/ELI4.":
@@ -2503,7 +2466,7 @@ label episode_6: # MAYBE add short scrolling gameplay like osu?
                                             "\"I met Princess Suzuki Haruka in the flesh... and she saved me from those bullies. EDIT: She saved my life. Is this what people call fate?\""
                                             mc deadpan "Suzuki Haruka again?"
                                             "\"I really want to thank her and become closer to her, but I don't have much experience talking to girls... what do I do??? Ideas on how to start a conversation please. I don't want to blow this opportunity.\""
-                                            mc neutral "*swipe*"
+                                            mc neutral "*swipe* Hmm, I don't see any replies."
                                             pass
                                         "Stop reading.":
                                             pass
@@ -2525,7 +2488,7 @@ label episode_6: # MAYBE add short scrolling gameplay like osu?
                                     "\"I met Princess Suzuki Haruka in the flesh... and she saved me from those bullies. EDIT: She saved my life. Is this what people call fate?\""
                                     mc deadpan "Suzuki Haruka again?"
                                     "\"I really want to thank her and become closer to her, but I don't have much experience talking to girls... what do I do??? Ideas on how to start a conversation please. I don't want to blow this opportunity.\""
-                                    mc neutral "*swipe*"
+                                    mc neutral "*swipe* Hmm, I don't see any replies."
                                 "Stop reading.":
                                     pass
                             
@@ -2564,7 +2527,7 @@ label episode_6: # MAYBE add short scrolling gameplay like osu?
                                             "\"I met Princess Suzuki Haruka in the flesh... and she saved me from those bullies. EDIT: She saved my life. Is this what people call fate?\""
                                             mc deadpan "Suzuki Haruka again?"
                                             "\"I really want to thank her and become closer to her, but I don't have much experience talking to girls... what do I do??? Ideas on how to start a conversation please. I don't want to blow this opportunity.\""
-                                            mc neutral "*swipe*"
+                                            mc neutral "*swipe* Hmm, I don't see any replies."
                                         "Stop reading.":
                                             pass
                             pass
@@ -2583,11 +2546,12 @@ label episode_6: # MAYBE add short scrolling gameplay like osu?
                                     "\"I met Princess Suzuki Haruka in the flesh... and she saved me from those bullies. EDIT: She saved my life. Is this what people call fate?\""
                                     mc deadpan "Suzuki Haruka again?"
                                     "\"I really want to thank her and become closer to her, but I don't have much experience talking to girls... what do I do??? Ideas on how to start a conversation please. I don't want to blow this opportunity.\""
-                                    mc neutral "*swipe*"
+                                    mc neutral "*swipe* Hmm, I don't see any replies."
                                 "Stop reading.":
                                     pass
                     pass
                 "Check out w/ttigrtotiafw":
+                    $ w_aura += 1
                     mc neutral "\"The princess appeared at my school yesterday.\""
                     "This Wedditor shares a heartfelt story: \"I'm honestly kind of a loner, but that's because I don't have many friends who I vibe with, you get me?\""
                     "\"'That Time I Got Reincarnated 21 Times in a Fantasy World' has been my only source of happiness these past few days.\""
@@ -2602,7 +2566,7 @@ label episode_6: # MAYBE add short scrolling gameplay like osu?
                             "\"I met Princess Suzuki Haruka in the flesh... and she saved me from those bullies. EDIT: She saved my life. Is this what people call fate?\""
                             mc deadpan "Suzuki Haruka again?"
                             "\"I really want to thank her and become closer to her, but I don't have much experience talking to girls... what do I do??? Ideas on how to start a conversation please. I don't want to blow this opportunity.\""
-                            mc neutral "*swipe*"
+                            mc neutral "*swipe* Hmm, I don't see any replies."
                         "Stop reading.":
                             pass
                     pass
@@ -2616,7 +2580,6 @@ label episode_6: # MAYBE add short scrolling gameplay like osu?
         "WinkedIn":
             # mc happy "I will become a WinkedIn warrior!"
             $ g_aura += 1
-            show mc neutral
             "It's been a hot minute since you last opened WinkedIn. Upon entering the app, you're bombarded with activity."
             mc shocked "Wow, there are so many requests to connect."
             mc neutral "*swipe*"
@@ -2642,26 +2605,76 @@ label episode_6: # MAYBE add short scrolling gameplay like osu?
 
     "The next day..."
     # maybe a quick cutscene of mc going through her day
+    # idkkkk
+
+    scene bg dining_room with fade
 
     "Saturday, 11:00 AM. At home."
+    mc neutral "(Ugh, I feel so groggy...)"
+    "Since you woke up, you've been feeling some discomfort in your lower back. It doesn't necessarily hurt, but it's not that easy to ignore."
+    "Perhaps you could get some exercise outside to loosen up?"
 
-    jump episode_7
+    menu:
+        "Walk around the park.":
+            mc happy "Hmm... I've been wanting to check out that park nearby."
+            jump episode_7
+        "Explore the city.":
+            mc happy "Let's be adventurous today."
+            jump episode_8
+        # SECRET 3RD OPTION?? work on later lolol
+        # "I don't want to go outside.":
+        #     mc neutral "(Eh... I'm feeling kinda sluggish today.)"
+        #     pass
+
     return
 
-# date w/ Ronan, narcissist (kaylee)
+# --> WALK AROUND THE PARK
+# date w/ looksmaxxer (kaylee)
 label episode_7:
+    
+    scene bg street with fade
+
+    "Saturday, 12:00 PM. On the way to the park."
+    "You wince a bit because of how bright the sunlight shines on you today. It seems that New York's sky is clearer and bluer than Beijing's sky."
+    # i feel like this doesn't make sense lol maybe come back and replace this line
+    # "The language may be different, but the vibe is still the same. You find comfort in the pleasant breeze and crisp air that has already become routine this spring."
+    "The language may be different, but the vibe is still the same. You find comfort in people-watching and traffic-watching. Just don't stare at the cars for too long, or the the sun's reflection will blind you."
+
+    # mc happy "Ooh, a puppy!"
+    mc happy "Ooh, there's the park!"
+    scene bg park with fade
+
+    show king disgusted with dissolve:
+        zoom 0.25
+        xcenter 0.5
+        yalign 1.0
+
+    g "[playername]? What are you doing here?"
+
+    # cutscene?
+
+    return
+
+# mc tryna go 2 mall but she gets on wrong train (stuck on train w/ weeb for an hour)
+# eventually they split so weeb goes to anime convention/weddit meetup, since he is the 21cls subweddit moderator
+# mc goes 2 mall and sees ronan and king together
+# run into king when he picks up weeb from the train station
+
+# ---> EXPLORE THE CITY
+# date w/ Ronan, narcissist (kaylee)
+label episode_8:
     
     jump episode_8
     return
 
-# date w/ looksmaxxer (kaylee)
-label episode_8:
+# date w/ Lucien, weeb (kaylee)
+label episode_9:
 
     jump episode_9
     return
 
 # confessions
-label episode_9:
+label episode_10:
 
     # if u see this, after u finish ep 4 im gonna tweak the beginning of this ep so it flows nicely
     scene bg black_background with fade
