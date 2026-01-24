@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 2450: expected menuitem
-    for post in weddit_friday_posts[:]:
+File "game/script.rpy", line 2596: Line is indented, but the preceding say statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    "This Wedditor shares a heartfelt story: \"I'm honestly kind of a loner, but that's because I don't have many friends who I vibe with, you get me?\""
     ^
 
 Ren'Py Version: Ren'Py 8.2.3.24061702
-Thu Jan 22 01:47:21 2026
+Fri Jan 23 20:24:00 2026

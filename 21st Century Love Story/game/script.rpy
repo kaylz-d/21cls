@@ -2436,25 +2436,159 @@ label episode_6: # MAYBE add short scrolling gameplay like osu?
                             pass
             pass
         "Weddit":
-            # how to make choices disappear after you click them?
-            # define weddit_friday_posts = ["w/ELI4", "w/TIL", "w/ttigrtotiafw"]
             "Some subweddits are questionable, but it's honestly not a bad place to learn new things."
             mc neutral "Let's see..."
+            # menu:
+            #     "Check out w/ELI4.":
+            #         mc "\"Explain Like I'm Four: What happens to bugs that get stuck in cars and accidentally travel long distances?\""
+            #         "The most agreed-upon answer seems to be that it depends on the species. One Wedditor comments that some species will perish due to being unable to find their usual food or shelter."
+            #         "Another Wedditor says that the species could adapt and even dominate their new environment, potentially becoming an invasive species and permanently changing their environment. For the better, or worse."
+            #         mc "That's somewhat interesting. *swipe*"
+            #         pass
+            #     "Check out w/TIL":
+            #         mc "\"Today I Learned: in humans, the right lung has three lobes while the left only has 2.\""
+            #         "You tap on the linked source and learn that the third lobe is the space for the human heart."
+            #         mc "That makes sense."
+            #         pass
+            #     "Check out w/ttigrtotiafw":
+            #         mc "\"The princess appeared at my school yesterday.\""
+            #         "This Wedditor shares a heartfelt story: \"I'm honestly kind of a loner, but that's because I don't have many friends who I vibe with, you get me?\""
+            #         "\"'That Time I Got Reincarnated 21 Times in a Fantasy World' has been my only source of happiness these past few days.\""
+            #         "\"If only there were more people at my school who enjoy anime and manga as much as I do. They don't understand that liking anime and manga is not just a hobby, it's a lifestyle! If it was normalized, then I wouldn't be picked on so often :(\""
+            #         mc shocked "Woah, this is a really lengthy post. When does the princess come in?"
+                    
+            #         menu:
+            #             "Keep reading.":
+            #                 "\"I know you guys won't believe me, but I'm telling the truth. These two bullies were picking on me again (this happens a lot, unfortunately, I know, I'm such a loser),\""
+            #                 "\"and usually, no one cares enough to say anything, but today was different. A girl I had never seen around campus before took me by the hand, and then we ran away from the bullies together.\""
+            #                 "\"I wasn't wearing my glasses, but her figure was all too familiar. That flowing hair, that cool style, the same beautiful features.\""
+            #                 "\"I met Princess Suzuki Haruka in the flesh... and she saved me from those bullies. EDIT: She saved my life. Is this what people call fate?\""
+            #                 mc deadpan "Suzuki Haruka again?"
+            #                 show mc neutral
+            #                 # "\"I hope I can see her again soon. I want to thank her and become closer to her. If people see me walking with Suzuki Haruka, those people won't think I'm weird anymore.\""
+            #                 "\"I really want to thank her and become closer to her, but I don't have much experience talking to girls... what do I do??? Ideas on how to start a conversation please. I don't want to blow this opportunity.\""
+            #                 mc "*swipe*"
+            #                 pass
+            #             "Stop reading.":
+            #                 pass
+
+            #         pass
+
             menu:
                 "Check out w/ELI4.":
-                    mc "\"Explain Like I'm Four: What happens to bugs that get stuck in cars and accidentally travel long distances?\""
-                    # "As you scroll through the discussion thread, you fail to be satisfied by a concrete answer. Apparently, it depends on the species."
+                    mc neutral "\"Explain Like I'm Four: What happens to bugs that get stuck in cars and accidentally travel long distances?\""
                     "The most agreed-upon answer seems to be that it depends on the species. One Wedditor comments that some species will perish due to being unable to find their usual food or shelter."
                     "Another Wedditor says that the species could adapt and even dominate their new environment, potentially becoming an invasive species and permanently changing their environment. For the better, or worse."
-                    mc "That's somewhat interesting. *swipe*"
+                    mc neutral "That's somewhat interesting. *swipe*"
+                    
+                    menu: 
+                        "Check out w/TIL":
+                            mc neutral "\"Today I Learned: in humans, the right lung has three lobes while the left only has 2.\""
+                            "You tap on the linked source and learn that the third lobe is the space for the human heart."
+                            mc "That makes sense."
+
+                            menu:
+                                "Check out w/ttigrtotiafw":
+                                    mc neutral "\"The princess appeared at my school yesterday.\""
+                                    "This Wedditor shares a heartfelt story: \"I'm honestly kind of a loner, but that's because I don't have many friends who I vibe with, you get me?\""
+                                    "\"'That Time I Got Reincarnated 21 Times in a Fantasy World' has been my only source of happiness these past few days.\""
+                                    "\"If only there were more people at my school who enjoy anime and manga as much as I do. They don't understand that liking anime and manga is not just a hobby, it's a lifestyle! If it was normalized, then I wouldn't be picked on so often :(\""
+                                    mc shocked "Woah, this is a really lengthy post. When does the princess come in?"
+                    
+                                    menu:
+                                        "Keep reading.":
+                                            "\"I know you guys won't believe me, but I'm telling the truth. These two bullies were picking on me again (this happens a lot, unfortunately, I know, I'm such a loser),\""
+                                            "\"and usually, no one cares enough to say anything, but today was different. A girl I had never seen around campus before took me by the hand, and then we ran away from the bullies together.\""
+                                            "\"I wasn't wearing my glasses, but her figure was all too familiar. That flowing hair, that cool style, the same beautiful features.\""
+                                            "\"I met Princess Suzuki Haruka in the flesh... and she saved me from those bullies. EDIT: She saved my life. Is this what people call fate?\""
+                                            mc deadpan "Suzuki Haruka again?"
+                                            "\"I really want to thank her and become closer to her, but I don't have much experience talking to girls... what do I do??? Ideas on how to start a conversation please. I don't want to blow this opportunity.\""
+                                            mc neutral "*swipe*"
+                                            pass
+                                        "Stop reading.":
+                                            pass
+                                    
+                            pass
+
+                        "Check out w/ttigrtotiafw":
+                            mc neutral "\"The princess appeared at my school yesterday.\""
+                            "This Wedditor shares a heartfelt story: \"I'm honestly kind of a loner, but that's because I don't have many friends who I vibe with, you get me?\""
+                            "\"'That Time I Got Reincarnated 21 Times in a Fantasy World' has been my only source of happiness these past few days.\""
+                            "\"If only there were more people at my school who enjoy anime and manga as much as I do. They don't understand that liking anime and manga is not just a hobby, it's a lifestyle! If it was normalized, then I wouldn't be picked on so often :(\""
+                            mc shocked "Woah, this is a really lengthy post. When does the princess come in?"
+                    
+                            menu:
+                                "Keep reading.":
+                                    "\"I know you guys won't believe me, but I'm telling the truth. These two bullies were picking on me again (this happens a lot, unfortunately, I know, I'm such a loser),\""
+                                    "\"and usually, no one cares enough to say anything, but today was different. A girl I had never seen around campus before took me by the hand, and then we ran away from the bullies together.\""
+                                    "\"I wasn't wearing my glasses, but her figure was all too familiar. That flowing hair, that cool style, the same beautiful features.\""
+                                    "\"I met Princess Suzuki Haruka in the flesh... and she saved me from those bullies. EDIT: She saved my life. Is this what people call fate?\""
+                                    mc deadpan "Suzuki Haruka again?"
+                                    "\"I really want to thank her and become closer to her, but I don't have much experience talking to girls... what do I do??? Ideas on how to start a conversation please. I don't want to blow this opportunity.\""
+                                    mc neutral "*swipe*"
+                                "Stop reading.":
+                                    pass
+                            
+                            menu:
+                                "Check out w/TIL":
+                                    mc "\"Today I Learned: in humans, the right lung has three lobes while the left only has 2.\""
+                                    "You tap on the linked source and learn that the third lobe is the space for the human heart."
+                                    mc "That makes sense."
+                            pass
                     pass
                 "Check out w/TIL":
                     mc "\"Today I Learned: in humans, the right lung has three lobes while the left only has 2.\""
                     "You tap on the linked source and learn that the third lobe is the space for the human heart."
                     mc "That makes sense."
+
+                    menu:
+                        "Check out w/ELI4":
+                            mc neutral "\"Explain Like I'm Four: What happens to bugs that get stuck in cars and accidentally travel long distances?\""
+                            "The most agreed-upon answer seems to be that it depends on the species. One Wedditor comments that some species will perish due to being unable to find their usual food or shelter."
+                            "Another Wedditor says that the species could adapt and even dominate their new environment, potentially becoming an invasive species and permanently changing their environment. For the better, or worse."
+                            mc neutral "That's somewhat interesting. *swipe*"
+
+                            menu:
+                                "Check out w/ttigrtotiafw":
+                                    mc neutral "\"The princess appeared at my school yesterday.\""
+                                    "This Wedditor shares a heartfelt story: \"I'm honestly kind of a loner, but that's because I don't have many friends who I vibe with, you get me?\""
+                                    "\"'That Time I Got Reincarnated 21 Times in a Fantasy World' has been my only source of happiness these past few days.\""
+                                    "\"If only there were more people at my school who enjoy anime and manga as much as I do. They don't understand that liking anime and manga is not just a hobby, it's a lifestyle! If it was normalized, then I wouldn't be picked on so often :(\""
+                                    mc shocked "Woah, this is a really lengthy post. When does the princess come in?"
+                    
+                                    menu:
+                                        "Keep reading.":
+                                            "\"I know you guys won't believe me, but I'm telling the truth. These two bullies were picking on me again (this happens a lot, unfortunately, I know, I'm such a loser),\""
+                                            "\"and usually, no one cares enough to say anything, but today was different. A girl I had never seen around campus before took me by the hand, and then we ran away from the bullies together.\""
+                                            "\"I wasn't wearing my glasses, but her figure was all too familiar. That flowing hair, that cool style, the same beautiful features.\""
+                                            "\"I met Princess Suzuki Haruka in the flesh... and she saved me from those bullies. EDIT: She saved my life. Is this what people call fate?\""
+                                            mc deadpan "Suzuki Haruka again?"
+                                            "\"I really want to thank her and become closer to her, but I don't have much experience talking to girls... what do I do??? Ideas on how to start a conversation please. I don't want to blow this opportunity.\""
+                                            mc neutral "*swipe*"
+                                        "Stop reading.":
+                                            pass
+                            pass
+                        "Check out w/ttigrtotiafw":
+                            mc neutral "\"The princess appeared at my school yesterday.\""
+                            "This Wedditor shares a heartfelt story: \"I'm honestly kind of a loner, but that's because I don't have many friends who I vibe with, you get me?\""
+                            "\"'That Time I Got Reincarnated 21 Times in a Fantasy World' has been my only source of happiness these past few days.\""
+                            "\"If only there were more people at my school who enjoy anime and manga as much as I do. They don't understand that liking anime and manga is not just a hobby, it's a lifestyle! If it was normalized, then I wouldn't be picked on so often :(\""
+                            mc shocked "Woah, this is a really lengthy post. When does the princess come in?"
+                    
+                            menu:
+                                "Keep reading.":
+                                    "\"I know you guys won't believe me, but I'm telling the truth. These two bullies were picking on me again (this happens a lot, unfortunately, I know, I'm such a loser),\""
+                                    "\"and usually, no one cares enough to say anything, but today was different. A girl I had never seen around campus before took me by the hand, and then we ran away from the bullies together.\""
+                                    "\"I wasn't wearing my glasses, but her figure was all too familiar. That flowing hair, that cool style, the same beautiful features.\""
+                                    "\"I met Princess Suzuki Haruka in the flesh... and she saved me from those bullies. EDIT: She saved my life. Is this what people call fate?\""
+                                    mc deadpan "Suzuki Haruka again?"
+                                    "\"I really want to thank her and become closer to her, but I don't have much experience talking to girls... what do I do??? Ideas on how to start a conversation please. I don't want to blow this opportunity.\""
+                                    mc neutral "*swipe*"
+                                "Stop reading.":
+                                    pass
                     pass
                 "Check out w/ttigrtotiafw":
-                    mc "\"The princess appeared at my school yesterday.\""
+                    mc neutral "\"The princess appeared at my school yesterday.\""
                     "This Wedditor shares a heartfelt story: \"I'm honestly kind of a loner, but that's because I don't have many friends who I vibe with, you get me?\""
                     "\"'That Time I Got Reincarnated 21 Times in a Fantasy World' has been my only source of happiness these past few days.\""
                     "\"If only there were more people at my school who enjoy anime and manga as much as I do. They don't understand that liking anime and manga is not just a hobby, it's a lifestyle! If it was normalized, then I wouldn't be picked on so often :(\""
@@ -2467,46 +2601,15 @@ label episode_6: # MAYBE add short scrolling gameplay like osu?
                             "\"I wasn't wearing my glasses, but her figure was all too familiar. That flowing hair, that cool style, the same beautiful features.\""
                             "\"I met Princess Suzuki Haruka in the flesh... and she saved me from those bullies. EDIT: She saved my life. Is this what people call fate?\""
                             mc deadpan "Suzuki Haruka again?"
-                            show mc neutral
-                            # "\"I hope I can see her again soon. I want to thank her and become closer to her. If people see me walking with Suzuki Haruka, those people won't think I'm weird anymore.\""
                             "\"I really want to thank her and become closer to her, but I don't have much experience talking to girls... what do I do??? Ideas on how to start a conversation please. I don't want to blow this opportunity.\""
-                            mc "*swipe*"
-                            pass
+                            mc neutral "*swipe*"
                         "Stop reading.":
                             pass
-
                     pass
-                
-                # while len(weddit_friday_posts) > 0:
-                #     menu:
-                #         "Check out [weddit_friday_posts[0]]"
 
+            "I think that's enough screentime for today."
             menu:
-                "Check out w/ELI4.":
-                    menu: 
-                        "Check out w/TIL":
-                            menu:
-                                "Check out w/ttigrtotiafw":
-                                    pass
-                            pass
-                        "Check out w/ttigrtotiafw":
-                            menu:
-                                "Check out w/TIL":
-                                    pass
-                            pass
-                    pass
-                "Check out w/TIL":
-                    menu:
-                        "Check out w/ELI4":
-                            menu:
-                                "Check out w/ttigrtotiafw":
-                                    pass
-                            pass
-                        "Check out w/ttigrtotiafw":
-                            pass
-                    pass
-                "Check out w/ttigrtotiafw":
-                    # immediately cuts to lucien's weddit post
+                "Go to sleep.":
                     pass
 
             pass
@@ -2516,11 +2619,11 @@ label episode_6: # MAYBE add short scrolling gameplay like osu?
             show mc neutral
             "It's been a hot minute since you last opened WinkedIn. Upon entering the app, you're bombarded with activity."
             mc shocked "Wow, there are so many requests to connect."
-            "*swipe*"
-            mc neutral "Some nonprofit founder..."
-            "*swipe*"
-            mc neutral "Student from Milkyway High School..."
-            "*swipe*"
+            mc neutral "*swipe*"
+            mc "Some nonprofit founder..."
+            mc "*swipe*"
+            mc "Student from Milkyway High School..."
+            mc "*swipe*"
             "You scroll down a lengthy list of requests to connect from students at your school."
             mc shocked "I literally just transferred to this school. I don't know most of these people, but there are so many of them!"
             mc happy "Heh... am I already that popular?"
@@ -2528,8 +2631,8 @@ label episode_6: # MAYBE add short scrolling gameplay like osu?
             "Actually, this is just because Milkyway Academy is full of WinkedIn warriors."
             "You may feel like you've been adjusting well to your new school as an exchange student. But for some kids, they still struggle to keep up with Milkyway's rigorous coursework, even after having attended the institution for a few years longer than you."
             "And as if the rigorous coursework wasn't enough, there's always a pressure to find research positions or internships, if not jobs."
-            "*swipe*"
-            mc neutral "It's almost 11:00 PM now... guess I'll go to bed."
+            mc neutral "*swipe*"
+            mc "It's almost 11:00 PM now... guess I'll go to bed."
             menu:
                 "Turn off your phone.":
                     pass
