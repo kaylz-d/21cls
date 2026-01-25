@@ -43,7 +43,7 @@ default olivia_ticked_off = False
 define mc = Character("[playername]", image="player")
 define cashier = Character("Cashier")
 define p = Character("[performative]", image="kyren")
-define n = Character("[narcissist]")
+define n = Character("[narcissist]", image="narcissist")
 define w = Character("[weeb]")
 define g = Character("[gymbro]", image="king")
 define teacher = Character("Mr. Teacher")
@@ -71,6 +71,9 @@ image cashier_neutral = "cashier.png"
 image classmate_neutral = "billG.jpg"
 
 image narcissist_neutral = "narcissist_neutral.png"
+image narcissist_bling_neutral = "narcissist_bling_neutral.png"
+image narcissist_bling_happy = "narcissist_bling_happy.png"
+
 image weeb_neutral = "weeb_neutral.png"
 image b1_neutral = "bully1 neutral.png"
 image b2_neutral = "bully2 neutral.png"
@@ -673,7 +676,10 @@ label episode_2_meeting:
     scene bg football_field with fade
 
     if choice == "care":
-        show narcissist_neutral with dissolve
+        show narcissist_neutral with dissolve:
+            zoom 0.25
+            xcenter 0.5
+            yalign 1.0
         $ met_narcissist = True
         n "*grumbling* This game is for brokies."
         "The way this guy pouts kind of reminds you of an elementary school student."
@@ -681,12 +687,12 @@ label episode_2_meeting:
         menu:
             "Who are you?":
                 mc neutral "Who are you?"
-                show narcissist_neutral 
-                n "You don't know who I am?"
+                # show narcissist_neutral 
+                n neutral "You don't know who I am?"
             "Weirdo...":
                 mc deadpan "Weirdo..."
-                show narcissist_neutral
-                n "Are you talking to me, peasant?"
+                # show narcissist_neutral
+                n neutral "Are you talking to me, peasant?"
         
         $ narcissist = "Snobby Guy"
         n "THE DISRESPECT! Just wait until I tell my father about this insolence!"
@@ -821,9 +827,12 @@ label episode_2_join:
     if met_narcissist == False:
         $ narcissist = "???"
 
-    show narcissist_neutral with dissolve
+    show narcissist_bling_neutral with dissolve:
+        zoom 0.25
+        xcenter 0.5
+        yalign 1.0
     n "Peasants, disperse!"
-    hide narcissist_neutral
+    hide narcissist_bling_neutral
 
     "In some unexplainable supernatural phenomenon, a burst of light shines upon you."
     mc shocked "What the..."
@@ -860,14 +869,17 @@ label episode_2_join:
     "Right, you all are still playing football."
     "Excusing themselves, the two peasants leave just as quickly as how you met them."
 
-    show narcissist_neutral with dissolve
+    show narcissist_bling_happy with dissolve:
+        zoom 0.25
+        xcenter 0.5
+        yalign 1.0
     n "Hmph! That's more like it."
     
     "Then, Ronan and you make eye contact."
-    n "I bet you were wondering if this happens often. And yes, it does. It's natural that people are always stunned by presence!"
+    n neutral "I bet you were wondering if this happens often. And yes, it does. It's natural that people are always stunned by presence!"
 
     # 2do: update character n so we can use the emotion shorthand thingies
-    show narcissist_neutral with dissolve
+    # show narcissist_neutral with dissolve
     if met_narcissist:
         n "Oh. It's that insolent brat."
         menu:
@@ -2416,7 +2428,6 @@ label episode_6: # MAYBE add short scrolling gameplay like osu?
                     $ n_aura += 1
                     # mc shocked "No way... I can't believe Bigfoot lives in New York."
                     mc happy "Let's see... those egg tarts look real tasty. I should ask the cook to make some soon."
-                    show mc neutral
                     "*swipe*"
                     mc shocked "Another school shooting happened?"
                     mc neutral "This is so depressing to read, but I can't stop..."
@@ -2427,7 +2438,10 @@ label episode_6: # MAYBE add short scrolling gameplay like osu?
                     mc shocked "Wait, huh? Ronan X.Y. Sinclair?"
                     mc "This is Ronan's Instagwam account!"
                     "You tap the button to follow the account."
-                    mc "What a productive day. That's enough Instagwam for now."
+                    mc neutral "I didn't expect to see him on Instagwam, too."
+                    "*swipe*"
+                    "You continue scrolling, but fail to find anything else more interesting than Ronan's post of him showing off his Wolex watch."
+                    mc "That's enough Instagwam for now."
                     menu:
                         "Go to sleep.":
                             pass
@@ -2611,7 +2625,7 @@ label episode_6: # MAYBE add short scrolling gameplay like osu?
 
     "Saturday, 11:00 AM. At home."
     mc neutral "(Ugh, I feel so groggy...)"
-    "Since you woke up, you've been feeling some discomfort in your lower back. It doesn't necessarily hurt, but it's not that easy to ignore."
+    "Since you woke up, you've been feeling some discomfort in your lower back. It doesn't necessarily hurt, but it's not that easy to ignore. Perhaps \"stiff\" is the right word?"
     "Perhaps you could get some exercise outside to loosen up?"
 
     menu:
@@ -2644,12 +2658,65 @@ label episode_7:
     mc happy "Ooh, there's the park!"
     scene bg park with fade
 
-    show king disgusted with dissolve:
+    pause
+    # mc happy "The grass is so green!"
+
+    show king neutral with dissolve:
         zoom 0.25
         xcenter 0.5
         yalign 1.0
 
-    g "[playername]? What are you doing here?"
+    g "!"
+    g neutral "[playername]? What are you doing here?"
+    $ gymbro = "King"
+    mc neutral "Oh."
+    mc "Hello, King."
+    mc "I was..."
+
+    menu:
+        "Getting some exercise.":
+            mc neutral "...just getting some exercise."
+            g focused "Good for you."
+            g neutral "If you aren't busy, want to join me for a walk?"
+            menu:
+                "Yes":
+                    mc neutral "Sure, why not."
+                    pass
+                "No":
+                    mc neutral "No thank you."
+                    g "Alright, then."
+                    hide king neutral
+                    "You turn around to walk the other way."
+                    "But you still hear the sound of footsteps close behind you..."
+                    show king disgusted with dissolve:
+                        zoom 0.25
+                        xcenter 0.5
+                        yalign 1.0
+                    g "I'm not following you. We're just going the same direction."
+                    mc neutral "Okay."
+                    hide king neutral
+                    # show king neutral
+                    "King waits for you to walk a good distance ahead, and then he continues walking farther behind you."
+                    "Only now, you can't shake off the feeling that he's probably staring at the back of your head."
+                    mc deadpan "(This is so awkward!)"
+
+                    menu:
+                        "Accept his offer to walk together.":
+                            pass
+                        "Take a bus downtown.":
+                            pass
+            pass
+        "Trying to loosen up my back.":
+            mc neutral "...just trying to loosen up my back."
+            mc "I must have slept in a weird position, because my back has been feeling stiff all morning."
+            g focused "Pain is just weakness leaving the body."
+            mc deadpan "Um... I don't get it."
+            g neutral "..."
+            mc neutral "..."
+            mc "(Soooo awkward.)"
+            g "You should probably stretch more."
+            # g neutral "Haven't you ever heard of \"no pain, no gain\"? Little back pains like this are nothing"
+            pass
 
     # cutscene?
 
