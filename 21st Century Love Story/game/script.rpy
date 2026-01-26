@@ -116,6 +116,8 @@ image bg dining_room = "condo_Day 03.jpg"
 image bg living_room = "condo_Day 05.jpg"
 image bg street = "street_redux_day.webp"
 image bg park = "park_not_so_winter.webp"
+image bg mall_street = "mall_b_02 copy.webp"
+image bg mall_street_2 = "mall_b_08 copy.webp"
 
 # ========================AURA STUFF=============================
     
@@ -2812,26 +2814,68 @@ label episode_7:
 
 # ---> EXPLORE THE CITY
 # date w/ Ronan, narcissist (kaylee)
+# meet lucien, weeb when going home
 label episode_8:
     $ completed_n_date = True
+
+    scene bg mall_street with fade
     
     # gymbro meets ronan
-    if mall_with_gymbro == False:
-        pass
+    if mall_with_gymbro == True:
+        "Saturday, 3:00 PM. Mimo Mall."
+        show king focused with dissolve:
+            zoom 0.25
+            xcenter 0.5
+            yalign 1.0
+        g "We're here."
+        mc happy "Yay!"
+        if g_aura <= 3:
+            g disgusted "What's got you so giddy?"
+        else:
+            g neutral "What's got you so giddy?"
+        mc neutral "Since I came to Milkyway Academy, this is my first time going to an American mall."
+        g disgusted "Right... you're the exchange student everyone's been raving about."
+        g neutral "Of course everything is new to you."
+        mc deadpan "By the way, um, how come people are \"raving\" about me?"
+        # scene bg mall_street_2 with dissolve 
+        # maybe move it to weeb encounter? idk
+        g "Well... not only are you an exchange student, but you're the first ever exchange student."
+        g "My buddies are excited about the exchange program because they think Milkyway is heading in a new direction."
+        mc neutral "A new direction...?"
+        g "Our school's pretty infamous for the hard classes and grind culture. But because Milkyway started the exchange program, people think that the school is trying to mellow that culture."
+        g "There's rumors that this year, the school will give a large chunk of funds to clubs, sports, and programs like yours."
+        g "You coming here gives proof of that."
+        mc "(I think I might have heard about that before.)"
+        g focused "If you ask me, though, I think the school is just worried about their dropout rate."
+        g neutral "That time-"
+        g "..."
+        mc neutral "?"
+        g angry "Woah... this is so unlike me. I don't usually talk this much. I'm usually very nonchalant."
+        mc neutral "Um, it's okay for you to talk."
+        g neutral "You don't hate it?"
+        menu:
+            "Actually, I do hate it.":
+                mc neutral "Actually, I do hate it."
+                mc neutral "What I meant to say was, sometimes I hate when people ramble on and on. But it's okay if it's you."
+                mc deadpan "(Those words just slipped out of my mouth.)"
+                mc neutral "(Nice recovery!)"
+                pass
+            "Why would I?":
+                mc shocked "Why would I?"
+                mc neutral "I enjoy listening to you."
+                pass
+        mc happy "I learn so much through our conversations. They're quite valuable to me."
+
+
     else:
+        "Saturday, 12:00 PM. The bus stop."
         pass
 
     jump episode_9
     return
 
-# date w/ Lucien, weeb (kaylee)
+# at home, after dates and before confessions
 label episode_9:
-
-    jump episode_to_10
-    return
-
-# at home
-label episode_9_to_10:
     return
 
 # confessions
