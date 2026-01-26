@@ -37,6 +37,7 @@ default gymbro = "King" #WinkedIn
 default meangirl = "Olivia"
 # if this is true, then olivia becomes your enemy - otherwise, you become friends
 default olivia_ticked_off = False
+default mall_with_gymbro = False
 # default know_gymbro = True
 
 # character define
@@ -127,6 +128,11 @@ default g_aura = 1
 # default g_points = 0
 default w_aura = 1
 # default w_points = 0
+
+# default completed_p_date = False
+default completed_g_date = False
+default completed_n_date = False
+default completed_w_date = False
 
 # AURAAAAAAAAA SYSTEM ICONS
 screen p_heart_box():
@@ -1871,8 +1877,6 @@ label episode_4_outside:
             menu:
                 "Thank you.":
                     mc neutral "Thank you."
-                    # $ g_aura += 1
-                    # "+1 Aura!"
                 "So you thought I was ugly and mean?":
                     mc angry "So you thought I was ugly and mean?"
                     $ olivia_temperament_counter += 1
@@ -2648,6 +2652,8 @@ label episode_7:
     
     scene bg street with fade
 
+    $ completed_g_date = True
+
     "Saturday, 12:00 PM. On the way to the park."
     "You wince a bit because of how bright the sunlight shines on you today. It seems that New York's sky is clearer and bluer than Beijing's sky."
     # i feel like this doesn't make sense lol maybe come back and replace this line
@@ -2676,11 +2682,15 @@ label episode_7:
     menu:
         "Getting some exercise.":
             mc neutral "...just getting some exercise."
+            $ g_aura += 1
+            "+1 Aura!"
             g focused "Good for you."
             g neutral "If you aren't busy, want to join me for a walk?"
             menu:
                 "Yes":
                     mc neutral "Sure, why not."
+                    $ g_aura += 1
+                    "+1 Aura!"
                     pass
                 "No":
                     mc neutral "No thank you."
@@ -2702,23 +2712,96 @@ label episode_7:
 
                     menu:
                         "Accept his offer to walk together.":
+                            mc neutral "King, I accept your offer from earlier."
+                            mc "If we're going to walk the same way, we might as well go togther."
+                            "King hastens his pace to catch up with you."
+                            g focused "Alright, then."
                             pass
-                        "Take a bus downtown.":
-                            pass
+                        # "Take a bus downtown.":
+                        #     pass
             pass
         "Trying to loosen up my back.":
             mc neutral "...just trying to loosen up my back."
             mc "I must have slept in a weird position, because my back has been feeling stiff all morning."
-            g focused "Pain is just weakness leaving the body."
+            g neutral "I wake up in pain, too. And then I train. At the gym."
+            # g focused "Pain is just weakness leaving the body."
             mc deadpan "Um... I don't get it."
             g neutral "..."
             mc neutral "..."
             mc "(Soooo awkward.)"
-            g "You should probably stretch more."
-            # g neutral "Haven't you ever heard of \"no pain, no gain\"? Little back pains like this are nothing"
-            pass
+            g disgusted "*sigh*"
+            # g neutral "You should probably get a better mattress."
+            g neutral "Just get a better mattress."
+            mc "Okay... I'm not too familiar with the area, though. Do you know where I can buy a mattress?"
+            g neutral "If you walk towards Overglade Street and then take the crossing..."
+            g focused "You know what, forget it. I'm supposed to be a man of few words."
+            g neutral "Follow me. I'll lead the way."
 
-    # cutscene?
+            $ mall_with_gymbro = True 
+            jump episode_8
+    
+    "You and King embark on a leisurely stroll along the park trail."
+    "The two of you engage in meaningful conversation regarding health and wellness strategies, after you complain about what ails you. King recommends you a few brands for vitamins and supplements."
+    # g neutral "In fact, I'm have some on me right now."
+    # "King hands you a small red packet."
+    g neutral "...And, well, I personally wouldn't call these supplements, but here."
+    g focused "Ginseng candy."
+    "King hands you a pebble-sized candy, encased in a red and gold wrapper. You peel the wrapper to find that the candy itself is a shiny, hard, and luxuriously blood-red in color."
+    # INVENTORY BRUHHH
+    mc happy "Thanks."
+    "The candy tastes strongly earthy. It's mildly sweet, but also just as bitter. You definitely feel more energized."
+    mc neutral "(First back pain... then going for a walk... and now eating ginseng candy...)"
+    mc neutral "(I feel like I've reached retirement age.)"
+
+    g neutral "...[playername]!"
+    mc shocked "Huh? Yes?"
+    g neutral "What do you think of the ginseng candy?"
+
+    menu:
+        "Not my style.":
+            mc neutral "To be honest, it's not my style."
+            g neutral "I see."
+            g neutral "Well... if you ever want to buy some, Mimo Mall sells them."
+        "It has a rich flavor.":
+            mc neutral "It has a rich flavor."
+            $ g_aura += 1
+            "+1 Aura!"
+            g focused "Right?"
+            g neutral "If you ever want to buy some, Mimo Mall sells them."
+
+    "It's the huge plaza on Overglade Street."
+    mc neutral "Got it, thanks."
+    g focused "Yeah."
+    g neutral "Anyways... I'll be heading to the gym now. This is where we part ways."
+    menu:
+        "Can I come too?":
+            $ g_aura += 1
+            # future version maybe? if you have high enough aura then u can go to the gym with him
+            mc neutral "Can I come too?"
+            g neutral "You want to come to the gym?"
+            mc neutral "*nod*"
+            if g_aura >= 3:
+                g neutral "Hmm. Maybe another time."
+            else:
+                g disgusted "Uhh... maybe another time."
+            pass
+        "Bye.":
+            mc neutral "Bye."
+
+    "King leaves first. As he gets further and further away, he begins jogging. And before you know it, he's out of sight."
+    "What will you do next?"
+
+    if n_aura < 3:
+        menu:
+            "Call it a day.":
+                jump episode_9
+            "Check out Mimo Mall.":
+                jump episode_8
+    else:
+        menu:
+            "Call it a day.":
+                jump episode_9
+                pass
 
     return
 
@@ -2730,14 +2813,25 @@ label episode_7:
 # ---> EXPLORE THE CITY
 # date w/ Ronan, narcissist (kaylee)
 label episode_8:
+    $ completed_n_date = True
     
-    jump episode_8
+    # gymbro meets ronan
+    if mall_with_gymbro == False:
+        pass
+    else:
+        pass
+
+    jump episode_9
     return
 
 # date w/ Lucien, weeb (kaylee)
 label episode_9:
 
-    jump episode_9
+    jump episode_to_10
+    return
+
+# at home
+label episode_9_to_10:
     return
 
 # confessions

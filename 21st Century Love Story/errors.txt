@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 830: end of line expected.
-    show narcissist_bling_neutral with dissolve at downsize_sprite
-                                                ^
+File "game/script.rpy", line 2686: Line is indented, but the preceding one-line python statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    mc neutral "Sure, why not."
+    ^
 
 Ren'Py Version: Ren'Py 8.2.3.24061702
-Sat Jan 24 12:09:03 2026
+Sun Jan 25 16:01:54 2026
