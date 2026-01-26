@@ -71,9 +71,9 @@ image king focused = "gymbro_focused.png"
 image cashier_neutral = "cashier.png"
 image classmate_neutral = "billG.jpg"
 
-image narcissist_neutral = "narcissist_neutral.png"
-image narcissist_bling_neutral = "narcissist_bling_neutral.png"
-image narcissist_bling_happy = "narcissist_bling_happy.png"
+image narcissist neutral = "narcissist_neutral.png"
+image narcissist blingneutral = "narcissist_bling_neutral.png"
+image narcissist blinghappy = "narcissist_bling_happy.png"
 
 image weeb_neutral = "weeb_neutral.png"
 image b1_neutral = "bully1 neutral.png"
@@ -684,7 +684,7 @@ label episode_2_meeting:
     scene bg football_field with fade
 
     if choice == "care":
-        show narcissist_neutral with dissolve:
+        show narcissist neutral with dissolve:
             zoom 0.25
             xcenter 0.5
             yalign 1.0
@@ -700,17 +700,27 @@ label episode_2_meeting:
             "Weirdo...":
                 mc deadpan "Weirdo..."
                 # show narcissist_neutral
-                n neutral "Are you talking to me, peasant?"
+                n blingneutral "Are you talking to me, peasant?"
         
         $ narcissist = "Snobby Guy"
-        n "THE DISRESPECT! Just wait until I tell my father about this insolence!"
+        n neutral "THE DISRESPECT! Just wait until I tell my father about this insolence!"
         mc deadpan "(...Is everyone at this school this weird?)"
-        n "And since you're uneducated, I'll show some mercy and inform you about WHO I am exactly."
+        n blinghappy "And since you're uneducated, I'll show some mercy and inform you about WHO I am exactly."
+        hide narcissist neutral
         $ narcissist = "Ronan"
-        n "I am Ronan, Ronan X.Y. Sinclair! The first in line to inherit the reputable Sinclair X.Y. Industries!"
+        show narcissist blingneutral:
+            zoom 0.25
+            xcenter 0.5
+            yalign 1.0
+        n blingneutral "I am Ronan, Ronan X.Y. Sinclair! The first in line to inherit the reputable Sinclair X.Y. Industries!"
         mc neutral "(Sinclair X.Y. Industries... kind of rings a bell. I think they source parts from one of dad's subsidiaries?)"
         n "So, you-"
         n "..."
+        hide narcissist blingneutral
+        show narcissist neutral:
+            zoom 0.25
+            xcenter 0.5
+            yalign 1.0
         n "Why do you look familiar?"
         n "Have you ever worked for my family, peasant?"
         mc deadpan "...You've probably seen me on the news before."
@@ -728,11 +738,11 @@ label episode_2_meeting:
 
         "You notice the snobby guy's left eye twitch, but then he composes himself in a split second."
 
-        show narcissist_neutral
+        show narcissist neutral with dissolve
         n "...Ahem! Hohoho! Why didn't you say so sooner?"
 
         "Amidst your conversation, it appears that the football game has just ended."
-        hide narcissist_neutral
+        hide narcissist neutral
         show cashier_neutral with dissolve:
             zoom 1.5
             xcenter 0.5
@@ -747,9 +757,12 @@ label episode_2_meeting:
         hide cashier_neutral
 
         mc neutral "Yes, sir."
-        show narcissist_neutral
+        show narcissist neutral with dissolve:
+            zoom 0.25
+            xcenter 0.5
+            yalign 1.0
         n "*mumbling* Hmph, I wouldn't join otherwise."
-        hide narcissist_neutral
+        hide narcissist neutral
 
         jump episode_2_join
 
@@ -835,12 +848,12 @@ label episode_2_join:
     if met_narcissist == False:
         $ narcissist = "???"
 
-    show narcissist_bling_neutral with dissolve:
+    show narcissist blingneutral with dissolve:
         zoom 0.25
         xcenter 0.5
         yalign 1.0
     n "Peasants, disperse!"
-    hide narcissist_bling_neutral
+    hide narcissist blingneutral
 
     "In some unexplainable supernatural phenomenon, a burst of light shines upon you."
     mc shocked "What the..."
@@ -877,19 +890,27 @@ label episode_2_join:
     "Right, you all are still playing football."
     "Excusing themselves, the two peasants leave just as quickly as how you met them."
 
-    show narcissist_bling_happy with dissolve:
+    show narcissist blinghappy with dissolve:
         zoom 0.25
         xcenter 0.5
         yalign 1.0
     n "Hmph! That's more like it."
+
+    hide narcissist blinghappy
+
+    show narcissist blingneutral:
+        zoom 0.25
+        xcenter 0.5
+        yalign 1.0
     
-    "Then, Ronan and you make eye contact."
-    n neutral "I bet you were wondering if this happens often. And yes, it does. It's natural that people are always stunned by presence!"
+    # "Then, Ronan and you make eye contact."
+    "Then, Ronan finally notices you standing here."
+    n blinghappy "I bet you were wondering if this happens often. And yes, it does. It's natural that people are always stunned by presence!"
 
     # 2do: update character n so we can use the emotion shorthand thingies
     # show narcissist_neutral with dissolve
     if met_narcissist:
-        n "Oh. It's that insolent brat."
+        n neutral "Oh. It's that insolent brat."
         menu:
             "Excuse me?":
                 n "You're excused!"
@@ -901,20 +922,20 @@ label episode_2_join:
                 pass
         "Ronan slicks his hair back. It's, like, the equivalent of a cool girl's hair flip."
         n "Hmph! I forgive you for your transgressions."
-        n "After all, I'm young, rich, tall, handsome, AND nice."
-        n "I recognize my kind when I see one."
+        n blingneutral "After all, I'm young, rich, tall, handsome, AND nice."
+        n neutral "I recognize my kind when I see one."
         "He sent you a wink~☆ but unfortunately, you blinked right then, so you didn't notice."
         mc deadpan "..."
         n "Dear me. You're quite slow. Be grateful for this opportunity to network with me, that is, RONAN X.Y. SINCLAIR!"
     else:
         mc neutral "...I don't believe we've met before."
-        n "What, have you been living under a rock all your life? Or do you really not know who I am?"
+        n neutral "What, have you been living under a rock all your life? Or do you really not know who I am?"
         $ narcissist = "Ronan"
-        n "I am Ronan, Ronan X.Y. Sinclair! The first in line to inherit the reputable Sinclair X.Y. Industries!"
+        n blingneutral "I am Ronan, Ronan X.Y. Sinclair! The first in line to inherit the reputable Sinclair X.Y. Industries!"
         mc neutral "(Sinclair X.Y. Industries... kind of rings a bell. I think they source parts from dad's company?)"
         n "So, you-"
         n "..."
-        n "Why do you look familiar?"
+        n neutral "Why do you look familiar?"
         n "Have you ever worked for my family, peasant?"
         mc deadpan "...You've probably seen me on the news before."
         n "..."
@@ -934,13 +955,12 @@ label episode_2_join:
     "Then Ronan looks at you expectantly, waiting for you to initiate the handshake and say \"It's an honor to meet you\" and whatnot."
     "But pity, you can't read his mind. And he doesn't realize that not everyone can read his mind since his closest attendants are so used to his habits and daily schedule."
     "So there's just 10 seconds of silent, awkward eye contact, until..."
-    
+    with hpunch
     mc shocked "WATCH OUT!!!!!"
+    hide narcissist neutral
     "*THWACK*"
     "In a perfect parabolic path, the football flies by and slaps Ronan right in the cheek."
     "As graceful as a swan, Ronan falls to the ground. And in slow motion, too. But at least he landed in the lush football field of fake grass."
-    
-    hide narcissist_neutral
 
     "*tweet*"
     "It's Mr. Teacher, blowing the whistle and dashing over."
@@ -994,7 +1014,11 @@ label episode_2_nurse:
 
     "20 minutes later..."
 
-    show narcissist_neutral
+    show narcissist neutral with dissolve:
+        zoom 0.25
+        xcenter 0.5
+        yalign 1.0
+
     n "Ugh, my head..."
     # "Wincing, Ronan tossed and turned until, finally, he could think more clearly. To some extent."
     "Slowly coming to, Ronan sat himself up."
@@ -1021,8 +1045,8 @@ label episode_2_nurse:
     else:
         n "Insolent brat? No, I mean, my savior!"
         mc deadpan "(Dude, make up your mind.)"
-    n "Hmph. I give credit where it is due, and I commend your dedication to safeguard the life of the Sinclair X.Y. Industries heir."
-    n "That is me, Ronan X.Y. Sinclair! *Cool Hair Flip*"
+    n blinghappy "Hmph. I give credit where it is due, and I commend your dedication to safeguard the life of the Sinclair X.Y. Industries heir."
+    n neutral "That is me, Ronan X.Y. Sinclair! *Cool Hair Flip*"
 
     menu:
         "(Leave.)":
@@ -1047,6 +1071,7 @@ label episode_2_nurse:
                 "You're just like an elementary school student.":
                     mc neutral "You're just like an elementary school student."
                     n "Excuse me? How dare you! If I'm an elementary school student, then you're an old hag!"
+                    hide narcissist neutral
                     "*slink* Ronan pulls out the curtains, obscuring you from view. He just leaves a tiny enough opening to stick out his hand and motion you to scram."
                     mc happy "LOL."
                     "*silence*"
@@ -2410,6 +2435,7 @@ label episode_5_math:
     p neutral "I could never be smart enough to take those advanced math courses."
     p neutral "How many worksheets do you have to do?"
 
+    "To be continued - skip to episode 6"
     
     jump episode_6
     return
@@ -2638,10 +2664,12 @@ label episode_6: # MAYBE add short scrolling gameplay like osu?
         "Walk around the park.":
             mc happy "Hmm... I've been wanting to check out that park nearby."
             jump episode_7
-        "Explore the city.":
-            mc happy "Let's be adventurous today."
-            jump episode_8
+        # "Explore the city.":
+        #     mc happy "Let's be adventurous today."
+        #     jump episode_8
+        
         # SECRET 3RD OPTION?? work on later lolol
+
         # "I don't want to go outside.":
         #     mc neutral "(Eh... I'm feeling kinda sluggish today.)"
         #     pass
@@ -2793,6 +2821,8 @@ label episode_7:
     "King leaves first. As he gets further and further away, he begins jogging. And before you know it, he's out of sight."
     "What will you do next?"
 
+    "To be continued - go back to try different routes?"
+
     if n_aura < 3:
         menu:
             "Call it a day.":
@@ -2866,9 +2896,13 @@ label episode_8:
                 pass
         mc happy "I learn so much through our conversations. They're quite valuable to me."
 
+        "To be continued"
+
 
     else:
         "Saturday, 12:00 PM. The bus stop."
+
+        "To be continued"
         pass
 
     jump episode_9
@@ -2876,6 +2910,7 @@ label episode_8:
 
 # at home, after dates and before confessions
 label episode_9:
+    jump episode_10
     return
 
 # confessions
