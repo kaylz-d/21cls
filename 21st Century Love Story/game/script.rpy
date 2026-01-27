@@ -38,6 +38,7 @@ default meangirl = "Olivia"
 # if this is true, then olivia becomes your enemy - otherwise, you become friends
 default olivia_ticked_off = False
 default mall_with_gymbro = False
+default called_it_a_day = False
 # default know_gymbro = True
 
 # character define
@@ -1572,7 +1573,7 @@ label episode_4:
             $ gymbro = "Tough-Looking Guy"
             
             mc neutral "(Yep, I won't bother getting up right now.)"
-            "You reach into your bag and take out your bento, which was prepared by your home cook before you woke up for school this morning."
+            "You reach into your bag and take out your bento, which was prepared by your personal chef before you woke up for school this morning."
             # fun cutscene idea: show the bento! WITH DELICIOUS SPARKLES like in genshin!!
             "Taking off the lid, you are delighted with a tender, butter-poached lobster (caught in the state of Maine) accompanied by a juicy, premium steak (only grass-fed, of course)."
 
@@ -1639,11 +1640,13 @@ label episode_4:
                     $ meangirl = "Olivia"
                     o "Olivia Johnson."
                     o neutral "But anyways, why would you give him a hundred bucks-"
-                    g angry "Don't interrupt me, female. I don't need it anyways."
+                    g angry "Don't interrupt me, Olivia. I don't need it anyways."
+                    "-1 Aura!"
+                    $ g_aura -= 1
                     g neutral "As a real man, I make my own money."
                     # g neutral "I even have a podcast and drive a Wamborghini."
                     g neutral "Wealth and success are merely byproducts of discipline."
-                    g disgusted "Besides, you're no better. You know you're only after Ronan for his money."
+                    g disgusted "Besides, Olivia, you're no better. You know you're only after Ronan for his money."
                     o angry "You take that back right now."
                     mc neutral "(Should I get involved?)"
 
@@ -1747,6 +1750,9 @@ label episode_4:
                     g "...?"
                     g neutral "You know what? Sure, okay."
                     g focused "Protein is protein."
+
+                    $ g_aura =+ 1
+                    "+1 Aura!"
 
                     show king neutral
                     "You serve King a lobster tail on a clean napkin."
@@ -1887,8 +1893,6 @@ label episode_4_outside:
                 "I didn't do anything.":
                     o happy "Aw, you're SUCH a humble queen."
                     mc deadpan "Uhh...thank you."
-                    # $ g_aura += 1
-                    # "+1 Aura!"
                 "No problem.":
                     $ olivia_temperament_counter += 1
                     pass
@@ -1988,6 +1992,8 @@ label episode_4_outside:
                     "King looks at the ground for a moment, appearing to be in deep thought."
                     "Then, he looks up to make eye contact with you."
                     g "You're... more competent than you seem. Very impressive."
+                    $ g_aura += 1
+                    "+1 Aura!"
                     pass
                 "Not interested.":
                     mc neutral "Sorry, but I'm not interested."
@@ -2138,10 +2144,10 @@ label episode_5:
             mc neutral "An author of my choice?"
             mc neutral "Maybe I should head to the library to get ideas."
             jump episode_5_english
-        "Math homework":
-            mc happy "The math homework is pretty simple. I'll start with it first."
-            mc neutral "Maybe I should head to the library so I can concentrate."
-            jump episode_5_math
+        # "Math homework":
+        #     mc happy "The math homework is pretty simple. I'll start with it first."
+        #     mc neutral "Maybe I should head to the library so I can concentrate."
+        #     jump episode_5_math
 
     return
 
@@ -2739,13 +2745,19 @@ label episode_7:
                     "King waits for you to walk a good distance ahead, and then he continues walking farther behind you."
                     "Only now, you can't shake off the feeling that he's probably staring at the back of your head."
                     mc deadpan "(This is so awkward!)"
+                    $ g_aura -= 1
+                    "-1 Aura!"
 
                     menu:
                         "Accept his offer to walk together.":
                             mc neutral "King, I accept your offer from earlier."
                             mc "If we're going to walk the same way, we might as well go togther."
                             "King hastens his pace to catch up with you."
-                            g focused "Alright, then."
+                            show king focused with dissolve:
+                                zoom 0.25
+                                xcenter 0.5
+                                yalign 1.0
+                            g "Alright, then."
                             pass
                         # "Take a bus downtown.":
                         #     pass
@@ -2759,6 +2771,8 @@ label episode_7:
             g neutral "..."
             mc neutral "..."
             mc "(Soooo awkward.)"
+            $ g_aura -= 1
+            "-1 Aura!"
             g disgusted "*sigh*"
             # g neutral "You should probably get a better mattress."
             g neutral "Just get a better mattress."
@@ -2821,17 +2835,17 @@ label episode_7:
     "King leaves first. As he gets further and further away, he begins jogging. And before you know it, he's out of sight."
     "What will you do next?"
 
-    "To be continued - go back to try different routes?"
-
     if n_aura < 3:
         menu:
             "Call it a day.":
+                $ called_it_a_day = True
                 jump episode_9
             "Check out Mimo Mall.":
                 jump episode_8
     else:
         menu:
             "Call it a day.":
+                $ called_it_a_day = True
                 jump episode_9
                 pass
 
@@ -2846,6 +2860,7 @@ label episode_7:
 # date w/ Ronan, narcissist (kaylee)
 # meet lucien, weeb when going home
 label episode_8:
+    # MALL EPISODE
     $ completed_n_date = True
 
     scene bg mall_street with fade
@@ -2899,17 +2914,49 @@ label episode_8:
         "To be continued"
 
 
-    else:
-        "Saturday, 12:00 PM. The bus stop."
+    # else: # when gymbro is not at the mall
+    #     "Saturday, 12:00 PM. The bus stop."
 
-        "To be continued"
-        pass
+    #     "To be continued"
+    #     pass
 
     jump episode_9
     return
 
 # at home, after dates and before confessions
 label episode_9:
+
+    if called_it_a_day == True:
+        scene bg living_room with fade
+        "1:00 PM. At home."
+        "As you remove your shoes, you realize that your back pain has greatly subsided. You feel considerably more joyful and light."
+        mc neutral "Finally back home..."
+        mc deadpan "I really didn't expect to run into King at the park."
+        mc happy "But honestly, that walk made me feel much better."
+        mc neutral "I guess all I needed was some movement after lying down for so long."
+        "*growl*"
+        mc neutral "..."
+        mc angry "But now I'm so hungry!!!!!!"
+        mc angry "I deserve a hearty meal!!!"
+        scene bg dining_room with dissolve
+        "Fortunately, your reliable personal chef had prepared an appetizing pasta spread while you were away at the park."
+        mc neutral "?"
+        mc neutral "Wait, what's this?"
+        "Something bright and yellow catches your attention."
+        "On the dining table, there's a yellow sticky note, which you thought was a pickled radish at first glance. Perhaps the chef left it?"
+        "Picking up the sticky note, you read:"
+        mc neutral "(\"If you rush too quickly, you'll make mistakes, which will have consequences.\")"
+        mc "(\"But fear not. Tomorrow is a new day, and thus, a second chance.\")"
+        mc "...How strange. It's not like Chef to talk so poetically like this."
+
+        "Besides the strange note you found, the rest of your weekend is nothing but calm and peaceful. You could get definitely get used to this."
+        "Enjoy it before you have to go back to school on Monday."
+        mc angry "Ugh."
+
+
+    else:
+        pass
+    
     jump episode_10
     return
 
