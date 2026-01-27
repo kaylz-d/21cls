@@ -202,6 +202,12 @@ screen g_heart_box():
             xpos 0.9385
             ypos 0.49
 
+# label splashscreen:
+#     scene black
+#     with Pause(1)
+#     show text "21st Century Love Story" with dissolve
+#     with Pause(2)
+
 # The game starts here.
 
 label start:
@@ -2937,6 +2943,37 @@ label episode_8:
         show king disgusted at olivia_move_left
         g disgusted "I hate being interrupted..."
         g angry "Especially when it's you, Ronan!"
+        mc neutral "Ronan, what are you doing here?"
+        show king disgusted
+        n blinghappy "Hoho. It feels awesome being the center of attention."
+        n neutral "But, if you must know, I'm here on extremely important business!"
+        n neutral "I formally announce..."
+        n blingneutral "On behalf of Sinclair X.Y. Industries, I'm going to buy this mall!"
+        n blingneutral "And..."
+        n blinghappy "It will be gifted to Fuyu Group to symbolize the beginning of our grand partnership!"
+        mc deadpan "(I have never heard of this partnership before...)"
+        g disgusted "What is going through your head, bro?"
+        n blingneutral "I ain't your bro. I'm Ronan X.Y. Sinclair."
+        n neutral "Anyhow, Mimo Mall needs some serious renovating."
+        n neutral "There are so many random shops that no one needs... like there's a store that sells mattresses and even a store that sells ginseng candies."
+
+        mc neutral "Actually..."
+        menu:
+            "I'm here to buy a mattress.":
+                mc neutral "I'm here to buy a mattress."
+                n neutral "What? Do you not already have a [[insert fancy brand name] mattress for your luxurious, king-sized bed?"
+                mc neutral "Of course I have one. But it's a bit too fancy for me. It kind of hurts my back."
+            "I'm here to buy ginseng candies.":
+                $ g_aura += 1
+                "+1 Aura!"
+                mc neutral "I'm here to buy ginseng candies."
+                g focused "Yes. The ginseng candies at Mimo Mall are the best."
+                pass
+
+        "For the sake of this demo, here's a short summary of what happened in between now and the next episode:"
+        "You either sided with King or Ronan. Depending on your accumulated choices, you became enemies with one of them."
+        "Your outing ended on a bit of a sour note, so you went home right after, and then just rested for the remaining part of your weekend."
+
 
         
 
@@ -2995,13 +3032,14 @@ label episode_10:
     # if u see this, after u finish ep 4 im gonna tweak the beginning of this ep so it flows nicely
     scene bg black_background with fade
 
-    "After an... interesting first day of school, you decided to go to bed early to relax."
+    # "After an... interesting first day of school, you decided to go to bed early to relax."
+    "To complete your weekend of recharging, you decided to go to bed early to relax."
     "However, ever since you woke up this morning, you feel as if there's been signs telling you that today won't be so typical either."
     "Let's take a look, shall we?"
 
     scene bg bedroom_dusk with fade
 
-    "Friday, 5:00 AM."
+    "Monday, 5:00 AM."
     "*RING!*"
     "..."
     "*RING!* *RING!*"
@@ -3031,7 +3069,7 @@ label episode_10:
 
     scene bg living_room with fade
 
-    "Friday, 6:00 AM."
+    "Monday, 6:00 AM."
     mc neutral "Cleaning up the glass was annoying."
     mc happy "It's fine. Nothing's better than starting the day with a fulfilling meal!"
     mc happy "And at least the weather's nice today."
@@ -3053,7 +3091,7 @@ label episode_10:
 
     scene bg school_street with fade
 
-    "Friday, 7:30 AM."
+    "Monday, 7:30 AM."
     "After those two unfortunate events, you still managed to get yourself together and go to school."
     "Once your chauffeur dropped you off, you decided to explore the shops near the school until class started."
 
@@ -3066,15 +3104,19 @@ label episode_10:
     mc neutral "(Hm? What's this?)"
     cashier "Young lady! Good morning! Would you like to purchase a good luck charm? Only sold today!"
     mc neutral "Why are they only being sold today?"
-    cashier "Hoho! Look at a calendar! What day is it today?"
-    mc deadpan "It's Friday, but so what?"
+    # cashier "Hoho! Look at a calendar! What day is it today?"
+    # mc deadpan "It's Friday, but so what?"
 
-    "Taking out your phone, you quickly glance at the top of the screen where it shows the date."
+    # "Taking out your phone, you quickly glance at the top of the screen where it shows the date."
 
-    mc neutral "It's the 13th...?"
-    cashier "Exactly! Friday the 13th! The unluckiest day of the year!"
-    cashier "Young lady, with such a beautiful face and a heart of gold like yours, you can't take any risks on such an unlucky day!"
-    mc neutral "(Isn't this just a superstition? What could possibly happen today out of all days?)"
+    # mc neutral "It's the 13th...?"
+    # cashier "Exactly! Friday the 13th! The unluckiest day of the year!"
+    # cashier "Young lady, with such a beautiful face and a heart of gold like yours, you can't take any risks on such an unlucky day!"
+    # mc neutral "(Isn't this just a superstition? What could possibly happen today out of all days?)"
+    cashier "Tsk tsk. Magical items are in high demand and little supply. Who knows when I'll be able to sell these charms again?"
+    cashier "Perhaps fate led you to my stall today... and perhaps you can have a shot at changing your fate that will soon come."
+    cashier "That is, if you buy a good luck charm!"
+    mc neutral "(What could possibly happen today, a random Monday, out of all days?)"
     mc neutral "(Whatever. Twenty dollars is just twenty dollars.)"
     mc neutral "Here you go."
     cashier "Hehehe... Thank you for your purchase!! A lucky charm for a lucky girl! Have a good day!"
@@ -3105,10 +3147,11 @@ label episode_10:
     # mmight do some interactive stuff with the morning classes, like how going to class in persona5 works
     scene bg cafe_outside with fade 
 
-    "Friday, 12:00 PM."
+    "Monday, 12:00 PM."
     "Thankfully, your morning classes went smoothly, and nothing was out of the ordinary. After all, superstitions are just superstitions."
     "More importantly, it's time for lunch!"
-    "You head over to the same cafe from the day before to get something to eat."
+    # "You head over to the same cafe from the day before to get something to eat."
+    "You head over to the same cafe from the week before to get something to eat."
 
     mc happy "(I'm starving...)"
     mc neutral "(I didn't look too closely at the menu yesterday, hopefuly they have something filling.)"
@@ -3240,5 +3283,6 @@ label episode_10:
     "Again, this guy just doesn't know when to stop talking nonsense."
     "What will you do?"
 
-
+    scene bg black with dissolve
+    "Thank you for playing 21st Century Love Story!"
     return

@@ -326,7 +326,7 @@ screen episode_selection():
 
 
     text "Episode Menu (BETA)" align (0.5, 0.10) color "#ffffff" size 42
-    text "WARNING: Aura system will be disabled. Cannot unlock certain routes." color "#ffffff" at center
+    text "WARNING: Aura system will be disabled. You will only experience each episode's respective default route." color "#ffffff" at center
 
     vbox:
         xalign 0.5
@@ -341,6 +341,8 @@ screen episode_selection():
             textbutton "Episode 6" action Start("episode_6")
             textbutton "Episode 7" action Start("episode_7")
             textbutton "Episode 8" action Start("episode_8")
+            textbutton "Episode 8" action Start("episode_9")
+            textbutton "Episode 8" action Start("episode_10")
         else:
             # textbutton "Episode 1" action [Return(), Jump("episode_1")]
             # textbutton "Episode 2" action [Return(), Jump("episode_2")]
@@ -444,11 +446,11 @@ screen main_menu():
         vbox:
             style "main_menu_vbox"
 
-            text "[config.name!t]":
-                style "main_menu_title"
+            # text "[config.name!t]":
+            #     style "main_menu_title"
 
-            text "[config.version]":
-                style "main_menu_version"
+            # text "[config.version]":
+            #     style "main_menu_version"
 
 
 style main_menu_frame is empty
