@@ -17,6 +17,9 @@ init:
     transform move_left:
         easeout 0.3 xalign 0.25
 
+    transform move_left_and_zoom:
+        easeout 0.3 xalign 0.25
+
     # right side
     transform olivia_move_left:
         easeout 0.3 xalign 0.75
@@ -37,7 +40,8 @@ default gymbro = "King" #WinkedIn
 default meangirl = "Olivia"
 # if this is true, then olivia becomes your enemy - otherwise, you become friends
 default olivia_ticked_off = False
-default mall_with_gymbro = False
+# default mall_with_gymbro = False
+$ mall_with_gymbro == True
 default called_it_a_day = False
 # default know_gymbro = True
 
@@ -2859,9 +2863,11 @@ label episode_7:
 # ---> EXPLORE THE CITY
 # date w/ Ronan, narcissist (kaylee)
 # meet lucien, weeb when going home
+# for now, only option is to go with gymbro
 label episode_8:
     # MALL EPISODE
     $ completed_n_date = True
+    $ mall_with_gymbro = True
 
     scene bg mall_street with fade
     
@@ -2910,8 +2916,32 @@ label episode_8:
                 mc neutral "I enjoy listening to you."
                 pass
         mc happy "I learn so much through our conversations. They're quite valuable to me."
+        g "That's so..."
+        "SO CUTE!"
+        mc shocked "!?"
 
-        "To be continued"
+        # hide king neutral
+
+        show narcissist neutral with dissolve:
+            zoom 0.25
+            xcenter 0.2
+            yalign 1.0
+        
+        n "I said, that's so cute!"
+        n blingneutral "I think it's so cute when people use the word \"valuable.\""
+        show narcissist blingneutral at move_left_and_zoom
+        show king disgusted:
+            zoom 0.25
+            xcenter 0.5
+            yalign 1.0
+        show king disgusted at olivia_move_left
+        g disgusted "I hate being interrupted..."
+        g angry "Especially when it's you, Ronan!"
+
+        
+
+
+    
 
 
     # else: # when gymbro is not at the mall
@@ -2952,7 +2982,6 @@ label episode_9:
         "Besides the strange note you found, the rest of your weekend is nothing but calm and peaceful. You could get definitely get used to this."
         "Enjoy it before you have to go back to school on Monday."
         mc angry "Ugh."
-
 
     else:
         pass
